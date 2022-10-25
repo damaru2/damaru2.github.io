@@ -16,8 +16,15 @@ owner:
   google_scholar: dMwpf-4AAAAJ
   github: damaru2
   cv: https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view
+
 # Analytics and webmaster tools stuff goes here
-#google_analytics: 
+# Analytics
+analytics:
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : "G-EKCKR7JVZP"
+    anonymize_ip         : false # true, false (default)
+#
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:

@@ -167,6 +167,7 @@ This feature is really nice, but if you really want to enjoy it, you should lear
 | Adobe Acrobat Reader| Alt + Left  |
 | Okular  | Shift + Alt + Left  |
 | Evince | Alt + p | 
+| Sioyek | Ctrl + Left or Backspace | 
 | Pdf Reader Pro | Press the `jump back` button |
 | Xodo (Android or iOS)| Arrows appear |
 

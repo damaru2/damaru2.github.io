@@ -14,23 +14,57 @@ You can also find all <a href="https://scholar.google.co.uk/citations?user=dMwpf
 <!-- Generated from JabRef by PubList by Truong Nghiem at 11:44 on 2015.09.10. -->
 <ul class="biblist">
 
+<li ><p>
+<b>Fast Algorithms for Packing Proportional Fairness and its Dual</b><br>
+F. Criado, D. Martínez-Rubio, S. Pokutta (2022)
+<br>
+<b>NeurIPS 2022</b>, <i>35th Advances in Neural Information Processing Systems</i> 
+<br>
+<a href="javascript:toggleBibtex('Criado2021')">[BibTeX]</a>
+<a href="https://arxiv.org/pdf/2109.03678.pdf" target="_blank">[PDF]</a> 
+</p>
+<div id="bib_Criado2021" class="bibtex noshow">
+<pre>
+@article{criado2021fast,
+  title={Fast Algorithms for Packing Proportional Fairness and its Dual},
+  author={Criado, Francisco and Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2109.03678},
+  year={2021}
+}
+</pre>
+</div>
+</li>
+
 
 <li ><p>
 <b>Global Riemannian Acceleration in Hyperbolic and Spherical Spaces</b><br>
 D. Martínez-Rubio (2020)<br>
-<i>In the 33rd International Conference on Algorithmic Learning Theory, <a href="http://algorithmiclearningtheory.org/alt2022/" target="_blank">ALT 2022</a></i>
+<b>ALT 2022</b>, <i>33rd International Conference on Algorithmic Learning Theory</i> 
 <br>
 <a href="javascript:toggleBibtex('MartinezRubio2020')">[BibTeX]</a>
 <a href="https://arxiv.org/pdf/2012.03618.pdf" target="_blank">[PDF]</a> 
 </p>
 <div id="bib_MartinezRubio2020" class="bibtex noshow">
 <pre>
-@article{martinez2020global,
-  title={Global Riemannian Acceleration in Hyperbolic and Spherical Spaces},
-  author={Mart{\'\i}nez-Rubio, David},
-  journal={arXiv preprint arXiv:2012.03618},
-  year={2020}
+@inproceedings{martinezRubio2020global,
+  author    = {David Mart{\'{\i}}nez{-}Rubio},
+  editor    = {Sanjoy Dasgupta and
+               Nika Haghtalab},
+  title     = {Global Riemannian Acceleration in Hyperbolic and Spherical Spaces},
+  booktitle = {International Conference on Algorithmic Learning Theory, 29-1 April
+               2022, Paris, France},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {167},
+  pages     = {768--826},
+  publisher = {{PMLR}},
+  year      = {2022},
+  url       = {https://proceedings.mlr.press/v167/martinez-rubio22a.html},
+  timestamp = {Fri, 25 Mar 2022 15:48:58 +0100},
+  biburl    = {https://dblp.org/rec/conf/alt/Martinez-Rubio22.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
+
+
 </pre>
 </div>
 </li>
@@ -39,7 +73,7 @@ D. Martínez-Rubio (2020)<br>
 <li ><p>
 <b>Decentralized Cooperative Stochastic Bandits</b><br>
 D. Martínez-Rubio, V. Kanade, and P. Rebeschini<br>
-<i>In the 32nd Advances in Neural Information Processing Systems, <a href="https://neurips.cc/Conferences/2019" target="_blank">NeurIPS 2019</a></i>
+<b>NeurIPS 2019</b>, <i>32nd Advances in Neural Information Processing Systems</i> 
 <br />
 <a href="javascript:toggleBibtex('MartinezRubio2018decentralized')">[BibTeX]</a>
 <a href="https://arxiv.org/pdf/1810.04468.pdf" target="_blank">[PDF]</a>
@@ -48,7 +82,7 @@ D. Martínez-Rubio, V. Kanade, and P. Rebeschini<br>
 </p>
 <div id="bib_MartinezRubio2018decentralized" class="bibtex noshow">
 <pre>
-@inproceedings{MartinezRubio2018decentralized,
+@inproceedings{martinezRubio2018decentralized,
   author    = {David Mart{\'{\i}}nez{-}Rubio and
                Varun Kanade and
                Patrick Rebeschini},
@@ -78,7 +112,7 @@ D. Martínez-Rubio, V. Kanade, and P. Rebeschini<br>
 <b>Cheap Orthogonal Constraints in Neural Networks: A Simple Parametrization of the Orthogonal and Unitary Group</b><br>
 M. Lezcano-Casado, and D. Martínez-Rubio
 <br>
-<i>In the 36th International Conference on Machine Learning, <a href="https://icml.cc/Conferences/2019" target="_blank">ICML 2019</a></i>
+<b>ICML 2019</b>, <i>36th International Conference on Machine Learning</i> 
 <br>
 <a href="javascript:toggleBibtex('lezcano2019cheap')">[BibTeX]</a>
 <a href="https://arxiv.org/pdf/1901.08428.pdf" target="_blank">[PDF]</a> 
@@ -112,7 +146,7 @@ M. Lezcano-Casado, and D. Martínez-Rubio
 <li ><p>
 <b>Online Learning Rate Adaptation with Hypergradient Descent</b><br>
 A. G. Baydin,  R. Cornish, D. Martínez-Rubio, M. Schmidt, and F. Wood<br>
-<i>In the 6th International Conference on Learning Representations, <a href="https://iclr.cc/Conferences/2018" target="_blank">ICLR 2018</a></i>
+<b>ICLR 2018</b>, <i>6th International Conference on Learning Representations</i> 
 <br />
 <a href="javascript:toggleBibtex('Baydin2018online')">[BibTeX]</a>
 <a href="https://arxiv.org/pdf/1703.04782.pdf" target="_blank">[PDF]</a>
@@ -149,24 +183,22 @@ A. G. Baydin,  R. Cornish, D. Martínez-Rubio, M. Schmidt, and F. Wood<br>
 
 
 <li ><p>
-<b>Fast Algorithms for Packing Proportional Fairness and its Dual</b><br>
-F. Criado, D. Martínez-Rubio, S. Pokutta (2021)
+<b>Accelerated Riemannian Optimization: Handling Constraints to Bound Geometric Penalties</b><br>
+D. Martínez Rubio, and Sebastian Pokutta (2022)
 <br>
-<a href="javascript:toggleBibtex('Criado2021')">[BibTeX]</a>
-<a href="https://arxiv.org/pdf/2109.03678.pdf" target="_blank">[PDF]</a> 
+<a href="javascript:toggleBibtex('Martinez-Rubio2022')">[BibTeX]</a>
+<!-- <a href="" target="_blank">[PDF]</a>  -->
 </p>
-<div id="bib_Criado2021" class="bibtex noshow">
+<div id="bib_Martinez-Rubio2022" class="bibtex noshow">
 <pre>
-@article{criado2021fast,
-  title={Fast Algorithms for Packing Proportional Fairness and its Dual},
-  author={Criado, Francisco and Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
-  journal={arXiv preprint arXiv:2109.03678},
-  year={2021}
+@article{martinezRubio2022accelerated,
+  title={Accelerated Riemannian Optimization: Handling Constraints to Bound Geometric Penalties},
+  author={Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
+  year={2022}
 }
 </pre>
 </div>
 </li>
-
 
 
 <li ><p>
@@ -197,7 +229,7 @@ C. Mingard, J. Skalse, G. Valle-Pérez, D. Martínez-Rubio, V. Mikulik, and A. A
 <b>Improvements to Inference Compilation for Probabilistic Programming in Large-Scale Scientific Simulators</b><br>
 M. Lezcano-Casado, A.G. Baydin, D. Martínez-Rubio, T.A. Le, F. Wood, L. Heinrich, G. Louppe, K. Cranmer, K. Ng, W. Bhimji and Prabhat
 <br>
-<i>In the <a href="https://dl4physicalsciences.github.io/" target="_blank">Workshop on Deep Learning for Physical Sciences</a>, <a href="https://nips.cc/Conferences/2017" target="_blank">NIPS 2017</a></i>
+<i>The <a href="https://dl4physicalsciences.github.io/" target="_blank">Workshop on Deep Learning for Physical Sciences</a>, <a href="https://nips.cc/Conferences/2017" target="_blank">NIPS 2017</a></i>
 <br/>
 <a href="javascript:toggleBibtex('LezcanoCasado2017')">[BibTeX]</a>
 <a href="https://arxiv.org/pdf/1712.07901.pdf" target="_blank">[PDF]</a> 
