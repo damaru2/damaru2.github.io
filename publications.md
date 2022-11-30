@@ -183,17 +183,18 @@ A. G. Baydin,  R. Cornish, D. Martínez-Rubio, M. Schmidt, and F. Wood<br>
 
 
 <li ><p>
-<b>Accelerated Riemannian Optimization: Handling Constraints to Bound Geometric Penalties</b><br>
+<b>Accelerated Riemannian Optimization: Handling Constraints with a Prox to Bound Geometric Penalties</b><br>
 D. Martínez Rubio, and Sebastian Pokutta (2022)
 <br>
 <a href="javascript:toggleBibtex('Martinez-Rubio2022')">[BibTeX]</a>
-<!-- <a href="" target="_blank">[PDF]</a>  -->
+<a href="https://arxiv.org/abs/2211.14645" target="_blank">[PDF]</a> 
 </p>
 <div id="bib_Martinez-Rubio2022" class="bibtex noshow">
 <pre>
 @article{martinezRubio2022accelerated,
-  title={Accelerated Riemannian Optimization: Handling Constraints to Bound Geometric Penalties},
+  title={Accelerated Riemannian Optimization: Handling Constraints with a Prox to Bound Geometric Penalties},
   author={Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2211.14645},
   year={2022}
 }
 </pre>
