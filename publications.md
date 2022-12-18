@@ -11,12 +11,12 @@ You can also find all <a href="https://scholar.google.co.uk/citations?user=dMwpf
 
 
 <h4 style="margin-bottom:0px;padding-top:10px;">Conference Publications</h4>
-<!-- Generated from JabRef by PubList by Truong Nghiem at 11:44 on 2015.09.10. -->
+<small>\* means equal contribution</small>
 <ul class="biblist">
 
 <li ><p>
 <b>Fast Algorithms for Packing Proportional Fairness and its Dual</b><br>
-F. Criado, D. Martínez-Rubio, S. Pokutta (2022)
+F. Criado*, D. Martínez-Rubio*, S. Pokutta
 <br>
 <b>NeurIPS 2022</b>, <i>35th Advances in Neural Information Processing Systems</i> 
 <br>
@@ -38,7 +38,7 @@ F. Criado, D. Martínez-Rubio, S. Pokutta (2022)
 
 <li ><p>
 <b>Global Riemannian Acceleration in Hyperbolic and Spherical Spaces</b><br>
-D. Martínez-Rubio (2020)<br>
+D. Martínez-Rubio<br>
 <b>ALT 2022</b>, <i>33rd International Conference on Algorithmic Learning Theory</i> 
 <br>
 <a href="javascript:toggleBibtex('MartinezRubio2020')">[BibTeX]</a>
@@ -110,7 +110,7 @@ D. Martínez-Rubio, V. Kanade, and P. Rebeschini<br>
 
 <li ><p>
 <b>Cheap Orthogonal Constraints in Neural Networks: A Simple Parametrization of the Orthogonal and Unitary Group</b><br>
-M. Lezcano-Casado, and D. Martínez-Rubio
+M. Lezcano-Casado*, and D. Martínez-Rubio*
 <br>
 <b>ICML 2019</b>, <i>36th International Conference on Machine Learning</i> 
 <br>
@@ -310,4 +310,26 @@ University of Oxford, 2017
 }</pre>
 </div>
 </li>
+
+
+<li><p>
+<!--- B.Sc. Thesis<br> -->
+<b>BSc Thesis</b><br>
+<b>Characterization and computation of the Galois group of polynomials of degree 7</b><br>
+Complutense University of Madrid, 2016
+<br />
+<a href="javascript:toggleBibtex('Martinez-Rubio2016')">[BibTeX]</a>
+<a href="{{ site.url }}/assets/TFG.pdf"  target="_blank">[PDF]</a>
+</p>
+<div id="bib_Martinez-Rubio2016" class="bibtex noshow">
+<pre>
+@article{martinezrubio2016characterization,
+  title={Characterization and computation of the Galois group of polynomials of degree 7},
+  author={Mart{\'\i}nez-Rubio, David},
+  journal={Complutense University of Madrid, Madrid, B.Sc. Thesis},
+  year={2016}
+}</pre>
+</div>
+</li>
+
 </ul>
