@@ -108,6 +108,8 @@ $ \psi^{\astfenchel}(z) = \min_{x\in\X}\{-\innp{z, x} + \psi(x)\}$.
 
 If you want to go the extra mile, you have to play with your unfriendly LaTeX.
 
++ As of the day of writing this update (Jan 12, 2023), the version of arXiv's default compiler doesn't know how to deal with nested links, in case you want to have some notation with a subindex with a notation, both having links, for example. If you place `\pdfoutput=1` in the [first 5 lines of your main file](https://arxiv.org/help/submit_tex#pdflatex), you will get PDFLaTeX processing and you will not have this problem.
+
 + Note that I am setting the font color to `\normalcolor`, which is the default color set in the preamble. This hack could not work in some contexts, namely if you locally set a different color. The command `\protect` is necessary when you use a hyperlink in some texts that LaTeX treats in a special way, like captions and section titles, but it doesn't hurt to add it all the time. Note the command `\newtarget` contains `\Hy@raisedlink`. This makes the target be a bit higher than the actual target, which corrects the way most readers jump which is that they place the hypertarget at the top edge of the screen, and you would normally want to jump a bit higher so you can read the line where the hypertarget is. 
 
 + It is relatively important to have the command you are defining in the second argument of newtarget (for instance, if you did `$\newtarget{def:Box}{}\B$` you could have problems. Or at least do not add two consecutive targets without anything in the middle.
