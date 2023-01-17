@@ -21,7 +21,7 @@ Defining your own commands in LaTeX for most of your math notation is considered
 {% highlight tex %}
 \usepackage[colorlinks=true]{hyperref} % Remove boxes around links
 % \normalcolor is used so links are non-intrusive
-\newcommand\newlink[2]{{\protect\hyperlink{#1}{\normalcolor #2}}}
+\newcommand\newlink[2]{{ '{{' }}\protect\hyperlink{#1}{\normalcolor #2}}}
 \makeatletter
 \newcommand\newtarget[2]{\Hy@raisedlink{\hypertarget{#1}{}}#2}
 \makeatother
