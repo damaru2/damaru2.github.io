@@ -30,7 +30,7 @@ Defining your own commands in LaTeX for most of your math notation is considered
 And I use them like this:
 {% highlight tex %}
 % Definitions:
-\newcommand{\defi}{\stackrel{\mathrm{\scriptscriptstyle def}}{=}}
+\newcommand{\defi}{\stackrel{\mathrm{\scriptscriptstyle def}}{=}} % nice command to denote definitions
 \newcommand\simplex[1]{\newlink{def:simplex}{\Delta^{#1}}}
 \newcommand\B{\newlink{def:Box}{B}}
 ...
