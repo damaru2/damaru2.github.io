@@ -2,3 +2,7 @@ _site
 .idea/*
 .DS_Store
 .jekyll-cache
+private/
+_posts/drafts/
+_plugins/
+
