@@ -1,0 +1,590 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>David Martínez-Rubio  &#8211; Modular analysis of accelerated convex first-order algorithms. </title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modular analysis of accelerated convex first-order algorithms.">
+<meta property="og:description" content="Welcome to my academic site.">
+<meta property="og:url" content="http://0.0.0.0:4001/acceleration_analysis/">
+<meta property="og:site_name" content="David Martínez-Rubio">
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4001/acceleration_analysis/">
+<link href="http://0.0.0.0:4001/feed.xml" type="application/atom+xml" rel="alternate" title="David Martínez-Rubio Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://0.0.0.0:4001/assets/css/main.min.css">
+<link rel="stylesheet" href="http://0.0.0.0:4001/assets/academicons.css" />
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://0.0.0.0:4001/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://0.0.0.0:4001/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://0.0.0.0:4001/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="shortcut icon" href="http://0.0.0.0:4001/favicon.ico">
+<link rel="shortcut icon" href="http://0.0.0.0:4001/favicon.png">
+
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="http://0.0.0.0:4001/images/apple-icon-precomposed.png">
+
+<style>
+.math-with-href:hover {
+  background-color: lightgray;
+}
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      config: ["MMLorHTML.js"],
+      extensions: ["enclose.js", "cancel.js", "color.js", "bbox.js", "AMSmath.js", "AMSsymbols.js"],
+      packages: {'[+]': ['hyperref']},
+     "HTML-CSS": { linebreaks: { automatic: true } },
+      Macros: {
+        link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
+        same: ['#2', 2],
+        ignore: ['', 2],
+        R: "{ \\mathbb{R} }",
+        argmin: "{\\arg\\,\\min}",
+        xk: ["\\link{##def_coupling_variable}{\\color{black}x^{(#1)}}", 1, 'k'], // Default value k. Use with \xk[k-1]
+        yk: ["{y^{(#1)}}", 1, 'k'],
+        X: ["\\mathcal{X}"],
+        ykhat: ["{\\hat{y}^{(#1)}}", 1, 'k'],
+        zk: ["{z^{(#1)}}", 1, 'k'],
+        indicator: ["𝟙"],
+        norm: ["{ \\|#1\\| }", 1],
+        innp: ["{\\langle#1\\rangle}", 1],
+        innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
+        xast: "{x^\\ast}",
+        //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
+        defi: "{\\triangleq}",
+        circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
+        circledrtw: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{2}}}{#1}", 1],
+        circledrth: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{3}}}{#1}", 1],
+        circledrfo: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{4}}}{#1}", 1],
+        circledrfi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{5}}}{#1}", 1],
+        circledrsi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{6}}}{#1}", 1],
+        circledrse: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{7}}}{#1}", 1],
+        circledrei: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{8}}}{#1}", 1],
+        circledrni: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{9}}}{#1}", 1],
+        circledon: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{1}}"],
+        circledtw: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{2}}"],
+        circledth: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{3}}"],
+        circledfo: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{4}}"],
+        circledfi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{5}}"],
+        circledsi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{6}}"],
+        circledse: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{7}}"],
+        circledei: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{8}}"],
+        circledni: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{9}}"],
+      },
+    },
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    //extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+    //jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+    },
+    loader: {
+      load: ['[tex]/ams', 'input/latex/extensions/hyperref'],
+    },
+  });
+
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"> -->
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://0.0.0.0:4001">David Martínez-Rubio</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="http://0.0.0.0:4001/publications/" >Publications</a></li>
+		        
+				<li><a href="http://0.0.0.0:4001/cv/" >Curriculum</a></li>
+		        
+				<li><a href="http://0.0.0.0:4001/blog/" >Blog</a></li>
+		        
+				<li><a href="http://0.0.0.0:4001/" >About</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="http://0.0.0.0:4001/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.es/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="http://0.0.0.0:4001/acceleration_analysis/" rel="bookmark" title="Modular analysis of accelerated convex first-order algorithms.">Modular analysis of accelerated convex first-order algorithms.</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <!--process_alt: true -->
+
+<script>
+//// This script finds all checkboxes with the data-highlight-color attribute, creates a <span> element with the same text content as the text node next to the checkbox, sets the color of the <span> element based on the data-highlight-color attribute, and replaces the text node with the new <span> element.
+//  const checkboxLabels = document.querySelectorAll('input[type="checkbox"][data-highlight-color]');
+//
+//  checkboxLabels.forEach(checkbox => {
+//    const span = document.createElement('span');
+//    span.textContent = ' ' + checkbox.nextSibling.textContent.trim();
+//    span.style.color = checkbox.dataset.highlightColor;
+//    checkbox.nextSibling.replaceWith(span);
+//  });
+</script>
+
+<script>
+// This script is for rendering or hiding math based on the buttons.
+// TODO change so it works for checkboxes as well
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleMathButtons = document.querySelectorAll('[change-math]');
+    const textBlocks = document.querySelectorAll('[data-show-if]');
+
+
+    function updateTexts(triggeredButton, triggeredButtonName) {
+        textBlocks.forEach(block => {
+          const showIf = block.dataset.showIf.split(',');
+          const shouldBeVisible = showIf.some(optionValue => {
+                buttonOfValue = document.querySelector(`[value="${optionValue}"]`);
+                return buttonOfValue && buttonOfValue.checked; 
+            }
+          ); // TODO? I could add an extra parameter to tranform the or into and
+
+          toggleMathButtons.forEach((button) => {
+              const toggleName = button.getAttribute('name');
+              if (triggeredButton === null || toggleName == triggeredButtonName){ // Button group is the same
+                if (shouldBeVisible) {
+                  block.style.display = 'inline';
+
+                  // Highlight the block if it became visible due to the last checked checkbox
+                  if (triggeredButton !== null && showIf.includes(triggeredButton.value) && triggeredButton.dataset)
+                      block.style.color = triggeredButton.dataset.highlightColor;
+                  else
+                    block.style.color = '';
+                } else {
+                  block.style.display = 'none';
+                }
+              }
+           });
+        });
+    }
+
+    function updateMath(triggeredButton, triggeredButtonName) {
+        const equationJaxArray = MathJax.Hub.getAllJax();
+
+        equationJaxArray.forEach((equationJax) => {
+            const sourceElement = equationJax.SourceElement();
+            const mathContainer = sourceElement.parentNode;
+
+            var displayMode = equationJax.root.display;
+            var originalMath = equationJax.originalText;
+            var updatedMath = originalMath;
+
+            toggleMathButtons.forEach((button) => {
+                const toggleName = button.getAttribute('name');
+                if (triggeredButton === null || toggleName == triggeredButtonName){ // Radio group is the same
+
+                    const buttonValue = button.getAttribute('value'); 
+                    const samePattern = `\\same{${buttonValue}}`;
+                    const ignorePattern = `\\ignore{${buttonValue}}`;
+                    if (button.checked)
+                        updatedMath = updatedMath.replace(ignorePattern, samePattern);
+                    else
+                        updatedMath = updatedMath.replace(samePattern, ignorePattern);
+                }
+            });
+
+            // Check if the math content has changed, and only update if it has
+            if (originalMath !== updatedMath) {
+                if (!displayMode) {
+                    mathContainer.innerHTML = "$" + updatedMath + "$";
+                } else {
+                    mathContainer.innerHTML = "$$" + updatedMath + "$$";
+                }
+
+                // Re-render the modified MathJax code
+                MathJax.Hub.Queue(['Typeset', MathJax.Hub, mathContainer]);
+            }
+        });
+    }
+
+    toggleMathButtons.forEach((button) => {
+        button.addEventListener('change', (event) => {
+          updateTexts(event.target, event.target.name);
+          updateMath(event.target, event.target.name);
+        });
+    });
+
+
+    updateTexts(null, null);
+    MathJax.Hub.Queue(function () { // Initializes to the state given by the buttons after the equations have been processed
+        updateMath(null, null); // This function, when passed a null event, is rerendering everything so it agrees with the buttons. 
+    });
+});
+
+</script>
+
+<!--
+When I finish, I have to postprocess the text so that all the text spans that are not default have a style="display:none;"
+-->
+<p>Possible checkboxes:</p>
+
+<ul>
+  <li>Regularity of <span data-show-if="cvx,str-cvx"><span>$f$</span></span>: <span data-show-if="cvx"> convex!</span> <span data-show-if="str-cvx"> strongly convex!</span>
+    <ul>
+      <li><input type="radio" name="cvxty" change-math="" value="cvx" checked="" data-highlight-color="red" /> <span>Convex.</span></li>
+      <li><input type="radio" name="cvxty" change-math="" value="str-cvx" data-highlight-color="blue" /> <span>Strongly convex.</span></li>
+      <li><input type="radio" name="cvxty" change-math="" value="unif_cvx" data-highlight-color="red" /> <span>Uniformly convex.</span></li>
+      <li><input type="radio" name="cvxty" change-math="" value="quasar_cvx" data-highlight-color="blue" /> <span>Quasar convex.</span></li>
+      <li><input type="radio" name="cvxty" change-math="" value="quasar_str_cvx" data-highlight-color="blue" /> <span>Quasar strongly convex.</span></li>
+    </ul>
+  </li>
+  <li>Upper bound regularity:
+    <ul>
+      <li><input type="radio" name="upper-regularity" change-math="" value="smoothness" checked="" data-highlight-color="red" /> <span>Smoothness with known constant.</span></li>
+      <li><input type="radio" name="upper-regularity" change-math="" value="unknown_smoothness" data-highlight-color="blue" /> <span>Smoothness with provided lower and upper estimates are provided.</span></li>
+      <li><input type="radio" name="upper-regularity" change-math="" value="weak_smoothness" data-highlight-color="red" /> <span>Weak smoothness (Hölderian).</span></li>
+    </ul>
+  </li>
+  <li>Norm <span>$\norm{\cdot}$</span> used to define smoothness and strong convexity constants:
+    <ul>
+      <li><input type="radio" name="norm" change-math="" value="euclidean_norm" checked="" data-highlight-color="red" /> <span>Euclidean.</span></li>
+      <li><input type="radio" name="norm" change-math="" value="non_euclidean_norm" data-highlight-color="blue" /> <span>General norm.</span></li>
+    </ul>
+  </li>
+  <li>Domain:
+    <ul>
+      <li><input type="radio" name="domain" change-math="" value="unconstrained" checked="" data-highlight-color="red" /> <span>Unconstrained.</span></li>
+      <li><input type="radio" name="domain" change-math="" value="constrained" data-highlight-color="blue" /> <span>Constrained.</span></li>
+      <li><input type="radio" name="domain" change-math="" value="composite" data-highlight-color="blue" /> <span>Composite (includes constrained case via indicator).</span></li>
+      <li><input type="radio" name="domain" change-math="" value="composite_str_cvx" data-highlight-color="blue" /> <span>Composite with strong convexity (includes constrained case via indicator).</span></li>
+    </ul>
+  </li>
+  <li>Coupling variable <span>$\xk[k]$</span> updated with:
+    <ul>
+      <li><input type="radio" name="coupling-var" change-math="" value="coupling_var_closed_formula" checked="" data-highlight-color="red" /> <span>Closed formula.</span></li>
+      <li><input type="radio" name="coupling-var" change-math="" value="coupling_var_optimizing_in_segment" data-highlight-color="blue" /> <span>Optimization in the segment joining <span>$\yk[k]$</span> and <span>$\zk[k]$</span>.</span></li>
+      <li><input type="radio" name="coupling-var" change-math="" value="coupling_var_equal_to_dual_var" data-highlight-color="blue" /> <span>Always equal to the dual variable (not accelerated, equivalent to Mirror Descent or FTRL).</span> <!-- Here what <span>$\yk[k]$</span> does is irrelevant, since we always go to \zk[k] to compute the next gradient and update \zk[k] --></li>
+    </ul>
+  </li>
+  <li>Primal variable <span>$\yk[k]$</span> updated with (decreasing upper bound):
+    <ul>
+      <li><input type="radio" name="primal-var" change-math="" value="primal_var_closed_formula" checked="" data-highlight-color="red" /> <span>Closed formula.</span></li>
+      <li><input type="radio" name="primal-var" change-math="" value="minimize_upper_bound" data-highlight-color="blue" /> <span>Minimize upper bound model (explicit gradient descent).</span></li>
+      <li><input type="radio" name="primal-var" change-math="" value="implicit_gd" data-highlight-color="blue" /> <span>Implicit gradient step.</span></li>
+      <li><input type="radio" name="primal-var" change-math="" value="inexact_implicit_gd" data-highlight-color="blue" /> <span>Inexact implicit gradient step up to \epsilon’. MS? Catalyst? APPA? RECAPP?.</span></li>
+      <li><input type="radio" name="primal-var" change-math="" value="axgd" data-highlight-color="blue" /> <span>Two-step approximate implicit gradient step (AXGD accelerated eXtra Gradient Descent). Similar to using online learning with hints. Requires gradient Lipschitzness rather than smoothness.</span></li>
+      <li><input type="radio" name="primal-var" change-math="" value="primal_var_equal_coupling_var" data-highlight-color="red" /> <span>Equal to coupling var. <span>$\xk[k]$</span>. It doesn’t work, it illustrates a natural attempt one could try that justifies reducing the upper bound by finding a better <span>$\yk[k]$</span>. TODO rewrite </span></li>
+      <li><del>One could minimize higher order Taylor upper bound model under function regularity, not shown here.</del></li>
+      <li><del>AXGD and relative Lipschitzness?</del></li>
+    </ul>
+  </li>
+  <li>Dual variable <span>$\zk[k]$</span> updated with (modeling lower bound):
+    <ul>
+      <li><input type="radio" name="dual-var" change-math="" value="dual_var_ftrl" checked="" data-highlight-color="red" /> <span>FTRL aka lazy.</span></li>
+      <li><input type="radio" name="dual-var" change-math="" value="dual_var_md" data-highlight-color="blue" /> <span>Mirror descent aka non-lazy.</span></li>
+      <li><input type="radio" name="dual-var" change-math="" value="dual_var_intermediate_proj" data-highlight-color="blue" /> <span>Mirror descent with intermediate projection.</span></li>
+      <li><del>FW lower bound (not accelerated)</del></li>
+      <li><del>FW lower bound with averaging (not accelerated)</del></li>
+    </ul>
+  </li>
+  <li>Step-sizes:
+    <ul>
+      <li><input type="radio" name="step-size" change-math="" value="dual_var_ftrl" checked="" data-highlight-color="red" /> <span>Simple.</span></li>
+      <li><input type="radio" name="step-size" change-math="" value="dual_var_md" data-highlight-color="blue" /> <span>Optimized.</span></li>
+      <li><del>Maybe also the optimal ones from PEP?.</del></li>
+    </ul>
+  </li>
+  <li>Gradient model:
+    <ul>
+      <li><input type="radio" name="grad-model" change-math="" value="dual_var_ftrl" checked="" data-highlight-color="red" /> <span>Deterministic.</span></li>
+      <li><input type="radio" name="grad-model" change-math="" value="dual_var_md" data-highlight-color="blue" /> <span>Stochastic, unbiased estimator with bounded variance.</span></li>
+      <li><input type="radio" name="grad-model" change-math="" value="dual_var_md" data-highlight-color="blue" /> <span>Coordinate gradient descent.</span></li>
+      <li><del>Finite-sum.</del></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Settings of some algorithms. If you select any of these, the checkboxes will be set to the settings of the corresponding algorithm.</p>
+<ul>
+  <li>Classical Nesterov’s accelerated gradient descent (AGD) for convex in Euclidean norms.</li>
+  <li>Gradient Descent (GD).</li>
+  <li>Mirror descent (MD).</li>
+  <li>Follow the Regularized leader (FTRL) (sometimes known as lazy mirror descent).</li>
+</ul>
+
+<p>We note some checkboxes are not compatible or they require solving a hard problem (like constrained and quasar convex). Some others require solving a hard problem (like implicit gradient step and quasar convex) Maybe I can write the analysis anyway and say that the subroutine is hard</p>
+
+<p>Write the complexity of each approach, write the summary of assumptions that are checked, write the algorithm</p>
+
+<ul>
+  <li>Style:
+    <ul>
+      <li><input type="checkbox" change-math="" name="verbose" value="verbose" data-highlight-color="red" /> <span>Verbose.</span></li>
+      <li><input type="checkbox" change-math="" name="x_ast_doesnt_exist" value="x_ast_doesnt_exist" data-highlight-color="red" /> <span>Global minimizer is not assumed to exist.</span></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="assumptions">Assumptions:</h3>
+<!--
+I can't do something like </span>+ blahbla</span>. Damn it
+I should write my own processor or change Jekylls or something, so that I don't need to write all of those spans. I should transform \t{tag1,tag2}{\t{tag3}{text and possibly <span>$math$</span>}} into the necessary spans with the data-show-if 
+I should also have something to substitute <span data-show-if="tag1,tag2">math if tag1 or tag2 from the same group</span>{math if not}. And ideally being able to have a macro with this. Like \X should get transformed into \R^d or \mathcal{X} depending on being constrained or not
+-->
+
+<!-- Proper, lower semicontinuous, convex. These properties suffice for a function to be subdifferentiable on the interior of its domain -->
+<ul>
+  <li><span>$f$</span> is <span data-show-if="smoothness"><span>$L$</span>-smooth </span><span data-show-if="weak_smoothness"><span>$(L, kappa)$</span>-weakly smooth </span> <span>$ f(x) \leq f(y) + \innp{\nabla f(x), y-x} + \frac{L}{2} \norm{y-x}_{\same{euclidean_norm}{2}}^2$</span> for all <span>$x, y \in \same{unconstrained}{\R^d}\ignore{composite}{\R^d}\ignore{composite_str_cvx}{\R^d}\ignore{constrained}{\X}$</span><span data-show-if="non_euclidean_norm"> and norm <span>$\norm{\cdot}$</span></span><span data-show-if="constrained">, where <span>$\X$</span> is a closed convex set</span>.</li>
+  <li><span>$f$</span> is differentiable and <span data-show-if="quasar_cvx"><span>$\gamma$</span>-quasar </span><span data-show-if="quasar_str_cvx"><span>$\mu$</span>-strongly </span><span data-show-if="unif_cvx"><span>$(\lambda, q)$</span>-uniformly </span><span data-show-if="str-cvx"><span>$\mu$</span>-strongly </span>convex:
+<span>$ f(x) \geq f(y) + \innp{\nabla f(x), y-x}\ignore{str-cvx}{+ \frac{\mu}{2}\norm{y-x}_{\ignore{euclidean_norm}{2}}^2}$</span> for all <span>$x, y \in \same{unconstrained}{\R^d}\ignore{composite}{\R^d}\ignore{composite_str_cvx}{\R^d}\ignore{constrained}{\X}$</span><span data-show-if="non_euclidean_norm"><span data-show-if="str-cvx"> and norm <span>$\norm{\cdot}$</span></span></span>.</li>
+  <li>There exists a minimizer <span>$\xast \in \argmin_{x\in\same{unconstrained}{\R^d}\ignore{composite}{\R^d}\ignore{composite_str_cvx}{\R^d}\ignore{constrained}{\X}} f(x)$</span>. (not really needed since we can talk about the function value of any point by using its Bregman divergence).</li>
+</ul>
+
+<h3 id="algorithm">Algorithm</h3>
+<p>Given an initial point <span>$\xk[0]\in \same{unconstrained}{\R^d}\ignore{composite}{\R^d}\ignore{composite_str_cvx}{\R^d}\ignore{constrained}{\X}$</span>:</p>
+<hr />
+
+<ol>
+  <li><span>$\zk[0] \gets \yk[0] \gets \xk[0]; \quad A_0 = 0; \quad a_k = \frac{k}{2L}$</span></li>
+  <li><strong>for</strong> <span>$k=1$</span> <strong>to</strong> <span>$T$</span></li>
+  <li><span>$\quad A_k \gets A_{k-1} + a_k = \frac{k(k+1)}{4L}$</span></li>
+  <li><span id="def_coupling_variable"><span>$\quad \xk[k] \gets \frac{a_k}{A_k}\zk[k-1] + \frac{A_{k-1}}{A_k}\yk[k-1] $</span></span></li>
+  <li><span>$\quad \zk[k] \gets$</span>
+<span data-show-if="verbose"><span>$\argmin_{z\in \R^d} \left\{\frac{1}{2}\norm{z- \zk[k-1]}_2^2 + a_k\innp{\nabla f(\xk[k]), z-\zk[k] }\right\} =$</span></span>
+<span>$\zk[k-1] - a_k \nabla f(\xk[k])$</span></li>
+  <li><span>$\quad \yk[k] \gets$</span>
+<span data-show-if="verbose"><span>$ \argmin_{y\in \R^d} \left\{ f(\xk[k]) + \innp{\nabla f(\xk[k]), y-\xk[k] } + \frac{L}{2}\norm{y-\xk[k] }_2 \right\} =$</span></span> 
+<span style="display: inline-block;">
+<span>$\xk[k] - \frac{k}{(k+1)L} \nabla f(\xk[k]) = \frac{a_k}{A_k}\zk[k] + \frac{A_{k-1}}{A_k}\yk[k-1] $</span>
+</span></li>
+  <li><strong>end for</strong></li>
+  <li><strong>return</strong> <span>$\yk[T]$</span></li>
+</ol>
+<hr />
+
+<h3 id="analysis">Analysis</h3>
+
+<p>Define the following lower bound <span>$L_t$</span> on the objective:</p>
+
+<p><span>\(\begin{align}
+A_kf(x^\ast) &amp;\circledron{\geq} \sum_{i=1}^k a_i f(\xk[i]) + \sum_{i=1}^k a_{i}\innp{\nabla f(\xk[ i ]), \xast - \xk[ i ]} + \frac{1}{2}\norm{\xast-\xk[0]}_2^2 \pm \frac{1}{2}\norm{\xast-\xk[0]}_2^2 \\
+ &amp; \circledrtw{\geq} \sum_{i=1}^k a_i f(\xk[i]) + \min_{u\in\R^d} \left\{ \sum_{i=1}^k a_{i}\innp{\nabla f(\xk[ i ]), u-\xk[ i ]} + \frac{1}{2}\norm{u-\xk[0]}_2^2 \right\} - \frac{1}{2}\norm{\xast-\xk[0]}_2^2 \\
+&amp; \defi   A_k L_k.
+\end{align}\)</span></p>
+
+<p>Above, <span>$\circledon$</span> holds by convexity, and <span>$\circledtw$</span> takes a minimum to remove the dependence on <span>$\xast$</span> that is relevant for computational purposes. We will see that the algorithm will not depend on the remaining <span>$\xast$</span> term. The dual point <span>$\zk[k]$</span> is chosen to be the <span>$\argmin$</span> of the <span>$\min$</span> above. We define an upper bound on the function value of our current point <span>$U_t = f(\yk[k])$</span> (in this case just itself). The aim is to decrease the gap <span>$U_t - L_t$</span> as fast as possible. The value <span>$f(\xk[k])$</span> would be a natural choice for the upper bound but it is not enough. The point <span>$\yk[k]$</span> is precisely the result of taking a gradient descent step from <span>$\xk[k]$</span> to decrease the upper bound and compensate the instantaneous regret of the online learning algorithm that is being played in the dual. Nonetheless, we compare the upper bound with <span>$f(\xk[k])$</span> in the analysis, naturally. We take <span>$a_k$</span> are taken as large as possible while allowing to show <span>$A_{k}(U_k - L_k) \leq A_{k-1}(U_{k-1}-L_{k-1})$</span>, which yields <span>$f(\yk[k])-f(\xast) \leq \frac{A_1}{A_k}(U_1-L_1)$</span>. We also bound <span>$U_1 - L_1$</span>, using <span>$A_0 =0$</span>. Let’s see how:
+<span>\(\begin{align}
+    A_{k} &amp;(U_k-L_k) - A_{k-1}(U_{k-1}-L_{k-1}) - \indicator_{\{k=1\}}\frac{1}{2} \norm{\xast-\xk[0]}_2^2 \\
+    &amp;\circledron{=}A_{k-1}(f(\xk[k])-f(\yk[k-1])) + \cancel{a_{k} f(\xk[k])} + A_{k} (f(\yk[k]) - f(\xk[k]))\\
+    &amp; \quad -\cancel{\sum_{i=1}^k a_{i} f(\xk[i])} - \left( \sum_{i=1}^{k-1} a_i \innp{\nabla f(\xk[i]), \zk[k]-\xk[i]} + \frac{1}{2}\norm{\zk[k]-\xk[0]}_2^2\right) - a_k \innp{\nabla f(\xk[k]), \zk[k]-\xk[k]} \\
+    &amp; \quad + \cancel{\sum_{i=1}^{k-1} a_{i} f(\xk[i])} + \left( \sum_{i=1}^{k-1} a_i \innp{\nabla f(\xk[i]), \zk[k-1]-\xk[i]} + \frac{1}{2}\norm{\zk[k-1]-\xk[0]}_2^2\right) \\
+    &amp; \circledrtw{\leq} \innp{\nabla f(\xk[k]), A_{k-1}(\xk[k]-\yk[k-1])- a_{k}(\zk[k]-\xk[k])} - \frac{1}{2} \norm{\zk[k]- \zk[k-1]}_2^2  + A_{k} (f(\yk[k]) - f(\xk[k]))\\
+    &amp; \circledrth{=} a_k\innp{\nabla f(\xk[k]), \zk[k-1] - \zk[k] } -\frac{1}{2} \norm{\zk[k]- \zk[k-1]}_2^2  + A_{k} (f(\yk[k]) - f(\xk[k])) \\
+    &amp; \circledrfo{\leq} \left( \frac{L a_k^2}{2A_k}-\frac{1}{2} \right) \norm{\zk[k]- \zk[k-1]}_2^2  \circledrfi{\leq} 0.
+\end{align}\)</span>
+Above, in <span>$\circledon$</span> we substituted the definitions, canceled <span>$\pm\frac{1}{2} \norm{\xast-\xk[0]}_2^2$</span> (for <span>$k=1$</span>, we used the other term we included on the left hand side), and added and subtracted <span>$A_k f(\xk[k])$</span> to compare our upper bound with that one. In <span>$\circledtw$</span> we used convexity for the first summand. The terms in parentheses are the function in the <span>$\min$</span> in the definition of <span>$L_{k-1}$</span> evaluated at its minimum <span>$\zk[k-1]$</span> and at another point <span>$\zk[k]$</span>. Thus by strong convexity the difference is bounded by <span>$-(1/2)\norm{\zk[k]-\zk[k-1]}_2^2$</span>. We grouped some terms. In <span>$\circledth$</span>, we used the definition of <span>$\xk[k]$</span>, satisfying <span>$A_k \xk[k] = a_k \zk[k]+ A_{k-1}\yk[k]$</span>. In <span>$\circledfo$</span> we finally see the effect of taking a gradient descent step by smoothness, bounding the last term by</p>
+
+<p><span data-show-if="minimize_upper_bound">
+<span>\(\begin{align}
+A_{k} (f(\yk[k]) - f(\xk[k])) &amp; \leq \innp{\nabla f(\xk[k]), \yk[k]-\xk[k]} + \frac{L}{2} \norm{\yk[k]-\xk[k]}_2^2 \\
+&amp;\circledron{\leq} \innp{\nabla f(\xk[k]), \ykhat[k]-\xk[k]} + \frac{L}{2} \norm{\ykhat[k]-\xk[k]}_2^2 \\
+&amp; \circledrtw{=} a_k\innp{\nabla f(\xk[k]), \zk[k]-\zk[k-1]} + \frac{a_k^2L}{2 A_k} \norm{\zk[k]-\zk[k-1]}_2^2.
+\end{align}\)</span></span></p>
+
+<p>where in <span>$\circledon$</span> we used the definition of <span>$\yk[k]$</span> as an <span>$\argmin$</span>, where <span>$\ykhat[k]$</span> is the point satisfying <span>$\ykhat[k]-\xk[k] = \frac{a_k}{A_k}(\zk[k]-\zk[k-1])$</span> <span>$\ignore{constrained}{and it is in the set since \ykhat[k] = \frac{a_k}{A_k}\zk[k] + \frac{A_{k-1}}{A_k}\yk[k-1]}$</span>, which yields <span>$\circledtw$</span>.
+&lt;/span&gt;</p>
+
+<p><span data-show-if="primal_var_closed_formula">
+<span>\(\begin{align}
+A_{k} (f(\yk[k]) - f(\xk[k])) &amp; \leq \innp{\nabla f(\xk[k]), \yk[k]-\xk[k]} + \frac{L}{2} \norm{\yk[k]-\xk[k]}_2^2 \\
+&amp; \circledron{=} a_k\innp{\nabla f(\xk[k]), \zk[k]-\zk[k-1]} + \frac{a_k^2L}{2 A_k} \norm{\zk[k]-\zk[k-1]}_2^2.
+\end{align}\)</span></span></p>
+
+<p>where in <span>$\circledon$</span> we used that by definition of <span>$\yk[k]$</span>, we have <span>$\yk[k]-\xk[k] = \frac{a_k}{A_k}(\zk[k]-\zk[k-1])$</span>,
+&lt;/span&gt;
+canceling the <span>$\innp{\nabla f(\xk[k]), \cdot}$</span> term, yielding <span>$\circledfo$</span>. Finally for <span>$\circledfi$</span> is it enough to take <span>$a_k= \frac{k}{2L}$</span>, which leads to <span>$A_k = \frac{k(k+1)}{4L}$</span> satisfying <span>$\frac{La_k^2}{A_k} = \frac{k^2}{k(k+1)} \leq 1$</span>. In order to bound <span>$A_1(U_1-L_1)$</span> we note that the chain of inequalities above can be applied for <span>$k=1$</span>, except that because <span>$A_0=0$</span>, now we do not cancel <span>$\frac{1}{2} \norm{\xast-\xk[0]}_2^2$</span>. Thus, in conclusion</p>
+
+<p><span>\(f(\yk[T]) - f(x^\ast) \leq U_T - L_T \leq \frac{A_1}{A_T}(U_1 - L_1) \leq \frac{A_1}{A_T}\cdot \frac{1}{2}\norm{\xast-\xk[0]}_2^2 \leq \frac{\norm{\xast-\xk[0]}_2^2}{T(T+1)}.\)</span></p>
+
+<p><span data-show-if="asdf">
+Select one or more options:</span></p>
+
+<ul>
+  <li><input type="checkbox" id="option1" data-highlight-color="red" /> <span style="color: red;">Option 1</span></li>
+  <li><input type="checkbox" id="option2" data-highlight-color="blue" /> <span style="color: blue;">Option 2</span></li>
+</ul>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="http://0.0.0.0:4001/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.es/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
+
+        </div>
+        <p class="byline"><strong>Modular analysis of accelerated convex first-order algorithms.</strong> was published on <time datetime="2023-05-30T00:00:00+01:00">May 30, 2023</time> by <a href="http://0.0.0.0:4001" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 David Martínez-Rubio. Based on jponttuset.github.io. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://0.0.0.0:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://0.0.0.0:4001/assets/js/scripts.min.js"></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EKCKR7JVZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EKCKR7JVZP');
+</script>
+
+
+
+	        
+
+
+
+<!-- circled command and other command definitions -->
+<style>
+
+  .circled-content-r {
+    display: inline-block;
+    transform: scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+  .circled-content {
+    display: inline-block;
+    transform: scale(0.8) scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+</style>
+
+
+
+
+
+
+<!-- -->
+
+
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+
+</body>
+</html>
