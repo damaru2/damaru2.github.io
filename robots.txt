@@ -1,0 +1,1 @@
+Disallow: https://damaru2.github.io/assets/presentations/rgd.pdf
