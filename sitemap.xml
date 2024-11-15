@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://0.0.0.0:4000</loc>
+        <loc>https://damaru2.github.io</loc>
     </url>
     
     
     <url>
-        <loc>http://0.0.0.0:4000/404/</loc>
+        <loc>https://damaru2.github.io/404/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/blog/</loc>
+        <loc>https://damaru2.github.io/blog/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/cv/</loc>
+        <loc>https://damaru2.github.io/cv/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/</loc>
+        <loc>https://damaru2.github.io/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/publications/</loc>
+        <loc>https://damaru2.github.io/publications/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/sitemap.xml</loc>
+        <loc>https://damaru2.github.io/sitemap.xml</loc>
     </url>
     
 
     
     <url>
-        <loc>http://0.0.0.0:4000/general/techniques_to_bound_iterates_in_Riem_opti/</loc>
+        <loc>https://damaru2.github.io/general/techniques_to_bound_iterates_in_Riem_opti/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/general/beamer_and_notations_with_links/</loc>
+        <loc>https://damaru2.github.io/general/beamer_and_notations_with_links/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/general/notations_with_links/</loc>
+        <loc>https://damaru2.github.io/general/notations_with_links/</loc>
     </url>
     
 </urlset>
