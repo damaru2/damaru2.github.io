@@ -59,6 +59,81 @@
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
 <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://damaru2.github.io/images/apple-icon-precomposed.png">
 
+<style>
+.math-with-href:hover {
+  background-color: lightgray;
+}
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      config: ["MMLorHTML.js"],
+      extensions: ["enclose.js", "cancel.js", "color.js", "bbox.js", "AMSmath.js", "AMSsymbols.js"],
+      packages: {'[+]': ['hyperref']},
+     "HTML-CSS": { linebreaks: { automatic: true } },
+      Macros: {
+        link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
+        same: ['#2', 2],
+        ignore: ['', 2],
+        R: "{ \\mathbb{R} }",
+        argmin: "{\\arg\\,\\min}",
+        xk: ["\\link{##def_coupling_variable}{\\color{black}x^{(#1)}}", 1, 'k'], // Default value k. Use with \xk[k-1]
+        yk: ["{y^{(#1)}}", 1, 'k'],
+        X: ["\\mathcal{X}"],
+        ykhat: ["{\\hat{y}^{(#1)}}", 1, 'k'],
+        zk: ["{z^{(#1)}}", 1, 'k'],
+        indicator: ["𝟙"],
+        norm: ["{ \\|#1\\| }", 1],
+        innp: ["{\\langle#1\\rangle}", 1],
+        innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
+        xast: "{x^\\ast}",
+        //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
+        defi: "{\\triangleq}",
+        circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
+        circledrtw: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{2}}}{#1}", 1],
+        circledrth: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{3}}}{#1}", 1],
+        circledrfo: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{4}}}{#1}", 1],
+        circledrfi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{5}}}{#1}", 1],
+        circledrsi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{6}}}{#1}", 1],
+        circledrse: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{7}}}{#1}", 1],
+        circledrei: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{8}}}{#1}", 1],
+        circledrni: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{9}}}{#1}", 1],
+        circledon: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{1}}"],
+        circledtw: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{2}}"],
+        circledth: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{3}}"],
+        circledfo: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{4}}"],
+        circledfi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{5}}"],
+        circledsi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{6}}"],
+        circledse: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{7}}"],
+        circledei: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{8}}"],
+        circledni: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{9}}"],
+      },
+    },
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    //extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+    //jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+    },
+    loader: {
+      load: ['[tex]/ams', 'input/latex/extensions/hyperref'],
+    },
+  });
+
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 </head>
 
 <body class="page">
@@ -100,6 +175,7 @@ div.bibtex {
 	background: #ffffee;
 }
 div.bibtex pre { font-size: 75%; overflow: auto;  width: 100%; padding: 0em 0em;}</style>
+
 
 <!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
 
@@ -158,25 +234,68 @@ div.bibtex pre { font-size: 75%; overflow: auto;  width: 100%; padding: 0em 0em;
 
 <h4 style="margin-bottom:0px;padding-top:20px;">Preprints</h4>
 <p><small>★ means equal contribution</small></p>
-<ul class="biblist">
+<ol reversed="" class="biblist">
 
 
 <li><p>
-<b>Black-Box Uniform Stability for Non-Euclidean Empirical Risk Minimization
+<b>Implicit Riemannian Optimism with Applications to Min-Max Problems
 </b><br />
-S. Vary, D. Martínez-Rubio, Patrick Rebeschini (2024)
+C. Roux★, D. Martínez-Rubio★, S. Pokutta (2025)
 <br />
-<a href="https://arxiv.org/abs/2412.15956" target="_blank">[PDF]</a> 
-<a href="javascript:toggleBibtex('vary2024blackbox')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_vary2024blackbox').textContent, this)" class="noshow flat-button" id="copy_button_vary2024blackbox">📋 copy</button>
+<a href="https://arxiv.org/pdf/2501.18381.pdf" target="_blank">[PDF]</a> 
+<a href="javascript:toggleBibtex('roux2025implicit')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_roux2025implicit').textContent, this)" class="noshow flat-button" id="copy_button_roux2025implicit">📋 copy</button>
 </p>
-<div id="bib_vary2024blackbox" class="bibtex noshow">
-<pre id="pre_vary2024blackbox" class="language-bibtex">
-@article{vary2024blackbox,
-  title={Black-Box Uniform Stability for Non-Euclidean Empirical Risk Minimization},
-  author={Vary, Simon and Mart{\'\i}nez-Rubio, David and Rebeschini, Patrick},
-  journal={arXiv preprint arXiv:2412.15956},
-  url={https://arxiv.org/abs/2412.15956},
-  year={2024}
+<div id="bib_roux2025implicit" class="bibtex noshow">
+<pre id="pre_roux2025implicit" class="language-bibtex">
+@article{roux2025implicit,
+  title={Implicit Riemannian Optimism with Applications to Min-Max Problems},
+  author={Roux, Christophe and Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2501.18381},
+  url={https://arxiv.org/abs/2501.18381},
+  year={2025}
+}
+</pre>
+</div>
+</li>
+
+
+<li><p>
+<b>Beyond Short Steps in Frank-Wolfe Algorithms
+</b><br />
+D. Martínez-Rubio★, S. Pokutta★ (2025)
+<br />
+<a href="https://arxiv.org/pdf/2501.18773.pdf" target="_blank">[PDF]</a> 
+<a href="javascript:toggleBibtex('martinezrubio2025beyond')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_martinezrubio2025beyond').textContent, this)" class="noshow flat-button" id="copy_button_martinezrubio2025beyond">📋 copy</button>
+</p>
+<div id="bib_martinezrubio2025beyond" class="bibtex noshow">
+<pre id="pre_martinezrubio2025beyond" class="language-bibtex">
+@article{martinezrubio2025beyond,
+  title={Beyond Short Steps in Frank-Wolfe Algorithms},
+  author={Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2501.18773},
+  url={https://arxiv.org/abs/2501.18773},
+  year={2025}
+}
+</pre>
+</div>
+</li>
+
+<li><p>
+<b>Secant Line Search for Frank-Wolfe Algorithms
+</b><br />
+D. Hendrych, M. Besançon, D. Martínez-Rubio, S. Pokutta (2025)
+<br />
+<a href="https://arxiv.org/pdf/2501.18775.pdf" target="_blank">[PDF]</a> 
+<a href="javascript:toggleBibtex('hendrych2025secant')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_hendrych2025secant').textContent, this)" class="noshow flat-button" id="copy_button_hendrych2025secant">📋 copy</button>
+</p>
+<div id="bib_hendrych2025secant" class="bibtex noshow">
+<pre id="pre_hendrych2025secant" class="language-bibtex">
+@article{hendrych2025secant,
+  title={Secant Line Search for Frank-Wolfe Algorithms},
+  author={Hendrych, Deborah and Besançon, Mathieu and Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
+  journal={arXiv preprint arXiv:2501.18775},
+  url={https://arxiv.org/abs/2501.18775},
+  year={2025}
 }
 </pre>
 </div>
@@ -204,11 +323,10 @@ J.P. Contreras★, C. Guzmán★, D. Martínez-Rubio★ (2024)
 </div>
 </li>
 
-
 <li><p>
 <b>Strong Convexity of Sets in Riemannian Manifolds
 </b><br />
-D. Scieur★, T. Kerdreux★, D. Martínez-Rubio★, A. d'Aspremont, S. Pokutta (2023)
+D. Scieur★, D. Martínez-Rubio★, T. Kerdreux★, A. d'Aspremont, S. Pokutta (2023)
 <br />
 <a href="https://arxiv.org/pdf/2312.03583.pdf" target="_blank">[PDF]</a> 
 <a href="javascript:toggleBibtex('scieur2023strong')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_scieur2023strong').textContent, this)" class="noshow flat-button" id="copy_button_scieur2023strong">📋 copy</button>
@@ -226,10 +344,20 @@ D. Scieur★, T. Kerdreux★, D. Martínez-Rubio★, A. d'Aspremont, S. Pokutta 
 </div>
 </li>
 
+
+
+
+</ol>
+
+<h4 style="margin-bottom:0px;padding-top:10px;">Conference Proceedings</h4>
+<ol reversed="" class="biblist">
+
+
 <li><p>
 <b>Accelerated Methods for Riemannian Min-Max Optimization Ensuring Bounded Geometric Penalties</b><br />
 D. Martínez-Rubio★, C. Roux★, C. Criscitiello, S. Pokutta (2023)
 <br />
+<b>AISTATS 2025</b>, <i>28th International Conference on Artificial Intelligence and Statistics</i> 
 <a href="https://arxiv.org/pdf/2305.16186.pdf" target="_blank">[PDF]</a> 
 <a href="javascript:toggleBibtex('martinez2023accelerated')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_martinez2023accelerated').textContent, this)" class="noshow flat-button" id="copy_button_martinez2023accelerated">📋 copy</button>
 </p>
@@ -246,10 +374,27 @@ D. Martínez-Rubio★, C. Roux★, C. Criscitiello, S. Pokutta (2023)
 </div>
 </li>
 
-</ul>
-
-<h4 style="margin-bottom:0px;padding-top:10px;">Conference Publications</h4>
-<ul class="biblist">
+<li><p>
+<b>Black-Box Uniform Stability for Non-Euclidean Empirical Risk Minimization
+</b><br />
+S. Vary, D. Martínez-Rubio, Patrick Rebeschini (2024)
+<br />
+<b>AISTATS 2025</b>, <i>28th International Conference on Artificial Intelligence and Statistics</i> 
+<a href="https://arxiv.org/pdf/2412.15956.pdf" target="_blank">[PDF]</a> 
+<a href="javascript:toggleBibtex('vary2024blackbox')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_vary2024blackbox').textContent, this)" class="noshow flat-button" id="copy_button_vary2024blackbox">📋 copy</button>
+</p>
+<div id="bib_vary2024blackbox" class="bibtex noshow">
+<pre id="pre_vary2024blackbox" class="language-bibtex">
+@article{vary2024blackbox,
+  title={Black-Box Uniform Stability for Non-Euclidean Empirical Risk Minimization},
+  author={Vary, Simon and Mart{\'\i}nez-Rubio, David and Rebeschini, Patrick},
+  journal={arXiv preprint arXiv:2412.15956},
+  url={https://arxiv.org/abs/2412.15956},
+  year={2024}
+}
+</pre>
+</div>
+</li>
 
 
 <li><p>
@@ -264,12 +409,20 @@ D. Martínez-Rubio★, C. Roux★, S. Pokutta
 </p>
 <div id="bib_martinezrubio2023convergence" class="bibtex noshow">
 <pre id="pre_martinezrubio2023convergence" class="language-bibtex">
-@article{martinezrubio2023convergence,
-  title={Convergence and Trade-Offs in Riemannian Gradient Descent and Riemannian Proximal Point},
-  author={Mart{\'\i}nez-Rubio, David and Roux, Christophe and Pokutta, Sebastian},
-  journal={arXiv preprint arXiv:2403.10429},
-  url={https://arxiv.org/abs/2403.10429},
-  year={2024}
+@inproceedings{DBLP:conf/icml/CasadoM19,
+  author       = {David Mart{\'{\i}}nez{-}Rubio and
+                  Christophe Roux and
+                  Sebastian Pokutta},
+  title     = {Convergence and Trade-Offs in Riemannian Gradient Descent and Riemannian
+                  Proximal Point},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning, {ICML} 2024
+                  Vienna, Austria, July 21-27},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {235},
+  pages     = {34920-34948},
+  publisher = ,
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2403.10429},
 }
 </pre>
 </div>
@@ -287,11 +440,22 @@ D. Martínez-Rubio★, E. Wirth★, and S. Pokutta
 </p>
 <div id="bib_Martinez-Rubio2023sparsepagerank" class="bibtex noshow">
 <pre id="pre_Martinez-Rubio2023sparsepagerank" class="language-bibtex">
-@article{martinezrubio2023pagerank,
-  title={Accelerated and Sparse Algorithms for Approximate Personalized PageRank and Beyond},
-  author={Mart{\'i}nez-Rubio, David and Wirth, Elias and Pokutta, Sebastian},
-  booktitle    = {\textbf{COLT 2023}, Conference on Learning Theory 12-15 July 2023, {Bangalore}, {India}},
-  year={2023}
+@inproceedings{martinezrubio2023pagerank,
+  author       = {David Mart{\'{\i}}nez{-}Rubio and
+                  Elias Samuel Wirth and
+                  Sebastian Pokutta},
+  editor       = {Gergely Neu and
+                  Lorenzo Rosasco},
+  title        = {Accelerated and Sparse Algorithms for Approximate Personalized PageRank
+                  and Beyond},
+  booktitle    = {The Thirty Sixth Annual Conference on Learning Theory, {COLT} 2023,
+                  12-15 July 2023, Bangalore, India},
+  series       = {Proceedings of Machine Learning Research},
+  volume       = {195},
+  pages        = {2852--2876},
+  publisher    = ,
+  year         = {2023},
+  url          = {https://arxiv.org/abs/2303.12875},
 }
 </pre>
 </div>
@@ -309,12 +473,21 @@ D. Martínez-Rubio, and S. Pokutta
 </p>
 <div id="bib_Martinez-Rubio2022" class="bibtex noshow">
 <pre id="pre_Martinez-Rubio2022" class="language-bibtex">
-@article{martinezRubio2022accelerated,
-  title={Accelerated Riemannian Optimization: Handling Constraints with a Prox to Bound Geometric Penalties},
-  author={Mart{\'i}nez-Rubio, David and Pokutta, Sebastian},
-  booktitle    = {\textbf{COLT 2023}, Conference on Learning Theory 12-15 July 2023, {Bangalore}, {India}},
-  journal={arXiv preprint arXiv:2211.14645},
-  year={2022}
+@inproceedings{martinezRubio2022accelerated,
+  author       = {David Mart{\'{\i}}nez{-}Rubio and
+                  Sebastian Pokutta},
+  editor       = {Gergely Neu and
+                  Lorenzo Rosasco},
+  title        = {Accelerated Riemannian Optimization: Handling Constraints with a Prox
+                  to Bound Geometric Penalties},
+  booktitle    = {The Thirty Sixth Annual Conference on Learning Theory, {COLT} 2023,
+                  12-15 July 2023, Bangalore, India},
+  series       = {Proceedings of Machine Learning Research},
+  volume       = {195},
+  pages        = {359--393},
+  publisher    = ,
+  year         = {2023},
+  url          = {https://arxiv.org/abs/2211.14645},
 }
 </pre>
 </div>
@@ -333,10 +506,12 @@ F. Criado★, D. Martínez-Rubio★, S. Pokutta
 </p>
 <div id="bib_Criado2021" class="bibtex noshow">
 <pre id="pre_Criado2021" class="language-bibtex">
-@article{criado2022fast,
+@inproceedings{criado2022fast,
   title={Fast algorithms for packing proportional fairness and its dual},
   author={Criado, Francisco and Mart{\'i}nez-Rubio, David and Pokutta, Sebastian},
-  journal={Advances in Neural Information Processing Systems},
+  booktitle    = {Advances in Neural Information Processing Systems 35: Annual Conference
+                  on Neural Information Processing Systems 2022, NeurIPS 2022, New Orleans,
+                  LA, USA, November 28 - December 9, 2022},
   volume={35},
   pages={25754--25766},
   url={https://arxiv.org/abs/2109.03678},
@@ -445,7 +620,6 @@ M. Lezcano-Casado★, and D. Martínez-Rubio★
   year      = {2019},
   url       = {http://proceedings.mlr.press/v97/lezcano-casado19a.html},
 }
-
 </pre>
 </div>
 </li>  
@@ -478,7 +652,7 @@ A. G. Baydin,  R. Cornish, D. Martínez-Rubio, M. Schmidt, and F. Wood<br />
 </li>
 
 
-</ul>
+</ol>
 
 <h4 style="margin-bottom:0px;padding-top:20px;">Workshop Publications and Technical Reports</h4>
 
@@ -681,7 +855,7 @@ Complutense University of Madrid, 2016
 </div><!-- /#index -->
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2024 David Martínez-Rubio. Based on jponttuset.github.io. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2025 David Martínez-Rubio. Based on jponttuset.github.io. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
