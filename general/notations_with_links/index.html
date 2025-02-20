@@ -258,6 +258,11 @@ Algorithms that use <span class="k">\LP</span><span class="p">{}</span> as a sub
 
 <p>…for linear programming (LP). Algorithms that use LP as a subroutine…</p>
 
+<p>Soil Ros suggested in the comments the use of <code class="language-plaintext highlighter-rouge">xspace</code> for avoiding writing <code class="language-plaintext highlighter-rouge">{}</code> after using an acronym, or other non-math commands with no arguments.</p>
+
+<figure class="highlight"><pre><code class="language-tex" data-lang="tex"><span class="k">\usepackage</span><span class="p">{</span>xspace<span class="p">}</span> <span class="c">% % Make empty commands appear to not eat an space</span>
+<span class="k">\newcommand\newlink</span><span class="na">[2]</span><span class="p">{{</span><span class="k">\protect\hyperlink</span><span class="p">{</span>#1<span class="p">}{</span><span class="k">\normalcolor</span> #2<span class="p">}}</span><span class="k">\xspace</span><span class="p">}</span></code></pre></figure>
+
 <ul>
   <li><strong>Operators</strong>. You can define the command to force you write the brackets, if it applies. But you can place the link for the operator’s name only:</li>
 </ul>
@@ -357,6 +362,9 @@ y <span class="k">\newtarget</span><span class="p">{</span>def:formal<span class
     <p>If you use one of these commands in a subindex or superindex, do write the curly braces: write <code class="language-plaintext highlighter-rouge">\psi^{\astfenchel}</code> instead of <code class="language-plaintext highlighter-rouge">\psi^\astfenchel</code>.</p>
   </li>
   <li>
+    <p>Some floating environments do not like having the anchor to the definition, that is, the <code class="language-plaintext highlighter-rouge">\newtarget</code>. For instance, the caption of a table or an algorithm’s pseudocode doesn’t seem to work although placing the definition in the table or pseudocode is fine.</p>
+  </li>
+  <li>
     <p>If you have a table of contents, use the optional argument of <code class="language-plaintext highlighter-rouge">\section</code>s so you use the notation without black font in the table of contents but you use your command regularly in the section title in the main document.</p>
   </li>
 </ul>
@@ -390,10 +398,15 @@ y <span class="k">\newtarget</span><span class="p">{</span>def:formal<span class
 
 <p>Use the following at the beginning of the statement of a lemma, proposition, theorem, etc, whose proof does not appear right after. You will get a nice down-arrow linking to the exact point where the proof appears.</p>
 
-<figure class="highlight"><pre><code class="language-tex" data-lang="tex"><span class="k">\newcommand\linktoproof</span><span class="na">[1]</span><span class="p">{</span> <span class="p">{</span><span class="k">\normalfont</span><span class="na">[{\hyperlink{#1}{$\downarrow$}}]</span><span class="p">}</span> <span class="p">}</span>
-...<span class="nt">\begin{lemma}</span><span class="k">\linktoproof</span><span class="p">{</span>proof:lemma:my<span class="p">_</span>lemma<span class="p">}</span> Let... 
+<figure class="highlight"><pre><code class="language-tex" data-lang="tex"><span class="k">\newcommand\linktoproof</span><span class="na">[1]</span><span class="p">{{</span><span class="k">\normalfont</span><span class="na">[{\hyperlink{proof:#1}{$\downarrow$}}]</span><span class="p">}}</span>
+
+<span class="c">%\newcommand\linkofproof[1]{\newtarget{proof:#1}} % Choose one of these two command definitions</span>
+<span class="k">\newcommand\linkofproof</span><span class="na">[1]</span><span class="p">{</span><span class="k">\textbf</span><span class="p">{</span>of <span class="k">\cref</span><span class="p">{</span>#1<span class="p">}</span>. <span class="p">}</span><span class="k">\newtarget</span><span class="p">{</span>proof:#1<span class="p">}}</span>
 ...
-<span class="nt">\begin{proof}</span><span class="k">\newtarget</span><span class="p">{</span>proof:lemma:my<span class="p">_</span>lemma<span class="p">}{}</span>
+...
+<span class="nt">\begin{lemma}</span><span class="k">\label</span><span class="p">{</span>lemma:my<span class="p">_</span>lemma<span class="p">}</span><span class="k">\linktoproof</span><span class="p">{</span>lemma:my<span class="p">_</span>lemma<span class="p">}</span> Let... 
+...
+<span class="nt">\begin{proof}</span><span class="k">\linkofproof</span><span class="p">{</span>lemma:my<span class="p">_</span>lemma<span class="p">}</span>
 ...</code></pre></figure>
 
 <h3 id="readers-and-jumping-back">Readers and jumping back</h3>
