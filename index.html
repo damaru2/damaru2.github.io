@@ -116,12 +116,61 @@
   <article>
     <h1>About Me</h1>
     <div class="article-wrap">
-      <p>I am a professor at the Carlos III University of Madrid in Spain, in the <a href="https://gts.tsc.uc3m.es/" target="_blank">SP group</a>. During 2022-2024, I was a postdoc at the Zuse Institute Berlin (ZIB) in the <a href="http://iol.zib.de/team/" target="_blank">IOL group</a>, where I worked with <a href="http://www.pokutta.com/" target="_blank">Sebastian Pokutta</a> among others. Prior to this, I was a PhD student at the Department of Computer Science at the University of Oxford supervised by Prof. <a href="https://www.cs.ox.ac.uk/people/varun.kanade/website/" target="_blank">Varun Kanade</a> and Prof. <a href="https://www.stats.ox.ac.uk/~rebeschi/" target="_blank">Patrick Rebeschini</a>. I obtained an MSc in <a href="https://www.maths.ox.ac.uk/members/students/postgraduate-courses/msc-mfocs" target="_blank">Mathematics and Foundations of Computer Science</a> at the University of Oxford and a <a href="https://www.ucm.es/estudios/grado-informaticaymatematicas-plan" target="_blank">double Bachelor</a> in Mathematics and in Computer Science at the Complutense University of Madrid.</p>
+      <p>I am a professor at the Carlos III University of Madrid in Spain, in the <a href="https://gts.tsc.uc3m.es/group-members/faculty/" target="_blank">SP group</a>. During 2022-2024, I was a postdoc at the Zuse Institute Berlin (ZIB) and lead of the Continuous Optimization branch in the <a href="http://iol.zib.de/team/" target="_blank">IOL group</a>, where I worked with <a href="http://www.pokutta.com/" target="_blank">Sebastian Pokutta</a> among others. Prior to this, I was a PhD student at the Department of Computer Science at the University of Oxford supervised by Prof. <a href="https://www.cs.ox.ac.uk/people/varun.kanade/website/" target="_blank">Varun Kanade</a> and Prof. <a href="https://www.stats.ox.ac.uk/~rebeschi/" target="_blank">Patrick Rebeschini</a>. I obtained an MSc in <a href="https://www.maths.ox.ac.uk/members/students/postgraduate-courses/msc-mfocs" target="_blank">Mathematics and Foundations of Computer Science</a> at the University of Oxford and a <a href="https://www.ucm.es/estudios/grado-informaticaymatematicas-plan" target="_blank">double Bachelor</a> in Mathematics and in Computer Science at the Complutense University of Madrid.</p>
 
 <h3 id="research">Research</h3>
 
-<p>I am interested in continuous optimization and fields that interplay with it, like online learning and statistical machine learning. My focus is on high-dimensional problems appearing in machine learning, and network analysis, among others. Some topics I have worked on are Riemannian geodesically-convex optimization [<a href="https://arxiv.org/pdf/2211.14645.pdf">1</a>, <a href="https://arxiv.org/pdf/2305.16186.pdf">2</a>, <a href="https://arxiv.org/pdf/2012.03618.pdf">3</a>], fair-packing [<a href="https://arxiv.org/pdf/2109.03678.pdf">4</a>], PageRank [<a href="https://arxiv.org/pdf/2303.12875.pdf">5</a>], and bandit problems [<a href="https://arxiv.org/pdf/1810.04468.pdf">6</a>].</p>
+<p>I am interested in <b>continuous optimization</b> and fields that interplay with it, like <b>online learning</b> and <b>statistical machine learning</b>. My focus is on high-dimensional problems appearing in machine learning, and network analysis, among others. Some topics I have worked on are:</p>
 
+<style>
+  /* reset counter at the start of the list */
+  #topics { counter-reset: ref; }
+
+  /* for each <a class="ref">, increment and render “[n]” */
+  #topics a.ref::before {
+    counter-increment: ref;
+    content:counter(ref);
+    text-decoration: none;    /* remove underline on the generated number */
+    /* remove any auto-spacing: */
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<ul id="topics">
+  <li>
+    <strong>Accelerated Algorithms</strong>
+    [<a class="ref" href="https://arxiv.org/pdf/2411.08987.pdf"></a>,
+     <a class="ref" href="https://arxiv.org/pdf/2109.03678.pdf"></a>,
+     <a class="ref" href="https://arxiv.org/pdf/2412.15956.pdf"></a>]
+  </li>
+  <li>
+    <strong>Online Learning</strong>
+    [<a class="ref" href="https://arxiv.org/pdf/1810.04468.pdf"></a>, <!-- Bandit -->
+    <a class="ref" href="https://arxiv.org/pdf/2501.18381"></a>] <!-- Implicit optimism Riemannian -->
+  </li>
+  <li>
+    <strong>Heuristic algorithms for Deep Learning</strong>
+    [<a class="ref" href="https://arxiv.org/pdf/1901.08428.pdf"></a>, 
+     <a class="ref" href="https://arxiv.org/pdf/1703.04782.pdf"></a>]
+  </li>
+  <li>
+    <strong>Riemannian geodesically-convex optimization</strong>
+    [<a class="ref" href="https://arxiv.org/pdf/2211.14645.pdf"></a>, 
+     <a class="ref" href="https://arxiv.org/pdf/2012.03618.pdf"></a>,
+    <a class="ref" href="https://arxiv.org/pdf/2305.16186.pdf"></a>]
+  </li>
+  <li>
+    <strong>PageRank</strong>
+    [<a class="ref" href="https://arxiv.org/pdf/2303.12875.pdf"></a>]
+  </li>
+  <li>
+    <strong>Frank-Wolfe algorithms</strong>
+    [<a class="ref" href="https://arxiv.org/pdf/2501.18775.pdf"></a>,
+     <a class="ref" href="https://arxiv.org/pdf/2501.18773.pdf"></a>,
+     <a class="ref" href="https://arxiv.org/pdf/2505.11259.pdf"></a>]
+  </li>
+</ul>
 
     </div><!-- /.article-wrap -->
     
