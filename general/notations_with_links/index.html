@@ -63,6 +63,15 @@
 .math-with-href:hover {
   background-color: lightgray;
 }
+
+/* behavior for mathjax links, whose id starts with def_ that */
+html { scroll-behavior: smooth; }
+/* Land a bit higher when jumping to #def_* */
+[id^="def_"] {
+  /* tweak the value to your header height + a little spacing */
+  scroll-margin-top: 20px;
+}
+
 </style>
 
 <script type="text/x-mathjax-config">
@@ -74,20 +83,12 @@
      "HTML-CSS": { linebreaks: { automatic: true } },
       Macros: {
         link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
-        same: ['#2', 2],
-        ignore: ['', 2],
         R: "{ \\mathbb{R} }",
         argmin: "{\\arg\\,\\min}",
-        xk: ["\\link{##def_coupling_variable}{\\color{black}x^{(#1)}}", 1, 'k'], // Default value k. Use with \xk[k-1]
-        yk: ["{y^{(#1)}}", 1, 'k'],
         X: ["\\mathcal{X}"],
-        ykhat: ["{\\hat{y}^{(#1)}}", 1, 'k'],
-        zk: ["{z^{(#1)}}", 1, 'k'],
-        indicator: ["𝟙"],
         norm: ["{ \\|#1\\| }", 1],
         innp: ["{\\langle#1\\rangle}", 1],
         innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
-        xast: "{x^\\ast}",
         //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
         defi: "{\\triangleq}",
         circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
@@ -135,9 +136,18 @@
 </script>
 
 <!-- src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"> -->
+
+
 </head>
 
 <body class="post">
+
+
+  <meta name="x-debug-layout" content="post">
+  <meta name="x-debug-sitemap" content="nil">
+  <meta name="x-debug-noindex" content="nil">
+  <meta name="x-debug-path" content="_posts/2021-12-14-notations_with_links.md">
+
 
 <!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
 
@@ -161,6 +171,7 @@
 		</nav>
 	</div><!-- /.top-navigation -->
 </div><!-- /.navigation-wrapper -->
+
 
 
 
@@ -563,6 +574,10 @@ y <span class="k">\newtarget</span><span class="p">{</span>def:formal<span class
 
 <!-- circled command and other command definitions -->
 <style>
+    p {
+      text-align: justify;
+      margin: 0 0 1em 0 !important; /* only space after paragraphs */
+    }
 
   .circled-content-r {
     display: inline-block;

@@ -1,0 +1,1383 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>David Martínez-Rubio  &#8211; Queueing to publish in AI (and CS) </title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Queueing to publish in AI (and CS)">
+<meta property="og:description" content="Welcome to my academic site.">
+<meta property="og:url" content="https://damaru2.github.io/general/queueing_to_publish_in_AI_or_CS/">
+<meta property="og:site_name" content="David Martínez-Rubio">
+
+
+
+
+
+<link rel="canonical" href="https://damaru2.github.io/general/queueing_to_publish_in_AI_or_CS/">
+<link href="https://damaru2.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="David Martínez-Rubio Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/main.min.css">
+<link rel="stylesheet" href="https://damaru2.github.io/assets/academicons.css" />
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="https://damaru2.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://damaru2.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.ico">
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.png">
+
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://damaru2.github.io/images/apple-icon-precomposed.png">
+
+<style>
+.math-with-href:hover {
+  background-color: lightgray;
+}
+
+/* behavior for mathjax links, whose id starts with def_ that */
+html { scroll-behavior: smooth; }
+/* Land a bit higher when jumping to #def_* */
+[id^="def_"] {
+  /* tweak the value to your header height + a little spacing */
+  scroll-margin-top: 20px;
+}
+
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      config: ["MMLorHTML.js"],
+      extensions: ["enclose.js", "cancel.js", "color.js", "bbox.js", "AMSmath.js", "AMSsymbols.js"],
+      packages: {'[+]': ['hyperref']},
+     "HTML-CSS": { linebreaks: { automatic: true } },
+      Macros: {
+        link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
+        R: "{ \\mathbb{R} }",
+        argmin: "{\\arg\\,\\min}",
+        X: ["\\mathcal{X}"],
+        norm: ["{ \\|#1\\| }", 1],
+        innp: ["{\\langle#1\\rangle}", 1],
+        innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
+        //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
+        defi: "{\\triangleq}",
+        circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
+        circledrtw: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{2}}}{#1}", 1],
+        circledrth: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{3}}}{#1}", 1],
+        circledrfo: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{4}}}{#1}", 1],
+        circledrfi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{5}}}{#1}", 1],
+        circledrsi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{6}}}{#1}", 1],
+        circledrse: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{7}}}{#1}", 1],
+        circledrei: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{8}}}{#1}", 1],
+        circledrni: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{9}}}{#1}", 1],
+        circledon: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{1}}"],
+        circledtw: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{2}}"],
+        circledth: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{3}}"],
+        circledfo: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{4}}"],
+        circledfi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{5}}"],
+        circledsi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{6}}"],
+        circledse: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{7}}"],
+        circledei: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{8}}"],
+        circledni: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{9}}"],
+      },
+    },
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    //extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+    //jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+    },
+    loader: {
+      load: ['[tex]/ams', 'input/latex/extensions/hyperref'],
+    },
+  });
+
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"> -->
+
+
+  <meta name="robots" content="noindex,follow">
+
+</head>
+
+<body class="post">
+
+
+  <meta name="x-debug-layout" content="post">
+  <meta name="x-debug-sitemap" content="nil">
+  <meta name="x-debug-noindex" content="true">
+  <meta name="x-debug-path" content="_posts/2025-08-25-queueing_to_publish_in_AI_or_CS.md">
+
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="https://damaru2.github.io">David Martínez-Rubio</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="https://damaru2.github.io/publications/" >Publications</a></li>
+		        
+				<li><a href="https://damaru2.github.io/cv/" >Curriculum</a></li>
+		        
+				<li><a href="https://damaru2.github.io/blog/" >Blog</a></li>
+		        
+				<li><a href="https://damaru2.github.io/" >About</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.es/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="https://damaru2.github.io/general/queueing_to_publish_in_AI_or_CS/" rel="bookmark" title="Queueing to publish in AI (and CS)">Queueing to publish in AI (and CS)</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p class="byline">Written by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a> in collaboration with <a href="https://www.pokutta.com/">Sebastian Pokutta</a>.</p>
+
+<hr />
+
+<p>Does the common CS conference model with a fixed low acceptance rate over submissions make sense? What are some consequences of it? Here, I analyze some interesting properties that model the reviewing and acceptance system of machine learning conferences, but applies to CS more generally.</p>
+
+<!--- MathJax definitions for this post only (with links) --->
+<p><span style="display:none">
+$ \def\N{\link{#def_number_new_papers}{\color{black}N}}} $
+$ \def\T{\link{#def_max_retries}{\color{black}T}}} $
+$ \def\p{\link{#def_rate_of_acceptance}{\color{black}p}}} $
+$ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
+</span></p>
+
+<p><strong>Disclaimer:</strong> This is a toy model and more knowledgeable people have devoted greater effort to other models and ideas [<a href="https://arxiv.org/pdf/2303.09020">1</a>, <a href="https://link.springer.com/article/10.1007/s11192-025-05271-9">2</a>, <a href="https://dl.acm.org/doi/pdf/10.1145/3528086">3</a>, <a href="https://arxiv.org/abs/2505.04966">4</a>, <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28860">5</a>], among many others. Below there is simple and to-the-point food for thought. I don’t know yet if I consider these conclusions based on simplified models to be valid for the real case.</p>
+
+<h2 id="the-ideal-case-no-giving-up">The ideal case: no giving up</h2>
+
+<p>First, let’s assume that authors keep resubmitting their unaccepted papers indefinitely, without restrictions on how papers are accepted.</p>
+
+<figure class="image">
+  <img src="/images/conferences_evolution.png" alt="" />
+  <figcaption></figcaption>
+</figure>
+
+<p>Assume a sequence of non-overlapping calls (e.g. 3 per year), and each time <span id="def_number_new_papers">$\N$</span> new papers are added to the pool of papers to be published, and we let <span id="def_rate_of_acceptance">$\p \in (0, 1]$</span> be a fixed rate of acceptance.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> The pool of unaccepted papers evolves like the following dynamical system for $x_1 \gets \N$:</p>
+
+\[x_{t+1} \gets x_t (1-\p) + \N.\]
+
+<p>This converges fast to a fixed point <span id="def_number_new_papers">$\xast$</span>, which is the solution to $\xast = \xast(1-\p) + \N$, yielding</p>
+
+\[\xast = \frac{\N}{\p},\]
+
+\[\text{#accepted_papers}= \xast \cdot \p = \frac{\N}{\p} \cdot \p = \N.\]
+
+<p><strong>Amazing!!</strong> #accepted_papers does not change with $\p$. If we reduce $\p$, the only effect is that the pool size grows until it’s so big that a fraction $\p$ of it ends up being the same number of papers $\N$, and <strong>we review more for nothing $(\propto \N/\p)$</strong>. We’d accept the same amount of papers in each conference! More easily: at the fixed point the number of papers that come in must be the number of papers that come out, that is $\N$. In fact <a href="https://en.wikipedia.org/wiki/Little%27s_law">Little’s Law</a> from queueing theory implies this fact and further generalizations. So:</p>
+
+<div style="text-align: center;">
+    <p>
+    <center>
+    <em>In the ideal case, by reducing the rate of acceptance, we end up accepting the same amount of papers, and we just review more.</em></center></p>
+</div>
+
+<p>Now, what happens if authors do give up?</p>
+
+<hr style="margin-top: 40px; margin-bottom: 40px;" />
+
+<h2 id="if-authors-give-up">If authors give up</h2>
+
+<p>We model papers of three different qualities. Things are similar to before for a relevant interval for $\p$. The simulations yield that a decrease in the rate of acceptance from 35% to 20% increases the number of abandoned bad papers comparably to changing their wait in the pool for two or three rounds. At the same time, it increases the pool size and reviewing load by about 40%, for $T=6$. With the slider, you’ll be able to see other cases. How faithful the model is would require further investigation. But one possible conclusion from it could be:</p>
+
+<p>
+    <center><em>
+We are significantly increasing reviewers' and authors' time trying to prevent a few bad papers to get in, randomly leaving out many acceptable papers in return. Reviewing load is still close to $\propto \N / \p$ so it can increase sharply with low $\p$.
+    </em></center>
+</p>
+
+<p>Here is the model, inspired by the previous <a href="https://blog.neurips.cc/2021/12/08/the-neurips-2021-consistency-experiment/">2014 and 2021 Neurips experiments</a>. Assume there are $\N=5000$ new papers for a sequence of non-overlapping conferences, and we have: great papers, average papers, and bad papers in proportion of 15% / 70% / 15%. We model this by giving them a probability of acceptance proportional to $15, 5$ and $1$, respectively.</p>
+
+<p>At each iteration, we approximate the number of papers in each category that should be accepted, given the quality weights of each category, until we accept a fraction $\p$ of them. Then, we remove them from the pool, and consider them accepted. If a paper stays in the pool for <span id="def_max_retries">$\T$</span>  iterations, it is removed.</p>
+
+<p>The following plot shows the percentage of papers in each category that end up abandoning the pool out of all the papers produced in that category, depending on the rate $\p$, at the system’s equilibrium. Note that the acceptance plot would be the reverse one: papers that are not abandoned are accepted. The second plot is the same but zooming on $\p \in [0.2, 0.35]$. If we compare $p=0.2$ with respect to $p=0.35$ for $\T=6$, the number of bad papers abandoned increases by about 25% from ~61% of the total bad papers to ~77% (~61%*1.25) but for average papers it increases 394% from ~5% to ~24% (and recall there are around 5 times as much average papers as bad papers so the absolute effect is bigger). At the same time reviewing load increases 42.8%, because the pool still increases to something close to $\N / \p$. The numbers change a bit with the value of the uncontrolled variable $\T$. Test it yourself with the slider.</p>
+
+<div id="overall-row">
+  <div class="pct-chart">
+    <canvas id="overall-abandon-chart"></canvas>
+  </div>
+  <div class="pct-chart">
+    <canvas id="overall-abandon-zoom-chart"></canvas>
+  </div>
+</div>
+
+<p>Below, you can see how the size of the pool changes significantly with $\p$. Recall in the ideal case it’s $\N/\p$ and here it is close to it. Do you observe 20K+ submissions on a conference? You are actually seeing ~$\N / \p$, not $\N$, there is a big difference!</p>
+
+<div id="equilibrium-row">
+  <div class="pct-chart">
+    <canvas id="equilibrium-pool-chart"></canvas>
+  </div>
+  <div class="pct-chart">
+    <canvas id="equilibrium-pool-zoom-chart"></canvas>
+  </div>
+</div>
+
+<p>In other words, there is of course, some trade-off. Lower rate of acceptance in this non-ideal case does imply more papers abandon the system and prevents some of the bad papers to get in, but at the expense of significant extra reviewing costs and affecting more to average papers that are left out just by bad luck. See for instance <a href="https://x.com/MarkSchmidtUBC/status/1959302293054275663">this case of NeurIPS 2025</a> where some area chairs were asked to reject papers with good reviews, just to meet a low $\p$. I’ve heard arguments saying that in Machine Learning conferences a higher $\p$ would make the conferences too big for any venue, but this does not take into accoutn that higher rate of acceptance has a reduction effect on the pool of unaccepted papers and does not change absolute acceptances dramatically. And in any case, there are other solutions worth considering such as federated conferences and other models (with an attempt from the <a href="https://eurips.cc/">European NeurIPS 2025 Hub</a>, see also <a href="https://cspaper.org/topic/128/the-ai-conference-bubble-is-about-to-burst-publish-or-perish-at-the-edge-of-collapse">The AI Conference Bubble is About to Burst</a>). Of course, one should be aware that a lower bar could encourage people to submit weaker papers. Also, as you can see in the appendix, the right metric to have in mind is that of <a href="#real_acceptance_rate">effective acceptance rates for these systems</a>. And note that these effective rates can be played by authors by increasing their $\T,$ which only increases the reviewing load.</p>
+
+<p>Any process designed for people will be inherently flawed. But what feels clear to me is that we currently need some changes and this should most likely require:</p>
+
+<ul>
+  <li>Getting people to ask what the community needs and wants.</li>
+  <li>Making quick reviewing experiments outside of conferences to iterate faster. Trusty quick-iteration methods can be borrowed from game development and usability research.</li>
+  <li>Being mindful of resources (papers do not need to have 4-5 reviewers).</li>
+  <li>Don’t be afraid of (tested) change.</li>
+</ul>
+
+<p>What are your thoughts on this? What do you think about this post’s model? Would you change anything about where we stand in the trade-off?</p>
+
+<p><a href="javascript:toggleBibtex('johnson2025optimal')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_johnson2025optimal').textContent, this)" class="noshow flat-button" id="copy_button_johnson2025optimal">📋 copy</button></p>
+<div id="bib_johnson2025optimal" class="bibtex noshow">
+<pre id="pre_johnson2025optimal" class="language-bibtex">
+@misc{martinezrubio-2025-queuing-to-publish
+  title = {Queueing to publish in AI (and CS)},
+  author    = {Mart{\'\i}nez-Rubio, David and Pokutta, Sebastian},
+  year = {2025},
+  month = {09},
+  howpublished = {Blog post},
+  url = {https://damaru2.github.io/general/queueing_to_publish_in_AI_or_CS/},
+}
+</pre>
+</div>
+
+<hr style="margin-top: 30px; margin-bottom: 30px;" />
+
+<h2 id="appendix">Bonus - Interactive Appendix</h2>
+
+<ul>
+  <li>Check <a href="https://www.pokutta.com/blog/little-law-for-conference-review-backlogs/" target="_blank">the post in Sebastian’s blog</a> for the relevant math on Queueing Theory and a cool funnel simulation.</li>
+</ul>
+
+<!--- + If we had one single quality category, one can compute that if people give up after $\T$ calls, then the size of the pool converges to $ \N \frac{1-(1-\p)^\T}{\p}$, the rate of accepted papers is $1 - (1-\p)^\T$ and thus the rate of abandonment is $(1-\p)^\T$. Acceptances rise only moderately with $\p$ but the pool size and review volume drop sharply, as also observed in the simulation. It is a simple consequence of the model and can also be obtained using queueing theory. We could even apply Little's Law for each individual class but the computations are more messy.
+--->
+
+<ul>
+  <li><strong>Simulation.</strong> The system essentially stabilizes after $\T+1$ iterations. One can observe other natural phenomena, such as a great reduction in the absolute number of average papers that were rejected merely due to bad luck wrt the others, when $\p$ increases to $0.35$. One can observe how much the black line of waiting papers decreases when acceptance rate is increased.</li>
+</ul>
+
+<div class="controls" id="p-controls">
+  <div class="control">
+    <label>p (<span id="pVal">0.25</span>)</label>
+    <input id="p" type="range" min="0.20" max="0.70" step="0.05" value="0.25" autocomplete="off" />
+  </div>
+</div>
+<div id="chart-container">
+  <canvas id="chart"></canvas>
+</div>
+
+<div id="chart-mobile-caption">
+  <b>Axes:</b> Left y: Waiting papers. Right y: Accepted (up) &amp; Abandoned (down).
+</div>
+
+<div><p> </p></div>
+
+<ul>
+  <li>
+    <p><strong>Growth over time.</strong> You can also play with what happens if you assume a $2\%$ growth by checking this box
+  <input id="growth" type="checkbox" />, but the conclusions are essentially the same since the new equilibria are tracked fast. Note that the observed growth in submitted papers is approximately that $2\%$ as well but this number is approximately $1/\p$ times the new papers that are produced. <strong>Huge submission counts are inflated by acceptance rates.</strong></p>
+  </li>
+  <li>
+    <p><span id="real_acceptance_rate"></span><strong>Real acceptance rate: much higher than one conference’s rate, since authors resubmit.</strong> Clearly not 20% of newly produced papers are accepted if $\p=0.2$. Every conference, we’d actually accept 20% of a pool that has been artificially inflated by rejecting many previous papers. Below you can see the final acceptance rate if authors only give up after $\T$ iterations: the area under the curve shows contributions by quality. Compare how it changes with $\T$ using the slider.</p>
+  </li>
+</ul>
+
+<div id="final-acceptance-row">
+  <div class="pct-chart">
+    <canvas id="final-acceptance-rate-chart"></canvas>
+  </div>
+  <div class="pct-chart">
+    <canvas id="final-acceptance-rate-zoom-chart"></canvas>
+  </div>
+</div>
+
+<ul>
+  <li><strong>Quality of accepted / abandoned papers:</strong> On the first plot, we show the categories for the overall accepted paper count given $\p$, in percentage. On the second plot, we show the same for abandoned papers. Lower acceptance rate (that increases the pool size and  reviewer load) generally increases the quality of <strong>both</strong> accepted and abandoned papers, in proportion. <small>Also, fact: For large $\T$, when $\p \to 1$ in the first case or $\p\to 0$ in the second, it’s essentially the 15%–70%–15% split of the original distribution.</small></li>
+</ul>
+
+<div id="percentages-chart-container">
+  <div class="pct-chart">
+    <canvas id="percentages-accepted-chart"></canvas>
+  </div>
+  <div class="pct-chart">
+    <canvas id="percentages-abandoned-chart"></canvas>
+  </div>
+</div>
+
+<p><strong>Acknowledgements:</strong> We want to thank José Céspedes Martínez for proofreading and writing suggestions.</p>
+
+<!-- Floating controls -->
+<div id="floating-controls" role="region" aria-label="Simulation controls">
+ <div class="control">
+    <label>
+      <span class="em">$\T$=<span id="tVal">6</span></span>.
+      <span class="note">(What's $\T$? Click on it, <a href="../notations_with_links/" style="color: blue; text-decoration: underline;" target="_blank">or on any math</a>)</span>
+    </label>
+   <input id="t" type="range" min="3" max="9" step="1" value="6" autocomplete="off" />
+ </div>
+ <button id="reset" type="button" title="Reset to defaults">Reset all</button>
+</div>
+
+<script src="/assets/conferences_evolution_precomp.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+    button.noshow { display: none; }
+    button.flat-button {
+      background-color: #f0f0f0; /* Light gray background */
+      border: none;
+      cursor: pointer;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+    div.noshow { display: none; }
+    div.bibtex {
+        margin-right: 0%;
+        margin-top: 1.2em;
+        margin-bottom: 1em;
+        border: 1px solid silver;
+        padding: 0em 1em;
+        background: #ffffee;
+    }
+    div.bibtex pre { font-size: 75%; overflow: auto;  width: 100%; padding: 0em 0em;}
+
+
+    body { font-family: sans-serif; margin: 20px; }
+    .controls { display: flex; gap: 20px; margin-bottom: 10px; }
+    .control { display: flex; flex-direction: column; align-items: flex-start; }
+    #chart-container { max-width: 800px; height: 360px; margin-bottom: 40px; }
+    #overall-row, #equilibrium-row { display: flex; gap: 20px; max-width: 800px; margin-bottom: 40px; }
+    #percentages-chart-container { display: flex; gap: 20px; max-width: 800px; margin-bottom: 40px; }
+    canvas { width: 100%; height: 100%; display:block;}
+
+    #floating-controls .control label { font-weight: normal; }  /* neutral baseline */
+    #floating-controls .control label .em   { font-weight: 600; }  /* keep T=6 bold if you like */
+    #floating-controls .control label .note { font-weight: 400; opacity:.85; }
+
+    /* Final acceptance row same sizing as two-up rows */
+    #overall-row,
+    #equilibrium-row,
+    #percentages-chart-container,
+    #final-acceptance-row {
+      display: grid !important;           /* override earlier flex */
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+    .pct-chart { height: 300px; }
+
+    /* Floating controls */
+    #floating-controls{
+      position:fixed; bottom:16px; right:16px; z-index:9999;
+      background:rgba(255,255,255,.9); backdrop-filter:blur(6px);
+      border:1px solid #ddd; border-radius:12px; padding:10px 12px;
+      box-shadow:0 4px 18px rgba(0,0,0,.08);
+      display:flex; gap:16px; align-items:center;
+    }
+    #floating-controls .control label{ font-size:12px; margin-bottom:4px; }
+    #floating-controls input[type="range"]{ width:180px; }
+    #floating-controls button {
+      appearance:none; -webkit-appearance:none;
+      border:1px solid #ccc; border-radius:8px; padding:6px 10px;
+      background:#fff; cursor:pointer; font-size:12px;
+    }
+    #floating-controls button:hover { background:#f5f5f5; }
+    #p-controls .control { align-items: stretch; } /* allow full-width children */
+    #p-controls input[type="range"] { width: 260px; max-width: 140%; }
+    @media (max-width: 800px) {
+      #p-controls input[type="range"] { width: 140%; } /* as wide as the text block */
+    }
+
+    /* Bonus list spacing 
+    .bonus-list { max-width: 800px; padding-left: 1.2rem; }
+    .bonus-list > li { margin-bottom: 28px; }
+
+    .bonus-collapsible { max-width: 800px; }
+    .bonus-collapsible > summary {
+      font-size: 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 10px;
+      list-style: none;           // hide default marker in some browsers
+    }
+    .bonus-collapsible > summary::-webkit-details-marker { display: none; } // Chrome/Safari
+    .bonus-collapsible > summary::before { content: "▸ "; }
+    .bonus-collapsible[open] > summary::before { content: "▾ "; }
+    .bonus-collapsible { margin-bottom: 120px; }  // tweak value to taste 
+    @media (max-width: 640px) {
+      .bonus-collapsible { margin-bottom: 160px; } // a bit more on small screens 
+    }
+     */
+
+    /* Interlude image between sections */
+    .interlude-figure{
+      max-width: 800px;
+      margin: 24px 0 32px;
+    }
+    .interlude-figure img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;        /* optional */
+      box-shadow: 0 6px 20px rgba(0,0,0,.08); /* optional */
+    }
+    .interlude-caption{
+      color:#555;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+    #chart-container { max-width: 800px; height: 360px; margin-bottom: 40px; }
+
+    #p-controls input[type="range"] { width: 100%; }                 /* slider as wide as its text block */
+
+    /* Desktop/tablet: hide caption */
+    #chart-mobile-caption{
+      display: none;
+      color: #666;
+      font-size: .9rem;
+      line-height: 1.4;
+      margin: 10px 0 30px;  /* extra bottom gap so it doesn't crowd next paragraph */
+    }
+ 
+    /* Stack side-by-side charts vertically on small screens */
+    @media (max-width: 800px) {
+      /* Rows that use flex → stack */
+      #overall-row,
+      #equilibrium-row,
+      #percentages-chart-container {
+        flex-direction: column;
+      }
+
+      /* stack two-up rows vertically */
+      #overall-row,
+      #equilibrium-row,
+      #percentages-chart-container{
+        flex-direction: column;
+      }
+      /* Row that uses grid → single column */
+      #overall-row,
+      #equilibrium-row,
+      #percentages-chart-container,
+      #final-acceptance-row {
+        grid-template-columns: 1fr;
+      }
+    
+      /* taller charts on phones using viewport height */
+      .pct-chart{ height: min(42vh, 520px); }
+      #chart-container{ max-width:100%; height: min(48vh, 600px); }
+    
+      /* slider full-width on phones */
+      #p-controls .control{ align-items: stretch; }
+      #p-controls input[type="range"]{ width:100%; max-width:100%; }
+    
+      /* show caption only on mobile */
+      #chart-mobile-caption{ display:block; margin-top:8px; margin-bottom:32px; }
+ 
+     }
+          
+  </style>
+
+<script>
+
+    if (window.Chart) {
+      Chart.defaults.plugins.legend.onClick = () => {};   // no-op
+    }
+
+    // === Helpers ===
+
+    // --- PRECOMP accessors ---
+    const getLimit = (T) => {
+      const P = window.PRECOMP;
+      if (!P) return null;
+      const tKey = String(T);
+      return { pAxis: P.meta.pDense, D: P.limit.T[tKey] };
+    };
+
+    const getMain = (T, p, growthEnabled) => {
+      const P = window.PRECOMP;
+      if (!P) return null;
+      const tKey = String(T);
+      const gKey = growthEnabled ? 'g1' : 'g0';
+      const pKey = Number(p).toFixed(2);  // matches precomputed keys
+      return P.main.T[tKey]?.[gKey]?.[pKey] || null;
+    };
+
+
+    const is05 = (ctx) => Math.round((ctx.parsed?.x ?? (ctx.raw?.x ?? NaN)) * 100) % 5 === 0;
+    const pointAt05  = (ctx) => is05(ctx) ? 4 : 0;   // visible dots at 0.05
+    const hoverAt05  = (ctx) => is05(ctx) ? 7 : 0;   // larger on hover
+    const hitAt05    = (ctx) => is05(ctx) ? 14 : 6;  // easier finger taps
+
+    const compactFmt = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+    const compact = (v) => compactFmt.format(v).replace('K','k').replace('M','m').replace('B','b');
+    const isMobile = () => window.matchMedia('(max-width: 800px)').matches;
+    function findY(series, x) {
+      let best = null, bestd = Infinity;
+      for (const pt of series) {
+        const d = Math.abs(pt.x - x);
+        if (d < bestd) { best = pt; bestd = d; }
+      }
+      return best ? best.y : NaN;
+    }
+    function stackedAcceptanceTooltipLabel(ctx) {
+      const { chart, datasetIndex, parsed } = ctx;
+      const x = parsed.x;
+      const yBad    = findY(chart.data.datasets[0].data, x);
+      const yBadAvg = findY(chart.data.datasets[1].data, x);
+      const yTotal  = findY(chart.data.datasets[2].data, x);
+      let name, val;
+      if (datasetIndex === 0) { name = 'Bad';     val = yBad; }
+      else if (datasetIndex === 1) { name = 'Average'; val = yBadAvg - yBad; }
+      else { name = 'Great'; val = yTotal - yBadAvg; }
+      return `${name}: ${val.toFixed(2)}%`;
+    }
+    // Show a point at 4 x positions: left, left+span/3, left+2*span/3, right
+    // =================
+
+
+    // ==== Simulation parameters. Not actually used anymore when loading since I precomputed the data. This is for future changes or for external people to check the code  ====
+    const K = 20;                 // Iterations for main/most charts
+    const K_LIMIT = 2000;           // Near-limit horizon, it's big to avoid the effect of the papers in the pool to the limit ratios. It could also be done more efficiently and almost as accurately if I just took the last value after low K iterations, as the limit value, instead of the full sums. But whatever, I'm precomputing it anyways
+    const N = 5000;               // Base entrants per step
+    const DEFAULT_P = 0.25;
+    const DEFAULT_T = 6;
+    const DEFAULT_GROWTH = (document.getElementById('growth')?.defaultChecked) ?? false;
+    const categories = ["Bad Papers", "Average Papers", "Great Papers"];
+    const qualityValues = [1, 5, 15];   // Used for weighted acceptance
+    const qualityProbs = [0.15, 0.70, 0.15];
+    const acceptedColors = ['rgba(255,99,132,1)', 'rgba(54,162,235,1)', 'rgba(75,192,192,1)'];   // [Bad, Avg, Great]
+    const abandonColors  = ['rgba(255,99,132,0.6)', 'rgba(54,162,235,0.6)', 'rgba(75,192,192,0.6)'];
+
+    // Distribute 'total' into bins by 'weights', capped by 'capacity'
+    function distributeWithCap(total, weights, capacity) {
+      const sumW = weights.reduce((a,b)=>a+b,0);
+      const norm = sumW>0 ? weights.map(w=>w/sumW) : weights.map(_=>1/weights.length);
+      const exact = norm.map(w=>w*total);
+      let alloc = exact.map((v,i)=>Math.min(Math.floor(v), capacity[i]));
+      const assigned = alloc.reduce((a,b)=>a+b,0);
+      let rem = total - assigned;
+      const remainders = exact.map((v,i)=>({idx:i, frac:v-alloc[i], capLeft:capacity[i]-alloc[i]}))
+         .filter(x=>x.capLeft>0).sort((a,b)=>b.frac-a.frac);
+      for(let i=0;i<rem && i<remainders.length;i++) alloc[remainders[i].idx]++;
+      return alloc;
+    }
+
+    /**
+     * Simulate the paper pool dynamics for a given number of steps.
+     * 1) Abandon old papers at age T
+     * 2) Age remaining
+     * 3) Accept p fraction weighted by quality
+     * 4) Remove accepted, then add new entrants
+     * If growthEnabled, entrants grow by 2% each step.
+     */
+    function simulateFull(p, T, growthEnabled, steps = K) {
+      let counts = categories.map(_=>Array(T+1).fill(0));
+      const sizes = [];
+      const accepted = categories.map(_=>[]);
+      const abandons = categories.map(_=>[]);
+      const entrants = categories.map(_=>[]);
+      let currN = N;
+
+      for(let step=0; step<steps; step++) {
+        // Record abandons before aging
+        categories.forEach((_,i)=> abandons[i].push(counts[i][T]));
+        // Age papers
+        let aged = categories.map(_=>Array(T+1).fill(0));
+        categories.forEach((_,i)=>{ for(let a=T;a>0;a--) aged[i][a] = counts[i][a-1]; });
+        counts = aged;
+        // Determine accepts
+        const totalByCat = counts.map(arr=>arr.reduce((s,v)=>s+v,0));
+        const totalCount = totalByCat.reduce((a,b)=>a+b,0);
+        const toAccept = Math.floor(p * totalCount);
+        const weights = qualityValues.map((q,i)=> totalByCat[i]*q);
+        const acceptDist = distributeWithCap(toAccept, weights, totalByCat);
+        acceptDist.forEach((v,i)=> accepted[i].push(v));
+        // Remove accepted
+        let post = categories.map(_=>Array(T+1).fill(0));
+        categories.forEach((_,i)=>{
+          const surv = totalByCat[i] - acceptDist[i];
+          post[i] = distributeWithCap(surv, counts[i], counts[i]);
+        });
+        counts = post;
+        // Add new entrants
+        const newDist = distributeWithCap(currN, qualityProbs, [currN,currN,currN]);
+        newDist.forEach((v,i)=>{ entrants[i].push(v); counts[i][0]+=v; });
+        // Update currN if growth enabled
+        if(growthEnabled) currN *= 1.02;
+        // Record size
+        sizes.push(counts.flat().reduce((a,b)=>a+b,0));
+      }
+      return { sizes, accepted, abandons, entrants };
+    }
+
+     // ===== PRECOMPUTE & CACHE (use K for main time-series, K_LIMIT elsewhere) =====
+     const P_GRID      = Array.from({length:100}, (_,i)=> (i+1)/100);                 // 0.01..1.00
+     const P_SIM_GRID  = Array.from({length:11},  (_,i)=> +(0.20 + 0.05*i).toFixed(2)); // 0.20..0.70
+     const T_GRID      = [3,4,5,6,7,8,9];
+     const CACHE_VER   = 'v2';                 // bump to invalidate older cache
+     const CACHE_KEY   = 'SIMCACHE_'+CACHE_VER;
+     let   PRECOMP     = null;
+     
+     function precomputeNow(){
+       const out = { K, K_LIMIT, N, P_GRID, P_SIM_GRID, T_GRID, data:{} };
+     
+       for (const T of T_GRID){
+         out.data[T] = { 0:{}, 1:{}, limit:{} };
+     
+         for (const g of [0,1]){
+           const growth = !!g;
+           const branch = out.data[T][g] = { main:{}, pct:{ acc:[], abn:[], overall:[], pool:[] } };
+     
+           // MAIN CHART: uses K (fast time-series for the slider p's)
+           for (const p of P_SIM_GRID){
+             const sim = simulateFull(p, T, growth, K);
+             branch.main[p.toFixed(2)] = {
+               sizes: sim.sizes,                 // [K]
+               accepted: sim.accepted,           // [3][K]
+               abandons: sim.abandons            // [3][K]
+             };
+           }
+     
+           // ALL "vs p" CHARTS: use K_LIMIT (near-limit behavior)
+           for (const p of P_GRID){
+             const sim = simulateFull(p, T, growth, K_LIMIT);
+     
+             // Percent accepted/abandoned across the horizon (sum over K_LIMIT)
+             const sumAcc = sim.accepted.flat().reduce((a,b)=>a+b,0) || 1;
+             const sumAbn = sim.abandons.flat().reduce((a,b)=>a+b,0) || 1;
+     
+             const accPct = sim.accepted.map(cat => 100 * cat.reduce((a,b)=>a+b,0) / sumAcc); // [3]
+             const abnPct = sim.abandons.map(cat => 100 * cat.reduce((a,b)=>a+b,0) / sumAbn); // [3]
+     
+             // Overall % abandoned per class = total abandoned / total entrants (over K_LIMIT)
+             const entrantsTotals = sim.entrants.map(cat => cat.reduce((a,b)=>a+b,0) || 1);
+             const overall = sim.abandons.map((cat,i)=> 100 * cat.reduce((a,b)=>a+b,0) / entrantsTotals[i]); // [3]
+     
+             // Pool size "at equilibrium" = last step of K_LIMIT
+             const poolAtLimit = sim.sizes[K_LIMIT - 1] || 0;
+     
+             branch.pct.acc.push(accPct);
+             branch.pct.abn.push(abnPct);
+             branch.pct.overall.push(overall);
+             branch.pct.pool.push(poolAtLimit);
+           }
+         }
+     
+         // LIMIT acceptance stacks (always growth=false), also K_LIMIT
+         const limit = out.data[T].limit = { bad:[], avgcum:[], total:[] };
+         for (const p of P_GRID){
+           const simL = simulateFull(p, T, false, K_LIMIT);
+     
+           // Per-step accepted at the last step
+           const accLastByCat = simL.accepted.map(a => a[K_LIMIT - 1] || 0);       // [bad, avg, great]
+           const entrantsLastByCat = simL.entrants.map(a => a[K_LIMIT - 1] || 0);
+           const entrantsTotal = entrantsLastByCat.reduce((a,b)=>a+b,0) || 1;
+     
+           const pctBad   = 100 * accLastByCat[0] / entrantsTotal;
+           const pctAvg   = 100 * accLastByCat[1] / entrantsTotal;
+           const pctGreat = 100 * accLastByCat[2] / entrantsTotal;
+     
+           limit.bad.push(pctBad);
+           limit.avgcum.push(pctBad + pctAvg);
+           limit.total.push(pctBad + pctAvg + pctGreat);
+         }
+       }
+       return out;
+     }
+     
+     
+
+    // DOM elements
+    const pSlider = document.getElementById('p'), pDisplay = document.getElementById('pVal');
+    const tSlider = document.getElementById('t'), tDisplay = document.getElementById('tVal');
+    const growthCheckbox = document.getElementById('growth');
+    const resetBtn = document.getElementById('reset');
+
+    // MAIN CHART: Waiting Papers + Accepted/Abandoned Bars
+    const chartMain = new Chart(document.getElementById('chart').getContext('2d'), {
+      data: {
+        labels: Array.from({length:K},(_,i)=>i+1),
+        datasets: [
+             {
+               type:'line',
+               label:'Waiting Papers',
+               yAxisID:'A',
+               data:[],
+               borderColor:'#000',        // line color
+               backgroundColor:'#000',    // legend fill color (required for solid black dot)
+               pointBackgroundColor:'#000',
+               pointBorderColor:'#000',
+               pointStyle:'circle',       // legend uses this when usePointStyle=true
+               fill:false,
+               pointRadius:0
+             },
+          // Accepted (up)
+          ...categories.map((cat,i)=>(
+            { type:'bar', label:`Accepted - ${cat}`, yAxisID:'B', data:[], backgroundColor:acceptedColors[i], stack:'papers' }
+          )),
+          // Abandoned (down, negative)
+          ...categories.map((cat,i)=>(
+            { type:'bar', label:`Abandoned - ${cat}`, yAxisID:'B', data:[], backgroundColor:abandonColors[i], stack:'papers' }
+          ))
+        ]
+      },
+      options: {
+        maintainAspectRatio:false,
+        scales:{
+          A:{
+            type:'linear',
+            position:'left',
+            title:{ display:true, text:'Waiting Papers' },
+            min: 0,
+            max: 25000,
+            ticks: { callback: (v)=>compact(v) }
+          },
+          B:{
+            type:'linear',
+            position:'right',
+            stacked:true,
+            title:{ display:true, text:'Accepted (up) & Abandoned (down)' },
+            min:-N / 5 * 3.5,
+            max:N / 2 * 3.2,
+            ticks: { callback: (v)=>compact(Math.abs(v)) } // show 'k' without negative sign
+          }
+        },
+       plugins:{ legend:{ position:'bottom', onClick:null, labels:{ usePointStyle:true } } }
+      }
+    });
+
+
+    // === Mobile tweaks ===
+    function applyMobileAxisTitles() {
+      const mobile = isMobile();
+      // main chart: hide axis titles on phones
+      chartMain.options.scales.A.title.display = !mobile;
+      chartMain.options.scales.B.title.display = !mobile;
+      chartMain.update('none');
+    }
+    window.addEventListener('resize', applyMobileAxisTitles);
+    applyMobileAxisTitles(); // call once on load
+   //  =====================
+
+    function redrawMain() {
+      const p = +pSlider.value;
+      const T = +tSlider.value;
+      const growthEnabled = !!(growthCheckbox && growthCheckbox.checked);
+
+      const M = getMain(T, p, growthEnabled);
+      if (!M) {
+        // Fallback so UI keeps working even if PRECOMP.main missing/out-of-order
+        console.warn('PRECOMP main missing; falling back to simulateFull for MAIN chart');
+        const sim = simulateFull(p, T, growthEnabled, K);
+        chartMain.data.datasets[0].data = sim.sizes;
+        for (let i=0;i<3;i++) chartMain.data.datasets[1+i].data = sim.accepted[i];
+        for (let i=0;i<3;i++) chartMain.data.datasets[1+3+i].data = sim.abandons[i].map(v=>-v);
+        chartMain.update();
+        return;
+      }
+
+      chartMain.data.datasets[0].data = M.sizes;
+      for (let i=0;i<3;i++) chartMain.data.datasets[1+i].data = M.acc[i];
+      for (let i=0;i<3;i++) chartMain.data.datasets[1+3+i].data = M.abn[i].map(v=>-v);
+      chartMain.update();
+    }
+
+    // p grid (0.01 to 1.00 step 0.01)
+    const pValues = Array.from({length:100},(_,i)=>(i+1)/100);
+
+    // % Accepted vs p
+    const chartAcc = new Chart(document.getElementById('percentages-accepted-chart').getContext('2d'),{
+      type:'line',
+      data:{ datasets: categories.map((cat,i)=>(
+        { label:`Accepted % - ${cat}`, data:[], borderColor:acceptedColors[i], fill:false, pointRadius:0 }
+      )) },
+      options:{
+        maintainAspectRatio:false,
+        scales:{
+          x:{ type:'linear', title:{ display:true, text:'p'}, min:0.01, max:1, ticks:{ stepSize:0.01 } },
+          y:{ title:{ display:true, text:'% Class in Accepted'}, min:0, max:100 }
+        },
+        plugins:{ legend:{ position:'bottom' } }
+      }
+    });
+
+    // % Abandoned vs p
+    const chartAbn = new Chart(document.getElementById('percentages-abandoned-chart').getContext('2d'),{
+      type:'line',
+      data:{ datasets: categories.map((cat,i)=>(
+        { label:`Abandoned % - ${cat}`, data:[], borderColor:abandonColors[i], fill:false, pointRadius:0 }
+      )) },
+      options:{
+        maintainAspectRatio:false,
+        scales:{
+          x:{ type:'linear', title:{ display:true, text:'p'}, min:0.01, max:1, ticks:{ stepSize:0.01 } },
+          y:{ title:{ display:true, text:'% Class in Abandoned'}, min:0, max:100 }
+        },
+        plugins:{ legend:{ position:'bottom' } }
+      }
+    });
+
+    // Overall % Papers Abandoned vs p
+    const chartOverall = new Chart(document.getElementById('overall-abandon-chart').getContext('2d'),{
+      type:'line',
+      data:{
+        datasets: categories.map((cat,i)=>(
+          {
+            label: `${cat}`,
+            data: [],
+            borderColor: abandonColors[i],
+            fill: false,
+            pointStyle: 'circle',
+            pointRadius: pointAt05,
+            pointHoverRadius: hoverAt05,
+            hitRadius: hitAt05
+          }
+        ))
+      },
+      options:{
+        maintainAspectRatio:false,
+        scales:{
+          x:{ type:'linear', title:{ display:true, text:'p'}, min:0.01, max:1, ticks:{ stepSize:0.01 } },
+          y:{ title:{ display:true, text:"% Abandoned overall"}, min:0, max:100 }
+        },
+        plugins:{ legend:{ position:'bottom' } }
+      }
+    });
+
+    // Zoomed overall (p from 0.20 to 0.35)
+    const chartOverallZoom = new Chart(document.getElementById('overall-abandon-zoom-chart').getContext('2d'),{
+      type:'line',
+      data:{
+        datasets: categories.map((cat,i)=>(
+          {
+            label: `${cat}`,
+            data: [],
+            borderColor: abandonColors[i],
+            fill: false,
+            pointStyle: 'circle',
+            pointRadius: pointAt05,
+            pointHoverRadius: hoverAt05,
+            hitRadius: hitAt05
+          }
+        ))
+      },
+      options:{
+        maintainAspectRatio:false,
+        scales:{
+          x:{ type:'linear', title:{ display:true, text:'p'}, min:0.20, max:0.35, ticks:{ stepSize:0.01 } },
+          y:{ title:{ display:true, text:"% Abandoned overall"}, min:0, max:100 }
+        },
+        plugins:{ legend:{ position:'bottom' } }
+      }
+    });
+
+
+    // Pool at equilibrium (after 20 iterations) vs p
+    const chartPoolEq = new Chart(document.getElementById('equilibrium-pool-chart').getContext('2d'),{
+      type:'line',
+      data:{ datasets:[{
+        label:'Waiting papers vs p',
+        data:[],
+        borderColor:'#000',
+        backgroundColor:'#000',       // <- ensures legend dot fill = black
+        pointBackgroundColor:'#000',  // <- legend point fill when using pointStyle
+        pointBorderColor:'#000',
+        pointStyle:'circle',
+        pointRadius:0,
+        fill:false
+      }] },
+      options:{
+        maintainAspectRatio:false,
+        scales:{
+          x:{ type:'linear', title:{ display:true, text:'p' }, min:0.01, max:1, ticks:{ stepSize:0.01 } },
+          y:{ title:{ display:true, text:'Waiting Papers at Equilibrium' } }
+        },
+       plugins:{ legend:{ position:'bottom', labels:{ usePointStyle:true } } }
+      }
+    });
+
+    // Pool at equilibrium vs p (0.20 .. 0.35)
+    const chartPoolEqZoom = new Chart(document.getElementById('equilibrium-pool-zoom-chart').getContext('2d'),{
+      type:'line',
+      data:{ datasets:[{
+        label:'Waiting papers vs p',
+        data:[],
+        borderColor:'#000',
+        backgroundColor:'#000',       // <- ensures legend dot fill = black
+        pointBackgroundColor:'#000',  // <- legend point fill when using pointStyle
+        pointBorderColor:'#000',
+        pointStyle:'circle',
+        pointRadius:0,
+        fill:false
+      }] },
+      options:{
+        maintainAspectRatio:false,
+        scales:{
+          x:{ type:'linear', title:{ display:true, text:'p' }, min:0.20, max:0.35, ticks:{ stepSize:0.01 } },
+          y:{ title:{ display:true, text:'Waiting Papers at Equilibrium' } }
+        },
+       plugins:{ legend:{ position:'bottom', labels:{ usePointStyle:true } } }
+      }
+    });
+
+    // Final near-limit acceptance (stacked only)
+    const chartFinalAcc = new Chart(document.getElementById('final-acceptance-rate-chart').getContext('2d'),{
+      type:'line',
+      data:{
+        datasets:[
+          // Stacked acceptance fill (Great bottom, then Great+Average, then Total)
+// helper to test multiples of 0.05 robustly
+
+{ label:'Bad',
+  data:[],
+  borderColor:acceptedColors[0],
+  backgroundColor:acceptedColors[0],
+  fill:true,
+  pointRadius: (ctx) => is05(ctx) ? 4 : 0,
+  pointHoverRadius: (ctx) => is05(ctx) ? 6 : 0,
+  hitRadius: (ctx) => is05(ctx) ? 10 : 0,
+  order:1
+},
+{ label:'Bad+Average',
+  data:[],
+  borderColor:acceptedColors[1],
+  backgroundColor:acceptedColors[1],
+  fill:{target:'-1'},
+  pointRadius: (ctx) => is05(ctx) ? 4 : 0,
+  pointHoverRadius: (ctx) => is05(ctx) ? 6 : 0,
+  hitRadius: (ctx) => is05(ctx) ? 10 : 0,
+  order:2
+},
+{ label:'Acceptance total (B+A+G)',
+  data:[],
+  borderColor:acceptedColors[2],
+  backgroundColor:acceptedColors[2],
+  fill:{target:'-1'},
+  pointRadius: (ctx) => is05(ctx) ? 4 : 0,
+  pointHoverRadius: (ctx) => is05(ctx) ? 6 : 0,
+  hitRadius: (ctx) => is05(ctx) ? 10 : 0,
+  order:3
+}
+     
+        ]
+      },
+      options:{
+        maintainAspectRatio:false,
+        scales:{
+          x:{ type:'linear', title:{ display:true, text:'p'}, min:0.01, max:1, ticks:{ stepSize:0.01 } },
+          y:{ title:{ display:true, text:'Acceptance (%)'}, min:0, max:100 }
+        },
+          plugins: { 
+            legend: { position:'bottom' },
+            tooltip: {
+              callbacks: {
+                // Title shows the y-value at the cursor (the “height”)
+                title: (items)=> items.length ? `Cumul.:${items[0].parsed.y.toFixed(2)}%;x=${items[0].parsed.x.toFixed(2)}` : '',
+                // Label shows the per-class acceptance (not cumulative)
+                label: stackedAcceptanceTooltipLabel
+              }
+            }
+          }
+      }
+    });
+
+    const chartFinalAccZoom = new Chart(
+      document.getElementById('final-acceptance-rate-zoom-chart').getContext('2d'),
+      {
+        type: 'line',
+        data: {
+          datasets: [
+                // If your last chart shows Bad at bottom:
+            { 
+              label:'Bad',
+              data:[],
+              borderColor:acceptedColors[0],
+              backgroundColor:acceptedColors[0],
+              fill:true,
+              pointRadius:(ctx)=>is05(ctx)?5:0,
+              pointHoverRadius:(ctx)=>is05(ctx)?7:0,
+              pointHitRadius:(ctx)=>is05(ctx)?16:0,
+              pointBackgroundColor:(ctx)=>ctx.dataset.borderColor,
+              pointBorderColor:(ctx)=>ctx.dataset.borderColor,
+              order:1
+            },
+            { 
+              label:'Bad+Average',
+              data:[],
+              borderColor:acceptedColors[1],
+              backgroundColor:acceptedColors[1],
+              fill:{target:'-1'},
+              pointRadius:(ctx)=>is05(ctx)?5:0,
+              pointHoverRadius:(ctx)=>is05(ctx)?7:0,
+              pointHitRadius:(ctx)=>is05(ctx)?16:0,
+              pointBackgroundColor:(ctx)=>ctx.dataset.borderColor,
+              pointBorderColor:(ctx)=>ctx.dataset.borderColor,
+              order:2
+            },
+            { 
+              label:'Acceptance total (B+A+G)',
+              data:[],
+              borderColor:acceptedColors[2],
+              backgroundColor:acceptedColors[2],
+              fill:{target:'-1'},
+              pointRadius:(ctx)=>is05(ctx)?5:0,
+              pointHoverRadius:(ctx)=>is05(ctx)?7:0,
+              pointHitRadius:(ctx)=>is05(ctx)?16:0,
+              pointBackgroundColor:(ctx)=>ctx.dataset.borderColor,
+              pointBorderColor:(ctx)=>ctx.dataset.borderColor,
+              order:3
+            },
+              ]
+            },
+            options: {
+              maintainAspectRatio: false,
+              scales: {
+                x: { type:'linear', title:{ display:true, text:'p (zoom 0.20–0.35)' }, min:0.20, max:0.35, ticks:{ stepSize:0.01 } },
+                y: { title:{ display:true, text:'Acceptance (%)' }, min:0, max:100 }
+              },
+              plugins: { 
+                legend: { position:'bottom' },
+                tooltip: {
+                  callbacks: {
+                    // Title shows the y-value at the cursor (the “height”)
+                    title: (items)=> items.length ? `Cumul.:${items[0].parsed.y.toFixed(2)}%;x=${items[0].parsed.x.toFixed(2)}` : '',
+                    // Label shows the per-class acceptance (not cumulative)
+                    label: stackedAcceptanceTooltipLabel
+                  }
+                }
+              }
+            }
+          }
+        );
+
+
+        // Update all p-dependent charts
+        function redrawPct() {
+          const T = +tSlider.value;
+          const L = getLimit(T);
+          if (!L) { console.error('Missing PRECOMP limit T', T); return; }
+          const { pAxis, D } = L;
+
+          // Accepted composition
+          D.acceptedShareByClass.forEach((arr,i)=>{
+            chartAcc.data.datasets[i].data = pAxis.map((x,idx)=>({x, y: arr[idx]}));
+          });
+          // Abandoned composition
+          D.abandonedShareByClass.forEach((arr,i)=>{
+            chartAbn.data.datasets[i].data = pAxis.map((x,idx)=>({x, y: arr[idx]}));
+          });
+          // Overall abandoned per class (for both zoom and full)
+          D.overallAbandonedPctByClass.forEach((arr,i)=>{
+            const series = pAxis.map((x,idx)=>({x, y: arr[idx]}));
+            chartOverall.data.datasets[i].data = series;
+            chartOverallZoom.data.datasets[i].data = series;
+          });
+          // Equilibrium pool
+          const eq = pAxis.map((x,idx)=>({x, y: D.eqPool[idx]}));
+          chartPoolEq.data.datasets[0].data = eq;
+          chartPoolEqZoom.data.datasets[0].data = eq;
+
+          // Final acceptance (cumulative stacked)
+          chartFinalAcc.data.datasets[0].data = pAxis.map((x,idx)=>({x, y: D.finalAcceptanceCumulative.bad[idx]}));
+          chartFinalAcc.data.datasets[1].data = pAxis.map((x,idx)=>({x, y: D.finalAcceptanceCumulative.badAvg[idx]}));
+          chartFinalAcc.data.datasets[2].data = pAxis.map((x,idx)=>({x, y: D.finalAcceptanceCumulative.total[idx]}));
+
+          chartFinalAccZoom.data.datasets[0].data = chartFinalAcc.data.datasets[0].data;
+          chartFinalAccZoom.data.datasets[1].data = chartFinalAcc.data.datasets[1].data;
+          chartFinalAccZoom.data.datasets[2].data = chartFinalAcc.data.datasets[2].data;
+
+          // updates
+          chartAcc.update(); chartAbn.update();
+          chartOverall.update(); chartOverallZoom.update();
+          chartPoolEq.update(); chartPoolEqZoom.update();
+          chartFinalAcc.update(); chartFinalAccZoom.update();
+        }
+
+        // --- Keep slider labels in sync ---
+        function updateSliderLabels() {
+          if (pDisplay) pDisplay.textContent = (+pSlider.value).toFixed(2); // #pVal
+          if (tDisplay) tDisplay.textContent = String(+tSlider.value);      // #tVal
+        }
+        
+        // One handler for any control change
+        function onControlsChange() {
+          updateSliderLabels();
+          redrawMain();
+          redrawPct();
+        }
+        
+        // Wire events (input + change)
+        ['input','change'].forEach(evt => {
+          if (pSlider) pSlider.addEventListener(evt, onControlsChange);
+          if (tSlider) tSlider.addEventListener(evt, onControlsChange);
+          if (growthCheckbox) growthCheckbox.addEventListener(evt, onControlsChange);
+        });
+        
+        // Reset -> set values, then update UI + charts
+        if (resetBtn) resetBtn.addEventListener('click', () => {
+          if (pSlider) pSlider.value = Number(DEFAULT_P).toFixed(2);
+          if (tSlider) tSlider.value = String(DEFAULT_T);
+          if (growthCheckbox) growthCheckbox.checked = !!DEFAULT_GROWTH;
+          onControlsChange();
+        });
+        
+        // First paint
+        updateSliderLabels();
+        
+        [pSlider, tSlider].forEach(el => el.addEventListener('input', () => { redrawMain(); redrawPct(); }));
+        if (growthCheckbox) growthCheckbox.addEventListener('input', () => { redrawMain(); redrawPct(); });
+        
+        // Initial render
+        redrawMain();
+        redrawPct();
+
+  function toggleBibtex(id) {
+    const bibDiv = document.getElementById(`bib_${id}`);
+    const copyButton = document.getElementById(`copy_button_${id}`);
+    bibDiv.classList.toggle("noshow");
+    copyButton.classList.toggle("noshow");
+
+    if (bibDiv.classList.contains("noshow")) {
+      copyButton.textContent = "📋 copy Bibtex ";
+    }
+  }
+  function copyToClipboard(text, button) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      const successful = document.execCommand("copy");
+      if (successful) {
+        button.textContent = "📋 copied!";
+      } else {
+        console.error("Failed to copy text.");
+      }
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  }
+
+
+
+  </script>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>If $\N$ increases with time, the conclusion is similar, see the <a href="#appendix">Appendix</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.es/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
+
+        </div>
+        <p class="byline"><strong>Queueing to publish in AI (and CS)</strong> was published on <time datetime="2025-08-25T00:00:00+01:00">August 25, 2025</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2025 David Martínez-Rubio. Based on jponttuset.github.io. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://damaru2.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://damaru2.github.io/assets/js/scripts.min.js"></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EKCKR7JVZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EKCKR7JVZP');
+</script>
+
+
+
+  
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'damaru2-github-io'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+	        
+
+
+
+<!-- circled command and other command definitions -->
+<style>
+    p {
+      text-align: justify;
+      margin: 0 0 1em 0 !important; /* only space after paragraphs */
+    }
+
+  .circled-content-r {
+    display: inline-block;
+    transform: scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+  .circled-content {
+    display: inline-block;
+    transform: scale(0.8) scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+</style>
+
+
+
+
+
+
+<!-- -->
+
+
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+
+</body>
+</html>

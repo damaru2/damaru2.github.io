@@ -63,6 +63,15 @@
 .math-with-href:hover {
   background-color: lightgray;
 }
+
+/* behavior for mathjax links, whose id starts with def_ that */
+html { scroll-behavior: smooth; }
+/* Land a bit higher when jumping to #def_* */
+[id^="def_"] {
+  /* tweak the value to your header height + a little spacing */
+  scroll-margin-top: 20px;
+}
+
 </style>
 
 <script type="text/x-mathjax-config">
@@ -74,20 +83,12 @@
      "HTML-CSS": { linebreaks: { automatic: true } },
       Macros: {
         link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
-        same: ['#2', 2],
-        ignore: ['', 2],
         R: "{ \\mathbb{R} }",
         argmin: "{\\arg\\,\\min}",
-        xk: ["\\link{##def_coupling_variable}{\\color{black}x^{(#1)}}", 1, 'k'], // Default value k. Use with \xk[k-1]
-        yk: ["{y^{(#1)}}", 1, 'k'],
         X: ["\\mathcal{X}"],
-        ykhat: ["{\\hat{y}^{(#1)}}", 1, 'k'],
-        zk: ["{z^{(#1)}}", 1, 'k'],
-        indicator: ["𝟙"],
         norm: ["{ \\|#1\\| }", 1],
         innp: ["{\\langle#1\\rangle}", 1],
         innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
-        xast: "{x^\\ast}",
         //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
         defi: "{\\triangleq}",
         circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
@@ -363,6 +364,7 @@ C. Roux★, D. Martínez-Rubio★, S. Pokutta (2025)
 <b>ICML 2025</b>, <i>42nd International Conference on Machine Learning</i> 
 <br />
 <a href="https://arxiv.org/pdf/2501.18381.pdf" target="_blank">[PDF]</a> 
+<a href="https://damaru2.github.io/assets/presentations/Implicit_OL_Riemannian.pdf" target="_blank">[Slides]</a> 
 <a href="javascript:toggleBibtex('roux2025implicit')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_roux2025implicit').textContent, this)" class="noshow flat-button" id="copy_button_roux2025implicit">📋 copy</button>
 </p>
 <div id="bib_roux2025implicit" class="bibtex noshow">
@@ -458,6 +460,7 @@ D. Martínez-Rubio★, C. Roux★, S. Pokutta
 <b>ICML 2024</b>, <i>41th International Conference on Machine Learning</i> 
 <br />
 <a href="https://arxiv.org/pdf/2403.10429.pdf" target="_blank">[PDF]</a> 
+<a href="https://damaru2.github.io/assets/presentations/bounding_geom_penalties_in_Riemannian_optimization.pdf" target="_blank">[Slides]</a> 
 <a href="javascript:toggleBibtex('martinezrubio2023convergence')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_martinezrubio2023convergence').textContent, this)" class="noshow flat-button" id="copy_button_martinezrubio2023convergence">📋 copy</button>
 </p>
 <div id="bib_martinezrubio2023convergence" class="bibtex noshow">
@@ -710,6 +713,7 @@ A. G. Baydin,  R. Cornish, D. Martínez-Rubio, M. Schmidt, and F. Wood<br />
 <h4 style="margin-bottom:0px;padding-top:20px;">Workshop Publications and Technical Reports</h4>
 
 <ul class="biblist">
+
 
 <li><p>
 <b>Open Problem: Polynomial linearly-convergent method for g-convex optimization?</b><br />
