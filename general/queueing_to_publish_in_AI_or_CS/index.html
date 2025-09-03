@@ -1219,8 +1219,11 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
             chartAcc.data.datasets[i].data = pAxis.map((x,idx)=>({x, y: arr[idx]}));
           });
           // Abandoned composition
-          D.abandonedShareByClass.forEach((arr,i)=>{
-            chartAbn.data.datasets[i].data = pAxis.map((x,idx)=>({x, y: arr[idx]}));
+          const cutoff = pAxis.findIndex(v => v > 0.94 + 1e-9);
+          const upto   = (cutoff === -1) ? pAxis.length : cutoff; // inclusive of 0.94
+          D.abandonedShareByClass.forEach((arr, i) => {
+            const xs = pAxis.slice(0, upto);
+            chartAbn.data.datasets[i].data = xs.map((x, j) => ({ x, y: arr[j] }));
           });
           // Overall abandoned per class (for both zoom and full)
           D.overallAbandonedPctByClass.forEach((arr,i)=>{
