@@ -232,7 +232,7 @@ $ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
   <figcaption></figcaption>
 </figure>
 
-<p>Assume a sequence of non-overlapping calls (e.g. 3 per year), and each time <span id="def_number_new_papers">$\N$</span> new papers are added to the pool of papers to be published, and we let <span id="def_rate_of_acceptance">$\p \in (0, 1]$</span> be a fixed rate of acceptance.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> The pool of unaccepted papers evolves like the following dynamical system for $x_1 \gets \N$:</p>
+<p>Assume a sequence of non-overlapping conference calls (e.g. 3 per year), and each time <span id="def_number_new_papers">$\N$</span> new papers are added to the pool of papers to be published, and we let <span id="def_rate_of_acceptance">$\p \in (0, 1]$</span> be a fixed rate of acceptance.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> The pool of unaccepted papers evolves like the following dynamical system for $x_1 \gets \N$:</p>
 
 \[x_{t+1} \gets x_t (1-\p) + \N.\]
 
@@ -240,9 +240,9 @@ $ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
 
 \[\xast = \frac{\N}{\p},\]
 
-\[\text{#accepted_papers}= \xast \cdot \p = \frac{\N}{\p} \cdot \p = \N.\]
+\[\textit{#accepted_papers}= \xast \cdot \p = \frac{\N}{\p} \cdot \p = \N.\]
 
-<p><strong>Amazing!!</strong> #accepted_papers does not change with $\p$. If we reduce $\p$, the only effect is that the pool size grows until it’s so big that a fraction $\p$ of it ends up being the same number of papers $\N$, and <strong>we review more for nothing $(\propto \N/\p)$</strong>. We’d accept the same amount of papers in each conference! More easily: at the fixed point the number of papers that come in must be the number of papers that come out, that is $\N$. In fact <a href="https://en.wikipedia.org/wiki/Little%27s_law">Little’s Law</a> from queueing theory implies this fact and further generalizations. So:</p>
+<p><strong>Amazing!!</strong> <em>#accepted_papers</em> does not change with $\p$. If we reduce $\p$, the only effect is that the pool size grows until it’s so big that a fraction $\p$ of it ends up being the same number of papers $\N$, and <strong>we review more for nothing $(\propto \N/\p)$</strong>. We’d accept the same amount of papers in each conference! More easily: at the fixed point the number of papers that come in must be the number of papers that come out, that is $\N$. In fact <a href="https://en.wikipedia.org/wiki/Little%27s_law">Little’s Law</a> from queueing theory implies this fact and further generalizations. So:</p>
 
 <div style="text-align: center;">
     <p>
@@ -256,7 +256,7 @@ $ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
 
 <h2 id="if-authors-give-up">If authors give up</h2>
 
-<p>We model papers of three different qualities. Things are similar to before for a relevant interval for $\p$. The simulations yield that a decrease in the rate of acceptance from 35% to 20% increases the number of abandoned bad papers comparably to changing their wait in the pool for two or three rounds. At the same time, it increases the pool size and reviewing load by about 46%, for $T=6$. With the slider, you’ll be able to see other cases. How faithful the model is would require further investigation. But one possible conclusion from it could be:</p>
+<p>We model papers of three different qualities. The results are similar to before for a relevant interval for $\p$. The simulations yield that a decrease in the rate of acceptance from 35% to 20% increases the number of abandoned bad papers comparably to changing their wait in the pool for two or three rounds. At the same time, it increases the pool size and reviewing load by about 46%, for $T=6$. With the slider, you’ll be able to see other cases. How faithful the model is would require further investigation. But one possible conclusion from it could be:</p>
 
 <p>
     <center><em>
@@ -264,7 +264,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
     </em></center>
 </p>
 
-<p>Here is the model, inspired by the previous <a href="https://blog.neurips.cc/2021/12/08/the-neurips-2021-consistency-experiment/">2014 and 2021 Neurips experiments</a>. Assume there are $\N=5000$ new papers for a sequence of non-overlapping conferences, and we have: great papers, average papers, and bad papers in proportion of 15% / 70% / 15%. We model this by giving them a probability of acceptance proportional to $15, 5$ and $1$, respectively.</p>
+<p>Here is the model, inspired by the previous <a href="https://blog.neurips.cc/2021/12/08/the-neurips-2021-consistency-experiment/">2014 and 2021 Neurips experiments</a>. Assume there are $\N=5000$ new papers for a sequence of non-overlapping conferences, and we have: great papers, average papers, and bad papers in proportion of 15% / 70% / 15%. We model this by assigning them a probability of acceptance proportional to $15, 5$ and $1$, respectively.</p>
 
 <p>At each iteration, we approximate the number of papers in each category that should be accepted, given the quality weights of each category, until we accept a fraction $\p$ of them. Then, we remove them from the pool, and consider them accepted. If a paper stays in the pool for <span id="def_max_retries">$\T$</span>  iterations, it is removed.</p>
 
@@ -290,7 +290,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
   </div>
 </div>
 
-<p>In other words, there is of course, some trade-off. Lower rate of acceptance in this non-ideal case does imply more papers abandon the system and prevents some of the bad papers to get in, but at the expense of significant extra reviewing costs and affecting more to average papers that are left out just by bad luck. See for instance <a href="https://x.com/MarkSchmidtUBC/status/1959302293054275663">this case of NeurIPS 2025</a> where some area chairs were asked to reject papers with good reviews, just to meet a low $\p$. I’ve heard arguments saying that in Machine Learning conferences a higher $\p$ would make the conferences too big for any venue, but this does not take into accoutn that higher rate of acceptance has a reduction effect on the pool of unaccepted papers and does not change absolute acceptances dramatically. And in any case, there are other solutions worth considering such as federated conferences and other models (with an attempt from the <a href="https://blog.neurips.cc/2025/07/16/neurips-announces-second-physical-location-in-mexico-city/">second NeurIPS 2025 location</a> and the <a href="https://eurips.cc/">European NeurIPS 2025 Hub</a>, see also <a href="https://cspaper.org/topic/128/the-ai-conference-bubble-is-about-to-burst-publish-or-perish-at-the-edge-of-collapse">The AI Conference Bubble is About to Burst</a>). Of course, one should be aware that a lower bar could encourage people to submit weaker papers. Also, as you can see in the appendix, the right metric to have in mind is that of <a href="#real_acceptance_rate">effective acceptance rates for these systems</a>. And note that these effective rates can be played by authors by increasing their $\T,$ which only increases the reviewing load.</p>
+<p>In other words, there is of course, some trade-off. Lower rate of acceptance in this less-idealized case does imply more papers abandon the system and prevents some of the bad papers to get in, but at the expense of significant extra reviewing costs and affecting more to average papers that are left out just by bad luck. See for instance <a href="https://x.com/MarkSchmidtUBC/status/1959302293054275663">this case of NeurIPS 2025</a> where some area chairs were asked to reject papers with good reviews, just to meet a low $\p$. I’ve heard arguments saying that in Machine Learning conferences a higher $\p$ would make the conferences too big for any venue, but this does not take into accoutn that higher rate of acceptance has a reduction effect on the pool of unaccepted papers and does not change absolute acceptances dramatically. And in any case, there are other solutions worth considering such as federated conferences and other models (with an attempt from the <a href="https://blog.neurips.cc/2025/07/16/neurips-announces-second-physical-location-in-mexico-city/">second NeurIPS 2025 location</a> and the <a href="https://eurips.cc/">European NeurIPS 2025 Hub</a>, see also <a href="https://cspaper.org/topic/128/the-ai-conference-bubble-is-about-to-burst-publish-or-perish-at-the-edge-of-collapse">The AI Conference Bubble is About to Burst</a>). Of course, one should be aware that a lower bar could encourage people to submit weaker papers. Also, as you can see in the appendix, the right metric to have in mind is that of <a href="#real_acceptance_rate">effective acceptance rates for these systems</a>. And note that these effective rates can be played by authors by increasing their $\T,$ which only increases the reviewing load.</p>
 
 <p>Any process designed for people will be inherently flawed. But what feels clear to me is that we currently need some changes and this should most likely require:</p>
 
@@ -1041,7 +1041,8 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
         pointStyle:'circle',
         pointRadius:0,
         fill:false
-      }] },
+      }
+      ]},
       options:{
         maintainAspectRatio:false,
         scales:{
@@ -1065,7 +1066,8 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
         pointStyle:'circle',
         pointRadius:0,
         fill:false
-      }] },
+      }
+      ]},
       options:{
         maintainAspectRatio:false,
         scales:{
@@ -1235,6 +1237,13 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
           const eq = pAxis.map((x,idx)=>({x, y: D.eqPool[idx]}));
           chartPoolEq.data.datasets[0].data = eq;
           chartPoolEqZoom.data.datasets[0].data = eq;
+
+          //// Almost ideal curve N/p (same x-axis)
+          //const THRESH = 0.15;
+          //const ideal = pAxis.map(x => ({ x, y: x >= THRESH ? N / (1.3*x) : null }));
+          //
+          //chartPoolEq.data.datasets[1].data = ideal;
+          //chartPoolEqZoom.data.datasets[1].data = ideal;
 
           // Final acceptance (cumulative stacked)
           chartFinalAcc.data.datasets[0].data = pAxis.map((x,idx)=>({x, y: D.finalAcceptanceCumulative.bad[idx]}));
