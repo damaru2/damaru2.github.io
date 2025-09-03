@@ -256,7 +256,7 @@ $ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
 
 <h2 id="if-authors-give-up">If authors give up</h2>
 
-<p>We model papers of three different qualities. Things are similar to before for a relevant interval for $\p$. The simulations yield that a decrease in the rate of acceptance from 35% to 20% increases the number of abandoned bad papers comparably to changing their wait in the pool for two or three rounds. At the same time, it increases the pool size and reviewing load by about 40%, for $T=6$. With the slider, you’ll be able to see other cases. How faithful the model is would require further investigation. But one possible conclusion from it could be:</p>
+<p>We model papers of three different qualities. Things are similar to before for a relevant interval for $\p$. The simulations yield that a decrease in the rate of acceptance from 35% to 20% increases the number of abandoned bad papers comparably to changing their wait in the pool for two or three rounds. At the same time, it increases the pool size and reviewing load by about 46%, for $T=6$. With the slider, you’ll be able to see other cases. How faithful the model is would require further investigation. But one possible conclusion from it could be:</p>
 
 <p>
     <center><em>
@@ -268,7 +268,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
 
 <p>At each iteration, we approximate the number of papers in each category that should be accepted, given the quality weights of each category, until we accept a fraction $\p$ of them. Then, we remove them from the pool, and consider them accepted. If a paper stays in the pool for <span id="def_max_retries">$\T$</span>  iterations, it is removed.</p>
 
-<p>The following plot shows the percentage of papers in each category that end up abandoning the pool out of all the papers produced in that category, depending on the rate $\p$, at the system’s equilibrium. Note that the acceptance plot would be the reverse one: papers that are not abandoned are accepted. The second plot is the same but zooming on $\p \in [0.2, 0.35]$. If we compare $p=0.2$ with respect to $p=0.35$ for $\T=6$, the number of bad papers abandoned increases by about 25% from ~61% of the total bad papers to ~77% (~61%*1.25) but for average papers it increases 394% from ~5% to ~24% (and recall there are around 5 times as much average papers as bad papers so the absolute effect is bigger). At the same time reviewing load increases 42.8%, because the pool still increases to something close to $\N / \p$. The numbers change a bit with the value of the uncontrolled variable $\T$. Test it yourself with the slider.</p>
+<p>The following plot shows the percentage of papers in each category that end up abandoning the pool out of all the papers produced in that category, depending on the rate $\p$, at the system’s equilibrium. Note that the acceptance plot would be the reverse one: papers that are not abandoned are accepted. The second plot is the same but zooming on $\p \in [0.2, 0.35]$. If we compare $p=0.2$ with respect to $p=0.35$ for $\T=6$, the number of bad papers abandoned increases from ~60% of the total bad papers to ~77% but for average papers it increases 478% from ~4% to ~24% (and recall there are around 5 times as much average papers as bad papers so the absolute effect is bigger). At the same time reviewing load increases 46%, because the pool still increases to something close to $\N / \p$. The numbers change a bit with the value of the uncontrolled variable $\T$. Test it yourself with the slider.</p>
 
 <div id="overall-row">
   <div class="pct-chart">
@@ -290,7 +290,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
   </div>
 </div>
 
-<p>In other words, there is of course, some trade-off. Lower rate of acceptance in this non-ideal case does imply more papers abandon the system and prevents some of the bad papers to get in, but at the expense of significant extra reviewing costs and affecting more to average papers that are left out just by bad luck. See for instance <a href="https://x.com/MarkSchmidtUBC/status/1959302293054275663">this case of NeurIPS 2025</a> where some area chairs were asked to reject papers with good reviews, just to meet a low $\p$. I’ve heard arguments saying that in Machine Learning conferences a higher $\p$ would make the conferences too big for any venue, but this does not take into accoutn that higher rate of acceptance has a reduction effect on the pool of unaccepted papers and does not change absolute acceptances dramatically. And in any case, there are other solutions worth considering such as federated conferences and other models (with an attempt from the <a href="https://eurips.cc/">European NeurIPS 2025 Hub</a>, see also <a href="https://cspaper.org/topic/128/the-ai-conference-bubble-is-about-to-burst-publish-or-perish-at-the-edge-of-collapse">The AI Conference Bubble is About to Burst</a>). Of course, one should be aware that a lower bar could encourage people to submit weaker papers. Also, as you can see in the appendix, the right metric to have in mind is that of <a href="#real_acceptance_rate">effective acceptance rates for these systems</a>. And note that these effective rates can be played by authors by increasing their $\T,$ which only increases the reviewing load.</p>
+<p>In other words, there is of course, some trade-off. Lower rate of acceptance in this non-ideal case does imply more papers abandon the system and prevents some of the bad papers to get in, but at the expense of significant extra reviewing costs and affecting more to average papers that are left out just by bad luck. See for instance <a href="https://x.com/MarkSchmidtUBC/status/1959302293054275663">this case of NeurIPS 2025</a> where some area chairs were asked to reject papers with good reviews, just to meet a low $\p$. I’ve heard arguments saying that in Machine Learning conferences a higher $\p$ would make the conferences too big for any venue, but this does not take into accoutn that higher rate of acceptance has a reduction effect on the pool of unaccepted papers and does not change absolute acceptances dramatically. And in any case, there are other solutions worth considering such as federated conferences and other models (with an attempt from the <a href="https://blog.neurips.cc/2025/07/16/neurips-announces-second-physical-location-in-mexico-city/">second NeurIPS 2025 location</a> and the <a href="https://eurips.cc/">European NeurIPS 2025 Hub</a>, see also <a href="https://cspaper.org/topic/128/the-ai-conference-bubble-is-about-to-burst-publish-or-perish-at-the-edge-of-collapse">The AI Conference Bubble is About to Burst</a>). Of course, one should be aware that a lower bar could encourage people to submit weaker papers. Also, as you can see in the appendix, the right metric to have in mind is that of <a href="#real_acceptance_rate">effective acceptance rates for these systems</a>. And note that these effective rates can be played by authors by increasing their $\T,$ which only increases the reviewing load.</p>
 
 <p>Any process designed for people will be inherently flawed. But what feels clear to me is that we currently need some changes and this should most likely require:</p>
 
@@ -631,15 +631,90 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
 
     // Distribute 'total' into bins by 'weights', capped by 'capacity'
     function distributeWithCap(total, weights, capacity) {
-      const sumW = weights.reduce((a,b)=>a+b,0);
-      const norm = sumW>0 ? weights.map(w=>w/sumW) : weights.map(_=>1/weights.length);
-      const exact = norm.map(w=>w*total);
-      let alloc = exact.map((v,i)=>Math.min(Math.floor(v), capacity[i]));
-      const assigned = alloc.reduce((a,b)=>a+b,0);
-      let rem = total - assigned;
-      const remainders = exact.map((v,i)=>({idx:i, frac:v-alloc[i], capLeft:capacity[i]-alloc[i]}))
-         .filter(x=>x.capLeft>0).sort((a,b)=>b.frac-a.frac);
-      for(let i=0;i<rem && i<remainders.length;i++) alloc[remainders[i].idx]++;
+      const n = capacity.length;
+      const cap = capacity.slice();
+      const sumCap = cap.reduce((a,b)=>a+b,0);
+    
+      // If we're asked to place as many (or more) as the total capacity, just fill everything.
+      if (total >= sumCap) return cap;
+    
+      // Initialize allocation
+      const w = weights.map(v => Math.max(0, v));
+      let alloc = new Array(n).fill(0);
+      let remaining = total;
+    
+      // Helper: one proportional pass with floors, then a largest-remainder fill
+      function onePass() {
+        if (remaining <= 0) return 0;
+    
+        // Only consider bins with capacity left
+        const idxs = [];
+        let wsum = 0;
+        for (let i = 0; i < n; i++) {
+          if (cap[i] - alloc[i] > 0) { idxs.push(i); wsum += w[i]; }
+        }
+        if (idxs.length === 0) return 0;
+    
+        // If all weights are zero among remaining, fall back to equal weights
+        const useEqual = (wsum === 0);
+        const exact = idxs.map(i => {
+          const den = useEqual ? idxs.length : wsum;
+          const share = useEqual ? (1/den) : (w[i] / den);
+          return remaining * share;
+        });
+    
+        // Floor while respecting capacity
+        const floorTake = exact.map((x, k) => {
+          const i = idxs[k];
+          const avail = cap[i] - alloc[i];
+          return Math.min(Math.floor(x), avail);
+        });
+    
+        let taken = 0;
+        for (let k = 0; k < idxs.length; k++) {
+          if (floorTake[k] > 0) {
+            alloc[idxs[k]] += floorTake[k];
+            taken += floorTake[k];
+          }
+        }
+        remaining -= taken;
+    
+        if (remaining <= 0) return taken;
+    
+        // Largest remainders among bins that still have capacity
+        const candidates = [];
+        for (let k = 0; k < idxs.length; k++) {
+          const i = idxs[k];
+          const avail = cap[i] - alloc[i];
+          if (avail > 0) {
+            const frac = exact[k] - floorTake[k];
+            candidates.push({ i, avail, frac });
+          }
+        }
+        candidates.sort((a,b) => b.frac - a.frac);
+    
+        // Give out up to one unit per bin in this pass, but we’ll loop passes until remaining==0
+        const give = Math.min(remaining, candidates.length);
+        for (let t = 0; t < give; t++) {
+          const { i } = candidates[t];
+          if (cap[i] - alloc[i] > 0) {
+            alloc[i] += 1;
+            remaining -= 1;
+            taken += 1;
+            if (remaining === 0) break;
+          }
+        }
+        return taken;
+      }
+    
+      // Keep passing until we place everything or run out of capacity
+      let placed;
+      do { placed = onePass(); } while (placed > 0 && remaining > 0);
+    
+      // Safety: if something odd happens, clamp to capacity
+      for (let i = 0; i < n; i++) {
+        if (alloc[i] > cap[i]) alloc[i] = cap[i];
+      }
       return alloc;
     }
 
