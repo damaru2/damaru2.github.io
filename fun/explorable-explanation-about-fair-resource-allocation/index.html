@@ -1,0 +1,393 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>David Martínez-Rubio  &#8211; Explorable Explanation about fair resource allocation </title>
+<meta name="description" content="An interactive game about fair resource sharing in networks.">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Explorable Explanation about fair resource allocation">
+<meta property="og:description" content="An interactive game about fair resource sharing in networks.">
+<meta property="og:url" content="https://damaru2.github.io/fun/explorable-explanation-about-fair-resource-allocation/">
+<meta property="og:site_name" content="David Martínez-Rubio">
+
+
+
+
+
+<link rel="canonical" href="https://damaru2.github.io/fun/explorable-explanation-about-fair-resource-allocation/">
+<link href="https://damaru2.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="David Martínez-Rubio Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/main.min.css">
+<link rel="stylesheet" href="https://damaru2.github.io/assets/academicons.css" />
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/custom.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="https://damaru2.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://damaru2.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.ico">
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.png">
+
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://damaru2.github.io/images/apple-icon-precomposed.png">
+
+<style>
+.math-with-href:hover {
+  background-color: lightgray;
+}
+
+/* behavior for mathjax links, whose id starts with def_ that */
+html { scroll-behavior: smooth; }
+/* Land a bit higher when jumping to #def_* */
+[id^="def_"] {
+  /* tweak the value to your header height + a little spacing */
+  scroll-margin-top: 20px;
+}
+
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      config: ["MMLorHTML.js"],
+      extensions: ["enclose.js", "cancel.js", "color.js", "bbox.js", "AMSmath.js", "AMSsymbols.js"],
+      packages: {'[+]': ['hyperref']},
+     "HTML-CSS": { linebreaks: { automatic: true } },
+      Macros: {
+        link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
+        R: "{ \\mathbb{R} }",
+        argmin: "{\\arg\\,\\min}",
+        X: ["\\mathcal{X}"],
+        norm: ["{ \\|#1\\| }", 1],
+        innp: ["{\\langle#1\\rangle}", 1],
+        innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
+        //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
+        defi: "{\\triangleq}",
+        circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
+        circledrtw: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{2}}}{#1}", 1],
+        circledrth: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{3}}}{#1}", 1],
+        circledrfo: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{4}}}{#1}", 1],
+        circledrfi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{5}}}{#1}", 1],
+        circledrsi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{6}}}{#1}", 1],
+        circledrse: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{7}}}{#1}", 1],
+        circledrei: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{8}}}{#1}", 1],
+        circledrni: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{9}}}{#1}", 1],
+        circledon: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{1}}"],
+        circledtw: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{2}}"],
+        circledth: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{3}}"],
+        circledfo: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{4}}"],
+        circledfi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{5}}"],
+        circledsi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{6}}"],
+        circledse: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{7}}"],
+        circledei: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{8}}"],
+        circledni: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{9}}"],
+      },
+    },
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    //extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+    //jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+    },
+    loader: {
+      load: ['[tex]/ams', 'input/latex/extensions/hyperref'],
+    },
+  });
+
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"> -->
+
+
+</head>
+
+<body class="post">
+
+
+  <meta name="x-debug-layout" content="post">
+  <meta name="x-debug-sitemap" content="nil">
+  <meta name="x-debug-noindex" content="nil">
+  <meta name="x-debug-path" content="_posts/2026-07-18-explorable-explanation-about-fair-resource-allocation.md">
+
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="https://damaru2.github.io">David Martínez-Rubio</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="https://damaru2.github.io/publications/" >Publications</a></li>
+		        
+				<li><a href="https://damaru2.github.io/cv/" >CV</a></li>
+		        
+				<li><a href="https://damaru2.github.io/blog/" >Blog</a></li>
+		        
+				<li><a href="https://damaru2.github.io/fun/" >FUN</a></li>
+		        
+				<li><a href="https://damaru2.github.io/" >About</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.com/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="https://damaru2.github.io/fun/explorable-explanation-about-fair-resource-allocation/" rel="bookmark" title="Explorable Explanation about fair resource allocation">Explorable Explanation about fair resource allocation</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <aside class="post-tldr" aria-label="TL;DR">
+<ul>
+  <li>An interactive app about assigning Internet speeds fairly.</li>
+  <li>Made for the Berlin Long Night of Sciences in 2022 and 2023.</li>
+  <li><strong>The math question</strong>: What does “fair” mean when users share limited network links?</li>
+</ul>
+</aside>
+
+<p><img src="/assets/fairnesslndw/fair-internet-preview.png" alt="Abstract network preview for Fair Internet" /></p>
+
+<div class="fun-post-actions">
+  <a href="https://damaru2.github.io/fairnesslndw/" target="_blank" rel="noopener noreferrer">Play Fair Internet</a>
+  <a href="https://github.com/damaru2/fairnesslndw" target="_blank" rel="noopener noreferrer">Source code</a>
+  <a href="/assets/fairnesslndw/packing_poster.pdf" target="_blank" rel="noopener noreferrer">Poster PDF</a>
+  <a href="https://arxiv.org/abs/2109.03678" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<p>I made <a href="https://damaru2.github.io/fairnesslndw/" target="_blank" rel="noopener noreferrer">Fair Internet</a> with <a href="https://github.com/criado" target="_blank" rel="noopener noreferrer">Paco Criado</a> for the <a href="https://www.langenachtderwissenschaften.de/" target="_blank" rel="noopener noreferrer">Berlin Long Night of Science</a> in 2022 (and also displayed it in 2023) at the <a href="https://www.zib.de/" target="_blank" rel="noopener noreferrer">Zuse Institute Berlin</a>. It is an interactive tool about how to share a the capabilities of a network fairly among people, for which we published <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/a548ef984f30bca3abdc09f43743827f-Paper-Conference.pdf" target="_blank" rel="noopener noreferrer">a paper</a> on a nice fast algorithm for computing this and other more general things.</p>
+
+<p>If several users want information from different servers, and that information has to travel through shared links. Each link can only carry so much information per second. If two users depend on the same bottleneck, increasing the speed of one of them can force the other one to slow down. If we maximize the total information that travels, this can lead to some users receiving very little speed, or none at all!</p>
+
+<figure class="fair-internet-animation">
+  <img src="/assets/fairnesslndw/first_animation_cropped.gif" alt="First interactive Fair Internet animation" />
+</figure>
+
+<style>
+.fair-internet-animation {
+  margin: 1rem 0 1.25rem;
+  text-align: center;
+}
+
+.fair-internet-animation img {
+  width: min(100%, 575px);
+  height: auto;
+}
+</style>
+
+<p>There is only one way to split the resources if one wants to satisfy 4 natural properties:</p>
+
+<ol>
+  <li>The identity of the user should not matter. No privileges.</li>
+  <li>If someone can receive more speed without anyone else losing speed, we should do it.</li>
+  <li>If we add more restrictions but the old fair solution is still possible, it should remain fair.</li>
+  <li>That the selection does not depend after <a href="https://en.wikipedia.org/wiki/Affine_transformation" target="_blank" rel="noopener noreferrer">affine transformations</a>, which in particular implies that the answer should not depend on the units used to measure speed.</li>
+</ol>
+
+<p>These properties determine a unique way of sharing the network: proportional fairness. One useful intuition is that users who consume more scarce resources should often receive less speed, but if we retract a percentage of speed (divide it by some $p &gt; 1$) to allow to increase it to another user by more than that proportionally (more than multiplying it by $p$), then we should do it.</p>
+
+<p>In the interactive version, you move sliders to choose how much speed each user receives. The network reacts visually: saturated links are visible, users complain when the allocation is unfair, and a bar at the bottom shows the total amount of information delivered per second, etc. At first, the goal looks like “make the network go as fast as possible”, while balancing the users’ speed. Then the interesting part appears: no allocation with the largest total speed can be fair.</p>
+
+<p>The interface was adapted from the style and code of Nicky Case’s <a href="https://ncase.me/neurons/" target="_blank" rel="noopener noreferrer">Neurotic Neurons</a>.</p>
+
+      
+        
+
+  <p class="fun-post-tags">
+    
+      <a href="/fun/tags/recreational-math/">#recreational-math</a>
+    
+      <a href="/fun/tags/games/">#games</a>
+    
+  </p>
+
+
+      
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.com/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+
+        </div>
+        <p class="byline"><strong>Explorable Explanation about fair resource allocation</strong> was published on <time datetime="2026-07-18T11:03:00+01:00">July 18, 2026</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section class="comments" aria-label="Comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="damaru2/damaru2.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNDgxMjIwMDk="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOFL_rmc4DBiyK"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2026 David Martínez-Rubio. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://damaru2.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://damaru2.github.io/assets/js/scripts.min.js"></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EKCKR7JVZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EKCKR7JVZP');
+</script>
+
+	        
+
+
+
+<!-- circled command and other command definitions -->
+<style>
+    p {
+      text-align: justify;
+      margin: 0 0 1em 0 !important; /* only space after paragraphs */
+    }
+
+  .circled-content-r {
+    display: inline-block;
+    transform: scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+  .circled-content {
+    display: inline-block;
+    transform: scale(0.8) scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+</style>
+
+
+
+
+
+
+<!-- -->
+
+
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+
+</body>
+</html>

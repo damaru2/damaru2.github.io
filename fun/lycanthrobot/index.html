@@ -1,0 +1,494 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>David Martínez-Rubio  &#8211; Lycanthrobot - Playing your own Werewolf quickly on Telegram </title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lycanthrobot - Playing your own Werewolf quickly on Telegram">
+<meta property="og:description" content="Welcome to my academic site.">
+<meta property="og:url" content="https://damaru2.github.io/fun/lycanthrobot/">
+<meta property="og:site_name" content="David Martínez-Rubio">
+
+
+
+
+
+<link rel="canonical" href="https://damaru2.github.io/fun/lycanthrobot/">
+<link href="https://damaru2.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="David Martínez-Rubio Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/main.min.css">
+<link rel="stylesheet" href="https://damaru2.github.io/assets/academicons.css" />
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/custom.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="https://damaru2.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://damaru2.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.ico">
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.png">
+
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://damaru2.github.io/images/apple-icon-precomposed.png">
+
+<style>
+.math-with-href:hover {
+  background-color: lightgray;
+}
+
+/* behavior for mathjax links, whose id starts with def_ that */
+html { scroll-behavior: smooth; }
+/* Land a bit higher when jumping to #def_* */
+[id^="def_"] {
+  /* tweak the value to your header height + a little spacing */
+  scroll-margin-top: 20px;
+}
+
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      config: ["MMLorHTML.js"],
+      extensions: ["enclose.js", "cancel.js", "color.js", "bbox.js", "AMSmath.js", "AMSsymbols.js"],
+      packages: {'[+]': ['hyperref']},
+     "HTML-CSS": { linebreaks: { automatic: true } },
+      Macros: {
+        link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
+        R: "{ \\mathbb{R} }",
+        argmin: "{\\arg\\,\\min}",
+        X: ["\\mathcal{X}"],
+        norm: ["{ \\|#1\\| }", 1],
+        innp: ["{\\langle#1\\rangle}", 1],
+        innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
+        //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
+        defi: "{\\triangleq}",
+        circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
+        circledrtw: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{2}}}{#1}", 1],
+        circledrth: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{3}}}{#1}", 1],
+        circledrfo: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{4}}}{#1}", 1],
+        circledrfi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{5}}}{#1}", 1],
+        circledrsi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{6}}}{#1}", 1],
+        circledrse: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{7}}}{#1}", 1],
+        circledrei: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{8}}}{#1}", 1],
+        circledrni: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{9}}}{#1}", 1],
+        circledon: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{1}}"],
+        circledtw: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{2}}"],
+        circledth: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{3}}"],
+        circledfo: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{4}}"],
+        circledfi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{5}}"],
+        circledsi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{6}}"],
+        circledse: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{7}}"],
+        circledei: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{8}}"],
+        circledni: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{9}}"],
+      },
+    },
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    //extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+    //jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+    },
+    loader: {
+      load: ['[tex]/ams', 'input/latex/extensions/hyperref'],
+    },
+  });
+
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"> -->
+
+
+</head>
+
+<body class="post">
+
+
+  <meta name="x-debug-layout" content="post">
+  <meta name="x-debug-sitemap" content="nil">
+  <meta name="x-debug-noindex" content="nil">
+  <meta name="x-debug-path" content="_posts/2026-05-17-lycanthrobot.md">
+
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="https://damaru2.github.io">David Martínez-Rubio</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="https://damaru2.github.io/publications/" >Publications</a></li>
+		        
+				<li><a href="https://damaru2.github.io/cv/" >CV</a></li>
+		        
+				<li><a href="https://damaru2.github.io/blog/" >Blog</a></li>
+		        
+				<li><a href="https://damaru2.github.io/fun/" >FUN</a></li>
+		        
+				<li><a href="https://damaru2.github.io/" >About</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.com/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="https://damaru2.github.io/fun/lycanthrobot/" rel="bookmark" title="Lycanthrobot - Playing your own Werewolf quickly on Telegram">Lycanthrobot - Playing your own Werewolf quickly on Telegram</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <style>
+.lycanthrobot-collapsible {
+  margin: 1.25rem 0;
+  border: 1px solid #b6c2cf;
+  border-radius: 8px;
+  background: #fbfcfe;
+  overflow: hidden;
+}
+.lycanthrobot-collapsible > summary {
+  cursor: pointer;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  background: #eef4fa;
+  border-bottom: 1px solid transparent;
+  list-style: none;
+}
+.lycanthrobot-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+.lycanthrobot-collapsible > summary::before {
+  content: "+";
+  display: inline-block;
+  width: 1.2rem;
+  margin-right: 0.35rem;
+  font-weight: 700;
+}
+.lycanthrobot-collapsible[open] > summary {
+  border-bottom-color: #d5dde7;
+}
+.lycanthrobot-collapsible[open] > summary::before {
+  content: "-";
+}
+.lycanthrobot-collapsible .collapsible-content {
+  padding: 1rem;
+}
+.lycanthrobot-preview-image {
+  width: min(100%, 415px);
+  margin: 0.8rem auto 1.25rem;
+}
+.lycanthrobot-preview-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.lycanthrobot-daily-kill-image {
+  width: min(100%, 332px);
+  margin: 1.85rem auto 1.25rem;
+}
+.lycanthrobot-daily-kill-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+</style>
+
+<aside class="post-tldr" aria-label="TL;DR">
+<ul>
+  <li><strong>Telegram bot</strong> to manage a Werewolf/Mafia game</li>
+  <li><strong>Makes nights quick:</strong> people play in parallel. Or allows async games (one day one irl-day).</li>
+  <li><strong>Flexible:</strong> It’s not full automation, its a tool to play in your own way.</li>
+  <li><strong>Cool variant</strong> where players have several “lives” and do not die immediately.</li>
+  <li><strong>Nice data</strong> from games I played at the bottom.</li>
+</ul>
+</aside>
+
+<figure class="lycanthrobot-preview-image">
+  <img src="/assets/telegram_games/lycanthrobot_preview.png" alt="Preview for Lycanthrobot." />
+</figure>
+
+<p><a href="https://t.me/lycanthrobot" target="_blank" rel="noopener noreferrer">@Lycanthrobot</a> is a Telegram bot I made in 2013 for playing <a href="https://en.wikipedia.org/wiki/Mafia_(party_game)" target="_blank" rel="noopener noreferrer">Werewolf/Mafia</a> with friends. It is a tool for the human game master to play online or to make physical games much quicker. The bot sends private messages with your role, you send it what actions you take at night, registers votes in a group, reminders, bookkeeping, etc. The master interprets what happened and announces the story.</p>
+
+<p>That design choice made it flexible. I played it a lot with a few groups and we were creating our own variants all the time, inventing roles, resolving edge cases socially, and we’d use the bot as the infrastructure to manage it. Our roles were always defined without depending on others actions so everyone sends their action in parallel and avoids nights taking forever.</p>
+
+<p>The basic flow is:</p>
+
+<ol>
+  <li>Everyone starts a private chat with <a href="https://t.me/lycanthrobot" target="_blank" rel="noopener noreferrer">@lycanthrobot</a>, so the bot can message them (one time ever).</li>
+  <li>The master adds the bot to a group and starts a game with <code class="language-plaintext highlighter-rouge">/newgame</code>.</li>
+  <li>Players join with <code class="language-plaintext highlighter-rouge">/play</code>.</li>
+  <li>The master sends <code class="language-plaintext highlighter-rouge">/roles</code> followed by a list of roles.</li>
+  <li>The bot shuffles the roles and privately tells each player what they are.</li>
+  <li>During the night, players privately send <code class="language-plaintext highlighter-rouge">/action</code> with whatever they are doing.</li>
+  <li>When everyone has acted, the master gets one private message containing all actions.</li>
+  <li>The master announces what happened and uses kill commands to update the game state.</li>
+  <li>During the day, players vote in the group with <code class="language-plaintext highlighter-rouge">/vote</code>, and <code class="language-plaintext highlighter-rouge">/polling</code> shows the votes.</li>
+</ol>
+
+<p>The bot treats any role whose name contains <code class="language-plaintext highlighter-rouge">wolf</code> as part of the wolf team. If someone is assigned <code class="language-plaintext highlighter-rouge">ordinary_wolf</code>, <code class="language-plaintext highlighter-rouge">alpha_wolf</code>, or any custom role with <code class="language-plaintext highlighter-rouge">wolf</code> in the name, the bot can privately tell the wolves who the other wolves are. There are many other commands that arose as I played many games, see the summary by the bot below.</p>
+
+<h2 id="variants-and-features">Variants and features</h2>
+
+<p>The variant of Werewolf we liked most is the multi-life mode. Instead of one role per person, each player gets two or more roles, and those roles act like lives. If you are both a wolf and something else, you are on the wolf team, even if your wolf role later dies. While both roles are alive, you have both powers and can use both during the night.</p>
+
+<p>Death works differently depending on when it happens:</p>
+
+<ul>
+  <li>If you die at night, you choose which of your alive roles dies.</li>
+  <li>If the village lynches you during the day, one of your living roles dies at random.</li>
+  <li>You still vote during the day as long as at least one of your roles is alive (one vote per person).</li>
+</ul>
+
+<p>This mode was surprisingly rich. Delays and softens the effect “I lost early so now I am bored” since usually you do not want to fully kill someone unless you are sure (and of course, we let people keep talking at all times, the innocents didn’t know who the wolves were). Someone can be partly exposed, partly dangerous, partly innocent, and still very much alive.</p>
+
+<p>The bot has commands specifically for this style:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/mode n</code> sets the number of lives and roles per player.</li>
+  <li><code class="language-plaintext highlighter-rouge">/killn @nick n</code> kills a chosen role after a night death.</li>
+  <li><code class="language-plaintext highlighter-rouge">/killd @nick</code> kills a random living role after a day lynching.</li>
+  <li><code class="language-plaintext highlighter-rouge">/killr @nick @nick2 ...</code> chooses randomly from a tied list and kills a random living role.</li>
+</ul>
+
+<figure class="lycanthrobot-daily-kill-image">
+  <img src="/assets/telegram_games/lycanthrobot_daily_kill.png" alt="Lycanthrobot daily kill command preview." />
+</figure>
+
+<p>But the bot has many other features. For example:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/setrole @nick role n</code> lets the master transform a role mid-game.</li>
+</ul>
+
+<p>The two sections below preserve the bot help and role-list text, without the Telegraph title, author, date, or license footer.</p>
+
+<details class="lycanthrobot-collapsible">
+<summary>Summary by the bot</summary>
+<div class="collapsible-content">
+
+<blockquote><strong><em>TL; DR:</em></strong> /start the bot. Add the bot to a group, master writes /newgame, players write /play. Master writes &quot;/roles list_of_roles&quot;. Players write &quot;/action message&quot; in private. The bot notifies when everybody has done it. Master kills and tells what happened. Players write &quot;/vote message&quot;, master kills the most voted person in the /polling. Repeat until /endgame.</blockquote><p>This is a telegram bot for playing your own game of Werewolf/Mafia with your friends. It was thought to let you play in your own style with no restrictions, the master has complete control of the game. Please use the command /feedback to report errors or request features. This is what you can do with the bot in detail:</p><p>You must let the bot send messages to your private chat, for it, <em>/start</em> the bot <a href="http://t.me/lycanthrobotfrom" target="_blank" rel="noopener noreferrer">@lycanthrobot</a>. From a group, a person starts a game with <em>/newgame. </em>This person will be the master of the game. Then everybody that wants to play writes <em>/play </em>in the group. When enough people have joined the game, the master writes <em>/roles</em> and a <em>list of words</em> that will be the roles. The bot will shuffle these characters and will send them to the players using the private chat. Any role that contains in the name the string &quot;wolf&quot; will be considered a wolf by the bot and will send a message to each wolf telling them who the other wolves are. Later, the players must write &quot;<em>/action message with what I do  with my role/s tonight&quot;</em> from the private chat. When everybody has performed their action the master will receive a message containing everything and the bot notifies in the main group that the night is over. Then the master will write <em>/kill @nick</em> to tell the bot the person who died. For lynching, the players must write<em> &quot;/vote </em>message&quot; from the group and all the messages can be seen with <em>/polling. </em>The bot lets the user to play several games simultaneously (one per group), the command<em> /game</em> can be used in private to tell the bot to which game the subsequent commands refer to. By default the selected game is the first game you started a game in. When such a game ends another game is selected and you are notified.</p><p>There is <strong>support for a variation of the game</strong> that is quite good, which consists of assigning more than one role (and the same number of &quot;lives&quot;) to each person. The master can change to this mode by writing &quot;/mode 2&quot; for example, before &quot;/roles&quot;. If a person dies during the night, that person will choose the role that dies (first, second...), if the person is lynched, a random role dies. The master has commands &quot;/killn @nick number_of_role&quot;, &quot;/killd @nick&quot;, &quot;/killr @nick @nick2 ...&quot; to <strong>kill</strong> after the <strong>n</strong>ight and <strong>kill </strong>after the <strong>d</strong>iurnal lynching and to <strong>kill r</strong>andomly when there is a tie in the voting,  respectively.</p><p> You don&#39;t need to know more to start playing, but here there is a detailed list of all the commands the bot supports.</p><h3 id="Commands:">  Commands:</h3><h4 id="User:">User:</h4><p> <strong> /action &quot;message&quot;: </strong>Write a message along the command telling the master your action. You must call this command from a private chat with the bot, the message will indicate the action you perform. You have to do it even if you are a villager or if have already used your powers. After everybody has performed their action, the master will receive a private message with every action. Then the master should tell the village in the main group what has happened and will call the command <em>/kill</em> to tell the bot who died during the night. You can write <em>/action</em> this command as many times as you want, the last one will be the one to be considered.</p><p><strong>/feedback:</strong> Send a message with your opinion of the bot, any bugs you are having, ideas to improve the bot, feature requests...</p><p><strong>/game: </strong>The bot asks you to select one of the groups in which you are playing or being the master. After this, the private commands will refer to that group.</p><p><strong>/help:</strong> It prints a link to this help post</p><p><strong>/leave:</strong> Used by the users if they want to undo the effect of <em>/play.</em></p><p><strong>/me:</strong> Used in the private chat, it reminds you your role/s.</p><p><strong>/play:</strong>  Used by the users in order to tell the bot they will play the current game. A game must have been started with the command <em>/newgame</em>. The master cannot execute <em>/play.</em></p><p><strong>/polling: </strong>See the results of the polling. Please, try to call this from the private chat to not generate too many messages in the main group.</p><p><strong>/rand &quot;list of words&quot;:</strong> Used with a list of words, the bot will send one of them randomly. It is useful for some situations in which you have to decide something at random.</p><p><strong>/rand &quot;A number&quot;:</strong> Used with a positive number n, the bot will send a random natural number in [1, n]. It is useful for some situations in which you have to decide something at random.</p><p><strong>/riot:</strong> If this command is called by three distinct players in a game, the bot will end the game (useful if the master is not online).</p><p><strong>/rolelist:</strong> It sends a link to a big list of roles and their descriptions.</p><p><strong>/roles:</strong> Used while playing, it reminds the roles and tell which of them are alive and which are dead</p><p><strong>/signup:</strong> If you have changed your nick the bot will not be able to interact with you correctly. You can update your nick with <em>/signup. </em> This command is the equivalent to <em>/start</em>.</p><p><strong>/start:</strong> It starts the chat with the bot. Needed for the bot to send messages to you.</p><p><strong>/vote @nick:</strong> Vote for somebody during the day. You have to vote from the main group. If you vote again the vote is overwritten. Your vote is reseted after somebody dies with <em>/kill</em></p><p><strong>/who:</strong> If used after <em>/newgame</em> and before <em>/roles</em>, it shows who is going to play. If used while playing, it shows a list of the people that are current alive and then a list of the dead people along their role.</p><h4 id="Just-for-the-master:">Just for the master:</h4><p><strong>/delayed:</strong> performed by the master in private, it tells them what people have not sent their actions yet.</p><p><strong>/endgame:</strong> It ends the game, it can only be used by the master.</p><p><strong>/endnight:</strong> It ends the night, it can only be used by the master. Useful to unblock a game where some users don&#39;t send their actions. Try not to use it very often.</p><p><strong>/kill @nick: </strong>It kills somebody in the game mode with one role per person. It is used to tell the bot who died during the night or the day.</p><p><strong>/killd @nick:</strong> It kills a role, it can only be used in the mode with more than one role per person. This is for diurnal death. The role killed is random among the ones that are still alive.</p><p><strong>/killn @nick n:</strong> It kills a role, it can only be used in the mode with more than one role per person. This is for nocturnal death, it can only be used by the master. The master must ask the killed person the number of the role he/she wants to be killed. It is an integral greater or equal than 1.</p><p><strong>/killr &quot;list of @nicks&quot;:</strong> It kills a role, it can only be used in the mode with more than one role per person. The bot will pick a person from the list at random and will kill one of their roles at random. This is useful when there is a tie in the polling.</p><p><strong><em>/mode n:</em> </strong>Used by the master after /newGame. The bot will send a message with the number of roles the master has to select. <em>n</em> stands for the number of lives. The bot waits for the command <em>/roles</em> or for another <em>/mode</em> to set a distinct number of lives.</p><p><strong>/newgame:</strong> It starts a new game. The master will be the one that executes this command. If a game is already being played this command does nothing.</p><p><strong>/roles &quot;list of roles&quot;:</strong> This command needs a list with as many words as the number of people that are playing (support for the thief will be maybe considered later). Every word must be the name of a character. The bot will shuffle the characters and will send a private message to each player with their role. Roles must be names with no spaces. The bot will consider a wolf every role that has &quot;wolf&quot; in its name. It will send private messages to all of them telling them who they are.</p><p><strong>/setrole @nick <em>role</em> n:</strong> Used by the master in private in any moment, it overwrites the role of @nick and sets role instead. n is the number of the role, use it just if playing with more than one life. It is useful for playing with characters as the cardsharp or the thief.</p><p><strong>/sunset: </strong>Used by the master to remind people to send their actions. It is optional, and it is usually done when the night is going to start. The people and only people that have not acted yet received a reminder. by the bot. It helps preventing people not sending their actions if a slow paced game is played.</p>
+
+</div>
+</details>
+
+<details class="lycanthrobot-collapsible">
+<summary>Roles</summary>
+<div class="collapsible-content">
+
+<p>This is a suggested list of roles for playing a game of werewolf, specially with <a href="http://t.me/lycanthrobot" target="_blank" rel="noopener noreferrer">lycanthrobot</a>. See <a href="https://telegra.ph/Rules-and-variants-of-werewolf-games-06-21" target="_blank" rel="noopener noreferrer">Rules and variants</a> of the game and the <a href="https://telegra.ph/lycanthrobot-help-01-08" target="_blank" rel="noopener noreferrer">@lycanthrobot help</a>. </p><p>In the variants you can see that you can play with more than one role per person, in this case, the distinction between person and role is important. In the following I will make that distinction. For example when I say &quot;Pick the role of someone&quot;, it means you have to pick a person and one of their roles (they are numbered: 1st 2nd etc) or if I say &quot;Kill all the wolves&quot; it means you have to kill all the roles that are wolves, not all the people that have roles that are wolves.</p><p>The following contains a list of 74 roles, divided into Wolf Team, Village Team and Other Teams.</p><h3 id="Wolf-Team">Wolf Team</h3><p><strong><em>Ordinary Wolf:</em></strong></p><p>    <strong>Abilities: </strong>Decide on a person to kill with the other wolves. The wolves can decide to kill themselves. They must choose someone to kill.</p><p><strong>    Goal:</strong> Kill anyone that does not belong to the wolf team while there is at least one wolf or dog alive.</p><p><strong><em>Albino Wolf:</em></strong></p><p><strong>    Abilities: </strong>Same as wolves + in the even nights you can pick one of the wolves in your team and kill it.</p><p><strong>    Goal:</strong> Be the only person left alive.</p><p><em> </em><strong><em>Alpha Wolf: </em></strong></p><p><strong>    Abilities: </strong>Same as wolves + once in the game you can infect one of the wolves&#39; victims. This person will not die, they will become a wolf for the rest of the game instead. This does not happen if someone saves the victim from dying. You will have already used your ability, though.</p><p> If playing with more than one role per person, one of the roles of the victim is selected randomly to be the wolf, if this role dies, it is effectively as if the role of wolf would have died, i.e. the villagers don&#39;t have to kill their other roles to win and this person cannot vote who to kill in the night.</p><p><strong>    Goal:</strong>  Kill anyone that does not belong to the wolf team while there is at least one wolf or dog alive.</p><p><strong><em>Wolf Cub:</em></strong><em> </em></p><p><strong>    Abilities: </strong>Same as wolves + if you die, the next night the wolves will kill an extra person.</p><p><strong>    Goal:</strong>  Kill anyone that does not belong to the wolf team while there is at least one wolf or dog alive.</p><p><strong><em>Incognito Wolf:</em></strong><em> </em></p><p><strong>    Abilities: </strong>Same as wolves + you seem to be innocent to the roles that can obtain information about if someone is a wolf or not (for example to the detective, but not to the seer).</p><p><strong>    Goal:</strong>  Kill anyone that does not belong to the wolf team while there is at least one wolf or dog alive.</p><p><strong><em>Entertainer:</em></strong></p><p>    You know who the wolves are and they know who you are.</p><p><strong>    Abilities: </strong>Pick someone every night to entertain. This person will not be able to use any special abilities during that night. You can&#39;t entertain someone from the wolves&#39; team. Entertainers are not affected by the power of another entertainer. If you entertain someone that had used his single-use ability, that person will have spent their ability.</p><p><strong>    Goal:</strong> You win if the wolves win.</p><p><strong><em>Dog:</em></strong><em> </em></p><p>    You know who the wolves are and they know who you are.</p><p><strong>    Abilities: </strong>The village has to kill you in order to win but you can&#39;t decide the nocturnal victim. In particular, if you are the only one alive in the wolf team, there will be no victim.</p><p><strong>    Goal:</strong> You win if the wolves win.</p><p><strong><em>Minion:</em></strong><em> </em></p><p>    You know who the wolves are and they know who you are.</p><p><strong>    Abilities: </strong>No special abilities. You are like a villager, but you win with the wolves and you know who they are.</p><p><strong>    Goal:</strong> You win if the wolves win.</p><p><strong><em>Babbler:</em></strong></p><p>    You know who the wolves are and they know who you are.</p><p><strong>    Abilities: </strong>Every night, pick a person. For the rest of the game that person will be seen as a wolf by the roles that obtain information about if a player is a wolf or not.</p><p><strong>    Goal:</strong> You win if the wolves win.</p><p><strong><em>Brainwasher:</em></strong><em> </em></p><p>    You know who the wolves are and they know who you are.</p><p><strong>    Abilities: </strong>Pick a person every night (and number of role if playing with more than one lives) and a role X. During the rest of the game, if the person picked wants to talk about their role, they must say the are X . They cannot talk about the fact that the brainwasher visited them. (depending on the game the master might want you to pick more than one person per night).</p><p><strong>    Goal:</strong> You win if the wolves win.</p><h3 id="Village-Team">Village Team</h3><p><strong><em>Villager:</em></strong><em> </em></p><p><strong>    Abilities: </strong>No special abilities.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h4 id="Save-roles">Save roles</h4><p><strong><em>Witch:</em></strong></p><p><strong>    Abilities: </strong>You have two single-use abilities that you can use in the night you want. You can use both in the same night. These are: </p><p>        1) Being able to save the people killed by the wolves in the night you use it. You don&#39;t know who the victims are. </p><p>        2) Being able to kill someone you choose.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong><em>Weak witch: </em></strong></p><p><strong>    Abilities: </strong>Same as witch but you don&#39;t save the wolves&#39; victims but you pick someone and save that person if it was going to die because of the wolves daily carnage.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong><em>Vampire witch: </em></strong></p><p><strong>    Abilities: </strong>Same as weak witch but can use the saving ability every night.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong><em>Omnipotent witch:</em></strong></p><p><strong>    Abilities: </strong>Every night you will be told who is going to be killed by the wolves. After this you can save this person or not. You can only save once. You also have the single-use ability to kill someone.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong><em>Defender:</em></strong></p><p><strong>    Abilities: </strong>Pick a person every night. The wolves can&#39;t kill this person in that night. You can defend yourself although you cannot defend the same person two consecutive nights.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h4 id="Love/Hate-roles">Love/Hate roles</h4><p><strong>Cupid:</strong></p><p><strong>    Abilities: </strong>Pick two lovers before the first night (you can pick yourself). The two lovers will be told who they are and apart from their goal, they can also win if they are the last two people alive. If one of the lovers dies, so will do the other. In a game with more than one life per person, the lovers dying condition only affects to the first life lost. Their goal won&#39;t change. Also, if one lover dies, the other gets to decide which of their roles dies.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Lovers: </strong></p><p><strong>    Abilities: </strong>They are two roles and they know what persons they are. When one of this ROLES dies, the other ROLE one dies too.</p><p><strong>    Goal:</strong> Kill all the wolves or be the only person alive along with your lover.</p><p><strong>Tom &amp; Jerry: </strong></p><p><strong>    Abilities: </strong>There are two and they know who they are. Tom hates Jerry and Jerry hates Tom.</p><p><strong>    Goal:</strong> Kill all the wolves but kill Tom/Jerry first.</p><p><strong>Devil:</strong></p><p><strong>    Abilities: </strong>Pick two people (you can pick yourself) before the first night. These two people will be, apart from their original roles, Tom and Jerry. To win, they will have to kill the other and fullfil their original goal.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Promiscuous: </strong></p><p><strong>    Abilities: </strong>Select someone to become your lover. If one of your roles dies, a role of your lover will die (if &gt;1, your lover may choose). If a role of your lover dies, you will not die. You pick a lover again with your night action in this case. Note that the lover will not know you both are in love until the next day, but you make them fall in love during the night. Your lover will not know you are promiscuous, they will only know about their love with you.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h4 id="Killer-roles">Killer roles</h4><p><strong>Hunter:</strong></p><p><strong>    Abilities: </strong>When you die, you may kill the role of someone else. If you pick somebody with more than one role, you choose the role number. If several hunters, of any kind, die at once they decide who to kill simultaneously.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Noctambulant hunter: </strong></p><p><strong>    Abilities: </strong>Same as the hunter, but you only kill if you die during the night.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Terrorist: </strong></p><p><strong>    Abilities: </strong>Once in the game during the night you may place a bomb under someone&#39;s role. When you die, the bomb explodes killing the role if it was still alive.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Avenger: </strong></p><p><strong>    Abilities: </strong>If you are lynched, one of the roles of the people who voted for you will be selected randomly and will die.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Kamikaze: </strong></p><p><strong>    Abilities: </strong>Whenever you want during the game (in the middle of the night, in the day, whenever) you can immolate yourself and kill the role of someone you choose. This process is public.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h4 id="Observer-roles">Observer roles</h4><p><strong>Seer:</strong></p><p><strong>    Abilities: </strong>You can check another player&#39;s role once in the entire game.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Omnipotent Fortune Teller:</strong></p><p><strong>    Abilities: </strong>You can check another player&#39;s role each night.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Detective: </strong></p><p><strong>    Abilities: </strong>You pick the role of a player, each night. You can&#39;t pick a role of yourself. You will be told whether the chosen role is a wolf or not.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Crazy Detective:</strong></p><p>     You think you are a detective.</p><p><strong>    Abilities: </strong>Same as the detective, but you are always told the opposite of what you would be told if you were a detective.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Forensic:</strong> </p><p><strong>    Abilities: </strong>When the town wakes up and the nocturnal victims are announced, you are told how they were killed. Will you be able to guess who were the killers?</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h4 id="Swapping-cards,-changing-roles...">Swapping cards, changing roles...</h4><p><strong>Card Sharp: </strong></p><p><strong>    Abilities: </strong>You swap two people&#39;s roles once in the entire match. Already used single-used powers  of swapped roles will remain used. In the case you are playing with several card sharps or wandering ghosts, the master sets beforehand an ordering to decide who swaps first.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Wandering Ghost: </strong></p><p><strong>    Abilities: </strong>You pick the role of another person and you swap your ghost with it. It is a random character who abandons its body every night grabbing other&#39;s. In the case you are playing with several card sharps or wandering ghosts, the master sets beforehand an ordering to decide who swaps first.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Thief:</strong></p><p>    For each thief in the game, the master adds two extra roles to the game. In the random distribution of roles, there are two roles per thief that are not assigned to anyone. The master assigns a pair of roles two each thief.</p><p><strong>    Abilities: </strong>The first night, the thief is shown two of those roles and picks one. The thief will adopt that new role the rest of the game.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Grave-Robbing Thief:</strong></p><p><strong>    Abilities: </strong>You can take someone&#39;s role right after his death, playing with this new role for the rest of the game. You belong to the town, as far as you don&#39;t adopt the identity of any other character. Of course, you don&#39;t want the wolves to win so you wouldn&#39;t want to become a wolf.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h4 id="Swapping/changing-effects">Swapping/changing effects</h4><p><strong>Wizard: </strong></p><p><strong>    Abilities: </strong>You swap positions between two people each night. This means, everything that should happen to Alice will happen to Bob, and viceversa. The wizard is inmune to &quot;disability characters&quot; (i.e.  entertainer, hexer, etc). The actions of two wizards or any other roles that swap effects (baton passer but not hypnotist) do not interfere, if Alice is swapped with Bob and Bob with Carol, then Bob will receive the actions of Alice and Carol and Alice and Carol will receive Bob&#39;s. A murder can become two&#33; It can also be the case that Alice and Carol are the same person so whatever was going to happen to Bob happens to this other person twice and also the other way around&#33;</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Baton Passer:</strong></p><p><strong>    Abilities: </strong>You pick two people, say Alice and Bob, and everything that was going to happen to Bob, will happen to Alice instead.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Hypnotist:</strong></p><p><strong>    Abilities: </strong>You pick two people and a role of each of them, say Alice and Bob, every night. If that role of Alice has performed some special action over someone, this action occurs to your selected role for Bob instead of to the person chosen by Alice.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h4 id="Others">Others</h4><p><strong>Governor:</strong></p><p><strong>    Abilities:  </strong>You can absolve one person sentenced to death in the lynching, once in the entire game. The village will be informed about the absolution, but not about the governor&#39;s identity. You cannot absolve yourself.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Overlord:</strong></p><p><strong>    Abilities:  </strong>Pick a person in the first night and that person will be a governor. You cannot pick yourself. The new governor won&#39;t be known by the rest of the village and they will still have their special abilities.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Fool:</strong></p><p><strong>    Abilities: </strong>You can&#39;t die in the lynching. If you are voted, your role is revealed and the village must vote for somebody else.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Silversmith:</strong></p><p><strong>    Abilities: </strong>If the wolves try to kill you during the night, you kill one of the wolves (randomly selected) and then you become a wolf. If the witch used their saving potion, you will still be a wolf but the other wolf will not die, there will be one extra wolf in the game. The village is not told that something happened with the silversmith, they will just see a wolf dying.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p>    When playing with several roles per person, it&#39;s up to the master to kill the role of the wolf or announcing that the person died and then they choose the role as in a regular noctural death. This should be decided at the start of the game.</p><p><strong>Invalid:</strong></p><p><strong>    Abilities: </strong>If the entertainer chooses you, the entertainer dies.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Turncoat:</strong></p><p><strong>    Abilities: </strong>You are like a regular villager, but if the game finishes during night time, you win with the wolves.</p><p><strong>    Goal:</strong> Kill all the wolves during the day or try to make the wolves win during the night. The wolves still need to kill you to win.</p><p><strong>Elder:</strong></p><p><strong>    Abilities: </strong>You have to be attacked twice during some nights to die. If the witch or another character tries to save you, you will only get one life back (in the case you were going to die that night). You are lynched normally if the village sentences you to death.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p>If you have more than one role alive and you are kill in the night, when you have to pick the role that will die, you can pick your elder and then you won&#39;t die.</p><p><strong>Rabbel Rouser:</strong></p><p><strong>    Abilities: </strong>As long as you are alive, the village lynches one more person than usual during day time.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Masons:</strong></p><p><strong>    Abilities: </strong>They are two identical roles, they know each other.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Barman:</strong></p><p><strong>    Abilities: </strong>Pick a person every night. During the whole following day that person will be drunk and it will have to do something funny, decided beforehand. Examples are sending messages aLtErNaTiNg UpPeR aNd LoWeR cAsE lEtTeRs, communicating only with emoticons or stikers, or (if playing all physically together) speak singing or sending audios singing.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Fox:</strong></p><p><strong>    Abilities: </strong>Every night you pick a group of people of size exactly to a number that is decided by the master at the beginning of the game. Usually, the master writes the role as fox_3 or fox_4, for example, for indicating the number decided. You are told if there is at least one wolf in such a group. Your ability is affected by roles as the babbler, the incognito wolf and so.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Lawyer:</strong></p><p><strong>    Abilities: </strong>Pick a person every night. If the next day that person is voted for being lynched, the master will announce that person was defended by the lawyer, won&#39;t die and the village will have to vote for a different person. You cannot pick the same person two consecutive nights and you can defend yourself.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Cautious Granny:</strong></p><p><strong>    Abilities: </strong>You can activate your ability once in the game. If so, every person that picks you as part of their actions will die. The only exception are the wolves, only one wolf will die (at random). Even if the granny dies, the visitors still die.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Bleeder:</strong></p><p><strong>    Abilities: </strong>S</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong> </strong>If you are killed during the night, you will be bleeding next day but you won&#39;t die. You will die the following day instead. If you are attacked while bleeding, nothing happens.</p><p><strong>Killjoy:</strong></p><p><strong>    Abilities: </strong>You can activate your ability once in the game and during the day, before the daily execution. If you activate your ability you skip a night (so there will be another lynching, the bleeder may die, etc). If you are lynched that day, your action stills takes place.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Scientist:</strong></p><p><strong>    Abilities: </strong>Twice in the game, you can pick a somebody&#39;s role and if that role is a wolf, it becomes a minion (see above). You won&#39;t know if you have selected a wolf.</p><p><strong>    Goal:</strong> Kill all the wolves, minions don&#39;t count as wolves.</p><p><strong>Tamer:</strong></p><p><strong>    Abilities: </strong>The wolves can&#39;t kill you in the nocturnal carnage.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Crow:</strong></p><p><strong>    Abilities: </strong>Pick a person every night. This person will have one more vote against them in the next day polling.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Barber:</strong></p><p><strong>    Abilities: </strong>You can activate your ability once in the game and during the day. If so, you kill one role of someone. If the killed role is a member of the village team, the barber will die immediately. Then the village continues with the lynching.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Distractor:</strong></p><p><strong>    Abilities: </strong>Every night you pick a person. This person won&#39;t be able to vote next day.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Shaman:</strong></p><p><strong>    Abilities: </strong>In the mode in which you don&#39;t see the roles of dead people, the shaman can see if the dead people are from the wolves team or not.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Hero:</strong></p><p><strong>    Abilities: </strong>Every night you must pick somebody but yourself and if that person was going to die during the night, you die instead and you kill one of the murderers randomly.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Martyr:</strong></p><p><strong>    Abilities: </strong>Every night you must pick somebody but yourself and if that person was going to die during the night, you die instead.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Pregnant:</strong></p><p><strong>    Abilities: </strong>If the wolves kill you, the next night they cannot kill. If the wolves kill you and somebody else kills you this will still happen.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Black Sheep:</strong></p><p><strong>    Abilities: </strong>You are an ordinary villager but you are seen as a wolf by the roles that obtain information about if someone is a wolf or not. You are told to be an ordinary villager.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Baker:</strong></p><p><strong>    Abilities: </strong>Since you die, the village has a limited number of nights to win or they will starve. This number is decided by the master at the beginning of the game.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong> Fairy Godmother:</strong></p><p><strong>    Abilities: </strong>Pick a role, if it is a role that has a single-use ability and was already used, you give back this ability to it. This is a single-use ability.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Jekyll and Hyde:</strong></p><p><strong>    Abilities: </strong>They are two roles whose aim is being the last two people alive in the game. Jekyll has the powers of a defender and Hyde is like an ordinary wolf (the rest of the wolves think Hyde is a wolf). If one of the roles dies, so does the other.</p><p><strong>    Goal:</strong>  To win they have to be the last two people alive in the game.</p><p><strong>Exemplary Villager:</strong></p><p><strong>    Abilities: </strong>You are like an ordinary villager, but at the beginning of the game everybody knows your role. Your role could be changed by other roles like the cardsharp, though.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Briber:</strong></p><p><strong>    Abilities: </strong>You can do your action once every two nights, (odd nights). You bribe someone to vote in the lynching for a person that you pick.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><p><strong>Hexer:</strong></p><p><strong>    Abilities: </strong>Pick a person every night. If your role dies, the special ability/abilities of the last person the hexer had picked won&#39;t have any effect the night after their dead.</p><p><strong>    Goal:</strong> Kill all the wolves.</p><h3 id="Other-teams">Other teams</h3><p><strong>Sectarian:</strong></p><p><strong>    Abilities: </strong>At the beginning of the game, the players are splitted in two groups: the ones that are in the sect and the ones who aren&#39;t. You are in the sect. </p><p><strong>    Goal:</strong> At the end of the game you win if the only people alive are in the sect.</p><p><strong> Piper:</strong></p><p><strong>    Abilities: </strong>Each night the you attract some number of people that is decided at the beginning of the game. The attracted people know who has been attracted by you. You can&#39;t pick yourself to be attracted by you.</p><p><strong>    Goal:</strong>  Attract every alive person in the game while you are still alive. If at some point everybody (not including yourself) is attracted, you win the game and the rest of the people lose.</p><p><strong>Secretary:</strong></p><p><strong>    Abilities: </strong>At the beginning of the game the you pick a person distinct from yourself that will be your boss. </p><p><strong>    Goal:</strong> You win if your boss is alive at the end of the game.</p><p><strong>Bookie:</strong></p><p><strong>    Abilities: </strong>At the beginning of the game you choose if you want to win with either the wolves or the village. You won&#39;t be told who the wolves are if you pick the wolves side. and then every night you pick a person and bet that person will die during that night. If the person actually dies, you can kill somebody the next night (if you are alive and only if you want). You also bet as every night.</p><p><strong>    Goal:</strong> Either win with the wolves or the village, whatever you choose at the beginning of the game.</p><p><strong>Anarchist:</strong></p><p><strong>    Abilities: </strong>Each night you pick a person distinct from yourself. This person will not be able to vote during the rest of the game. </p><p><strong>    Goal:</strong> You win if at some polling there are no alive people that can vote (but you). In that case the game ends.</p>
+
+</div>
+</details>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>I gathered <a href="/assets/telegram_games/game_configurations.csv" target="_blank" rel="noopener noreferrer">a dataset</a> containing (A) number of players, (B) lives per player, and (C) roles for the games we played in a big group over some years. Sometimes roles are written in Spanish, and sometimes there are roles that are not in the official list because we were testing them. A sample line for 6 players and 2 lives per player:</p>
+
+<p><code class="language-plaintext highlighter-rouge">6,2,wolf dog_wolf witch witch hunter hunter cupid tom jerry barman villager villager</code></p>
+
+<p>The chart below summarizes the configurations in that dataset, organized by number of players and number of lives that we used. You can see that we loved the 2 lives mode and sometimes we played with more but only if there were 7 players or fewer.</p>
+
+<div id="lycanthrobot-configurations-chart"></div>
+<script src="/assets/telegram_games/lycanthrobot_configurations_chart.js"></script>
+
+
+      
+        
+
+  <p class="fun-post-tags">
+    
+      <a href="/fun/tags/games/">#games</a>
+    
+      <a href="/fun/tags/telegram/">#telegram</a>
+    
+  </p>
+
+
+      
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.com/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+
+        </div>
+        <p class="byline"><strong>Lycanthrobot - Playing your own Werewolf quickly on Telegram</strong> was published on <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section class="comments" aria-label="Comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="damaru2/damaru2.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNDgxMjIwMDk="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOFL_rmc4DBiyK"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2026 David Martínez-Rubio. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://damaru2.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://damaru2.github.io/assets/js/scripts.min.js"></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EKCKR7JVZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EKCKR7JVZP');
+</script>
+
+	        
+
+
+
+<!-- circled command and other command definitions -->
+<style>
+    p {
+      text-align: justify;
+      margin: 0 0 1em 0 !important; /* only space after paragraphs */
+    }
+
+  .circled-content-r {
+    display: inline-block;
+    transform: scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+  .circled-content {
+    display: inline-block;
+    transform: scale(0.8) scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+</style>
+
+
+
+
+
+
+<!-- -->
+
+
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+
+</body>
+</html>

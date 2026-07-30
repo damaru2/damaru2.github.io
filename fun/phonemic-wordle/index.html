@@ -1,0 +1,444 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>David Martínez-Rubio  &#8211; Phonemic Wordle </title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Phonemic Wordle">
+<meta property="og:description" content="Welcome to my academic site.">
+<meta property="og:url" content="https://damaru2.github.io/fun/phonemic-wordle/">
+<meta property="og:site_name" content="David Martínez-Rubio">
+
+
+
+
+
+<link rel="canonical" href="https://damaru2.github.io/fun/phonemic-wordle/">
+<link href="https://damaru2.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="David Martínez-Rubio Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/main.min.css">
+<link rel="stylesheet" href="https://damaru2.github.io/assets/academicons.css" />
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/custom.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="https://damaru2.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://damaru2.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.ico">
+<link rel="shortcut icon" href="https://damaru2.github.io/favicon.png">
+
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://damaru2.github.io/images/apple-icon-precomposed.png">
+
+<style>
+.math-with-href:hover {
+  background-color: lightgray;
+}
+
+/* behavior for mathjax links, whose id starts with def_ that */
+html { scroll-behavior: smooth; }
+/* Land a bit higher when jumping to #def_* */
+[id^="def_"] {
+  /* tweak the value to your header height + a little spacing */
+  scroll-margin-top: 20px;
+}
+
+</style>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      config: ["MMLorHTML.js"],
+      extensions: ["enclose.js", "cancel.js", "color.js", "bbox.js", "AMSmath.js", "AMSsymbols.js"],
+      packages: {'[+]': ['hyperref']},
+     "HTML-CSS": { linebreaks: { automatic: true } },
+      Macros: {
+        link: ["\\href{#1}{\\class{math-with-href}{#2}}", 2],
+        R: "{ \\mathbb{R} }",
+        argmin: "{\\arg\\,\\min}",
+        X: ["\\mathcal{X}"],
+        norm: ["{ \\|#1\\| }", 1],
+        innp: ["{\\langle#1\\rangle}", 1],
+        innpl: ["{\\left\\langle#1\\right\\rangle}", 1],
+        //defi: "{\\stackrel{\\mathrm{\\scriptscriptstyle def}}{=}}",
+        defi: "{\\triangleq}",
+        circledron: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{1}}}{#1}", 1],
+        circledrtw: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{2}}}{#1}", 1],
+        circledrth: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{3}}}{#1}", 1],
+        circledrfo: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{4}}}{#1}", 1],
+        circledrfi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{5}}}{#1}", 1],
+        circledrsi: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{6}}}{#1}", 1],
+        circledrse: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{7}}}{#1}", 1],
+        circledrei: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{8}}}{#1}", 1],
+        circledrni: ["\\stackrel{\\class{circled-content-r}{\\enclose{circle}[mathcolor=black]{9}}}{#1}", 1],
+        circledon: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{1}}"],
+        circledtw: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{2}}"],
+        circledth: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{3}}"],
+        circledfo: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{4}}"],
+        circledfi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{5}}"],
+        circledsi: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{6}}"],
+        circledse: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{7}}"],
+        circledei: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{8}}"],
+        circledni: ["\\class{circled-content}{\\enclose{circle}[mathcolor=black]{9}}"],
+      },
+    },
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    //extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+    //jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+    },
+    loader: {
+      load: ['[tex]/ams', 'input/latex/extensions/hyperref'],
+    },
+  });
+
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"> -->
+
+
+</head>
+
+<body class="post">
+
+
+  <meta name="x-debug-layout" content="post">
+  <meta name="x-debug-sitemap" content="nil">
+  <meta name="x-debug-noindex" content="nil">
+  <meta name="x-debug-path" content="_posts/2026-05-17-phonemic-wordle.md">
+
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="https://damaru2.github.io">David Martínez-Rubio</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="https://damaru2.github.io/publications/" >Publications</a></li>
+		        
+				<li><a href="https://damaru2.github.io/cv/" >CV</a></li>
+		        
+				<li><a href="https://damaru2.github.io/blog/" >Blog</a></li>
+		        
+				<li><a href="https://damaru2.github.io/fun/" >FUN</a></li>
+		        
+				<li><a href="https://damaru2.github.io/" >About</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.com/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="https://damaru2.github.io/fun/phonemic-wordle/" rel="bookmark" title="Phonemic Wordle">Phonemic Wordle</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <style>
+.phonemic-wordle-collapsible {
+  margin: 1.25rem 0;
+  border: 1px solid #b6c2cf;
+  border-radius: 8px;
+  background: #fbfcfe;
+  overflow: hidden;
+}
+.phonemic-wordle-collapsible > summary {
+  cursor: pointer;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  background: #eef4fa;
+  border-bottom: 1px solid transparent;
+  list-style: none;
+}
+.phonemic-wordle-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+.phonemic-wordle-collapsible > summary::before {
+  content: "+";
+  display: inline-block;
+  width: 1.2rem;
+  margin-right: 0.35rem;
+  font-weight: 700;
+}
+.phonemic-wordle-collapsible[open] > summary {
+  border-bottom-color: #d5dde7;
+}
+.phonemic-wordle-collapsible[open] > summary::before {
+  content: "-";
+}
+.phonemic-wordle-collapsible .collapsible-content {
+  padding: 1rem;
+}
+</style>
+
+<aside class="post-tldr" aria-label="TL;DR">
+<ul>
+  <li>Wordle but with American English phonemes.</li>
+  <li><strong>Challenging,</strong> but instructive and innovative.</li>
+  <li><strong>Best:</strong> Collaborate with a friend to solve it in a Telegram chat.</li>
+  <li><strong>Cool:</strong> Original features like hard mode, check pronunciation even outside of a game, deduced info from hints so far, play with 4-6 phonemes.</li>
+</ul>
+</aside>
+
+<figure class="image">
+  <img src="/assets/telegram_games/phonemic_bot.png" alt="" />
+  <figcaption></figcaption>
+</figure>
+
+<p>Phonemic Wordle is a Wordle variant I made on Telegram in 2022, <a href="https://t.me/wordle_phonetic_bot" target="_blank" rel="noopener noreferrer">@wordle_phonetic_bot</a>. This is a bot for playing a phonemic version of wordle (~IPA, American English) where you are not guessing spelling but phonemes: words with 5 phonemes in American English in particular.</p>
+
+<p>You type guesses in plain English, and the bot shows the <a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict" target="_blank" rel="noopener noreferrer">CMU Pronouncing Dictionary</a> phonemic transcriptions, converts the guess into phonemes and gives Wordle-style feedback on the sounds.</p>
+
+<p>It is much more chalenging than regular Wordle. The bot gives 8 attempts instead of 6 to compensate for the bigger number of phonemes in comparison to letters. It’s a great tool to learn about English phonemes and pronunciation.</p>
+
+<p>The coolest part of it turned out to be <strong>collaborative play</strong>. You can add the bot to a Telegram group and let everyone suggest candidate words. I mostly played with one or two more people.</p>
+
+<p>Also, I decided to use mastermind rules so if you write two equal phonemes and there is only one in the target word, you get yellow for both. For a full description, see the bot’s help text:</p>
+
+<details class="phonemic-wordle-collapsible">
+<summary>Bot's help text</summary>
+<div class="collapsible-content">
+
+    <blockquote>
+      <p>Start a phonemic wordle game by sending <code class="language-plaintext highlighter-rouge">/play</code>.</p>
+    </blockquote>
+
+    <p><strong>Rules:</strong></p>
+
+    <ol>
+      <li>Guess the pronunciation of a word with 5 phonemes using 8 attempts, assuming an American accent.</li>
+      <li>Send <code class="language-plaintext highlighter-rouge">/guess anenglishword</code>, written using the Latin alphabet, or use <code class="language-plaintext highlighter-rouge">/check yourword</code> first and press the send button. In a private chat, <code class="language-plaintext highlighter-rouge">/guess</code> is not needed. The word will be converted to its American pronunciation using a phonemic representation.</li>
+      <li>If the pronunciation of your guess has a character in the pronunciation of the word you are trying to guess, and in the same position, it will be marked 🟩. If it is in the target word but not in the same position, it will be 🟨, regardless of anything else. If the character is not in the word, it will be ⬜️.</li>
+    </ol>
+
+    <p>🆒 Playing collaboratively is more fun than playing alone. Create a group with some other person or people and help each other guess the word.</p>
+
+    <p><strong>Extra:</strong></p>
+
+    <ul>
+      <li>➕ You can send <code class="language-plaintext highlighter-rouge">/playhard</code> to play a hard version in which the word will contain one unfrequent phoneme, indicated by a question mark in the list of possible phonemes.</li>
+      <li>➕ You can add numbers 4 or 6 after <code class="language-plaintext highlighter-rouge">/play</code> or <code class="language-plaintext highlighter-rouge">/playhard</code> to play a game where the word has length 4 or 6. For example, <code class="language-plaintext highlighter-rouge">/play 4</code> or <code class="language-plaintext highlighter-rouge">/playhard 6</code>.</li>
+      <li>➕ The check function also helps you see how good your check is with respect to the information you already got. It tells one of six things about a character:</li>
+    </ul>
+
+    <p>🟩 means you already know it is going to be green.<br />
+🟨 means you already know it is going to be yellow.<br />
+🔰 means it can be green or yellow.<br />
+🟥 means the character is not in the word.<br />
+🔎 indicates you are exploring and have no information about this character.<br />
+🌕 means the same as above, but you know you are not going to hit green because you already know the green character in this position.</p>
+
+  </div>
+</details>
+
+<p>The <code class="language-plaintext highlighter-rouge">/check</code> command is also allows you to check the pronunciation of a word even if you are not playing. And also to check it out before committing to it as a guess. If the dictionary has several pronunciations for that spelling, the bot shows them all along with buttons for sending them. During a game, <code class="language-plaintext highlighter-rouge">/check</code> also annotates a candidate pronunciation against the information you already have, so you don’t mess up sending things only to discover you already knew the information of a letter in that place.</p>
+
+<p>There is also a hard mode with <code class="language-plaintext highlighter-rouge">/playhard</code>, where the answer contains at least one uncommon phoneme, marked with a question mark in the list of possible phonemes, and so the solutions are less common words. The code has word lists for 4-, 5-, and 6-phoneme games: 1000 normal answers of each length, plus hard lists of about 800 words for each length.</p>
+
+<p>I like the challenge that comes from this game, and it helped me to put to good use some phonemic rules I learned about the regularities arising in the spelling to phoneme map of English. English is quite irregular in this aspect, but actually much less than what at least most of us English-as-a-second-language speakers tend to think. More on that on another post.</p>
+
+      
+        
+
+  <p class="fun-post-tags">
+    
+      <a href="/fun/tags/games/">#games</a>
+    
+      <a href="/fun/tags/telegram/">#telegram</a>
+    
+  </p>
+
+
+      
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="https://damaru2.github.io/images/david.png" class="bio-photo" alt="David Martínez-Rubio bio photo"></a>
+
+<h2>David Martínez-Rubio</h2>
+<p></p>
+
+<a href="http://scholar.google.com/citations?user=dMwpf-4AAAAJ" class="author-social" target="_blank"><i class="ai ai-google-scholar-square"></i>&nbsp; G. Scholar</a>
+
+<a href="http://linkedin.com/in/david-martínez-rubio-a3b250140" class="author-social" target="_blank"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+
+
+<a href="http://github.com/damaru2" class="author-social" target="_blank"><i class="fa fa-github-square"></i> Github</a>
+
+
+
+
+
+
+<a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
+
+
+        </div>
+        <p class="byline"><strong>Phonemic Wordle</strong> was published on <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section class="comments" aria-label="Comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="damaru2/damaru2.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNDgxMjIwMDk="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOFL_rmc4DBiyK"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2026 David Martínez-Rubio. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://damaru2.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://damaru2.github.io/assets/js/scripts.min.js"></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EKCKR7JVZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EKCKR7JVZP');
+</script>
+
+	        
+
+
+
+<!-- circled command and other command definitions -->
+<style>
+    p {
+      text-align: justify;
+      margin: 0 0 1em 0 !important; /* only space after paragraphs */
+    }
+
+  .circled-content-r {
+    display: inline-block;
+    transform: scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+  .circled-content {
+    display: inline-block;
+    transform: scale(0.8) scaleX(1.4);
+    position: relative;
+    top: 0.1em;
+  }
+</style>
+
+
+
+
+
+
+<!-- -->
+
+
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+
+</body>
+</html>

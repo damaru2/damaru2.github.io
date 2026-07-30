@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folding Fruit Akinator — Hackable A4 Paper</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color-scheme: light; }
+    body { margin: 0; background: #ffffff; color: #000000; }
+
+    .controls {
+      position: sticky; top: 0; z-index: 10;
+      padding: 12px 16px; background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    }
+    select, button {
+      border: 1px solid rgba(0,0,0,0.35); background: #ffffff; color: #000000;
+      padding: 8px 10px; border-radius: 12px; font-weight: 700; cursor: pointer;
+    }
+    button:hover { background: rgba(0,0,0,0.05); }
+    button[aria-pressed="true"] { background: #000000; color: #ffffff; }
+    .hint { color: rgba(0,0,0,0.70); font-size: 13px; font-weight: 600; }
+
+    .pages { display: grid; gap: 18px; padding: 18px; justify-content: center; }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5);
+      border: 1px solid rgba(0,0,0,0.25);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .grid, .overlay {
+      position: absolute;
+      top: 20mm; left: 10mm;
+      width: 190mm; height: 267mm;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+    }
+
+    .cell {
+      border: 1px solid rgba(0, 0, 0, 0.28);
+      border-style: solid;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2mm;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    #pageQuestions .cell { border-style: dotted; }
+
+    .cell-hint {
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: rgba(0, 0, 0, 0.18);
+      user-select: none;
+    }
+
+    .cell.fruit {
+      font-weight: 900;
+      font-size: 12pt;
+      color: #000000;
+    }
+
+    .overlay,
+    .overlay .q {
+      pointer-events: none;
+    }
+    .overlay.editing .editable-text {
+      pointer-events: auto;
+    }
+
+    .q {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2mm 3mm;
+      box-sizing: border-box;
+    }
+
+    .q-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2.5mm, 9%, 7mm);
+      box-sizing: border-box;
+    }
+
+    .q-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      max-width: 100%;
+      max-height: 100%;
+      box-sizing: border-box;
+    }
+
+    .q.even .q-stack {
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .q-text-inner {
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      padding: 3mm 4mm;
+      line-height: 1.15;
+      text-align: center;
+      box-sizing: border-box;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .editable-text[contenteditable="true"],
+    .cell.fruit[contenteditable="true"] {
+      outline: 1.5px dashed rgba(0, 0, 0, 0.55);
+      outline-offset: 1px;
+      background: rgba(255, 243, 184, 0.45);
+    }
+
+    .depth-1 .q-text-inner { font-weight: 900; }
+    .depth-2 .q-text-inner { font-weight: 900; }
+    .depth-3 .q-text-inner { font-weight: 800; }
+    .depth-4 .q-text-inner { font-weight: 800; }
+    .depth-5 .q-text-inner { font-weight: 800; }
+
+    .yn {
+      font-weight: 900;
+      font-size: 10pt;
+      letter-spacing: 0.5px;
+      color: rgba(0, 0, 0, 0.95);
+      line-height: 0.95;
+      white-space: nowrap;
+      padding: 0.45mm 1.6mm;
+      border: 0.25mm solid rgba(0, 0, 0, 0.65);
+      border-radius: 999px;
+      background: transparent;
+      user-select: none;
+      margin: 0;
+    }
+
+    .depth-4 .yn { font-size: 9pt; }
+    .depth-5 .yn { font-size: 8.5pt; }
+
+    .yn-yes { margin-bottom: -1.0mm; }
+    .yn-no { margin-top: -1.0mm; }
+
+    .depth-5 .yn-yes { margin-bottom: -0.8mm; }
+    .depth-5 .yn-no { margin-top: -0.8mm; }
+
+    .top-note {
+      position: absolute;
+      left: 10mm;
+      top: 6mm;
+      width: 190mm;
+      font-size: 10pt;
+      font-weight: 700;
+      line-height: 1.2;
+      color: rgba(0,0,0,0.92);
+    }
+
+    @media print {
+      .controls, .hint { display: none !important; }
+      .pages { padding: 0; gap: 0; }
+      .page {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        page-break-after: always;
+      }
+      .cell { border-color: rgba(0,0,0,0.35); }
+
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <label>
+      <span style="font-weight:900; margin-right:6px;">Language</span>
+      <select id="lang">
+        <option value="es">Español</option>
+        <option value="en" selected>English</option>
+      </select>
+    </label>
+    <button id="btnPrint" type="button">Print (2 pages)</button>
+    <button id="btnEdit" type="button" aria-pressed="false">Edit text</button>
+    <button id="btnSave" type="button">Save changed HTML</button>
+    <span class="hint">Edit the questions or fruit names, save the changed HTML, then print. Folding method: always rotate the paper 90° clockwise between steps.</span>
+  </div>
+
+  <div class="pages">
+    <div class="page" id="pageQuestions" aria-label="Questions page">
+      <div class="top-note" id="qIntro"></div>
+      <div class="grid" id="qGrid" aria-hidden="true"></div>
+      <div class="overlay" id="qLayer" aria-hidden="true"></div>
+    </div>
+
+    <div class="page" id="pageFruits" aria-label="Fruits page">
+      <div class="grid" id="fruitGrid" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script>
+    // NOTE: This layout assumes the player rotates the paper 90° clockwise between steps.
+    // Each region shows YES above the question and NO below it.
+    // For even steps, the whole question block is rotated, so the labels rotate too.
+
+    const UI = {
+      es: {
+        yes: "SÍ",
+        no: "NO",
+        intro: "Piensa en una fruta. Responde a la pregunta del centro, dobla el papel, quédate con la mitad de tu respuesta (SÍ o NO) y repite. ¿Qué hay detrás del último rectángulo?",
+        cellHint: "desdobla y mira detrás de este rectángulo",
+      },
+      en: {
+        yes: "YES",
+        no: "NO",
+        intro: "Think of a fruit. Answer the question in the middle, fold the paper, keep the half of your answer (YES or NO), and repeat. What's behind the last rectangle?",
+        cellHint: "unfold and look behind this rectangle",
+      }
+    };
+
+    // Spanish decision tree (from akinator.html)
+    const ARBOL_ES = {
+      p: "¿Se le quita normalmente la piel a tu fruta antes de comerla?",
+      si: {
+        p: "¿Se puede retirar la piel con la mano, aunque sea engorroso?",
+        no: {
+          p: "¿Es una fruta bastante grande?, ¿mejor cogerla con dos manos que con una?",
+          si: {
+            p: "¿La pulpa suele ser roja o naranja intenso?",
+            si: {
+              p: "¿Tiene semillas negras dispersas y separadas por todo el interior?",
+              no: { fruta: "Papaya" },
+              si: { fruta: "Sandía" }
+            },
+            no: {
+              p: "¿Tiene una corona de hojas arriba?",
+              si: { fruta: "Piña" },
+              no: { fruta: "Melón" }
+            }
+          },
+          no: {
+            p: "¿Tiene un único hueso o semilla grande dentro?",
+            si: {
+              p: "¿Suele ser verde y rugoso por fuera?",
+              si: { fruta: "Aguacate" },
+              no: { fruta: "Mango" }
+            },
+            no: {
+              p: "¿Tiene muchas bolitas rojas por dentro?",
+              si: { fruta: "Granada" },
+              no: { fruta: "Chirimoya" }
+            }
+          }
+        },
+        si: {
+          p: "¿Puede ser anaranjado por fuera?",
+          no: {
+            p: "¿Es un cítrico (con gajos)?",
+            si: {
+              p: "¿Es amarilla al madurar?",
+              si: { fruta: "Limón" },
+              no: { fruta: "Lima" }
+            },
+            no: {
+              p: "¿Es larga y curvada?",
+              si: { fruta: "Plátano" },
+              no: { fruta: "Kiwi" }
+            }
+          },
+          si: {// Pomelo, Naranja, Mandarina, Níspero 
+            p: "¿Tiene gajos naranjas por dentro?",
+            si: {
+              p: "¿Suele ser más pequeña y se pela muy fácil con la mano?",
+              si: { fruta: "Mandarina" },
+              no: { fruta: "Naranja" }
+            },
+            no: {
+              p: "¿Tiene gajos de otro color (no naranja)?",
+              si: { fruta: "Pomelo" },
+              no: { fruta: "Níspero" }
+            }
+          }
+        }
+      },
+      no: {
+        p: "¿A menudo se comen varias de una sentada y sin cortar?",
+        si: {
+          p: "¿Es un fruto del bosque / como una baya, sin hueso?",
+          si: {
+            p: "¿Suele ser azul/morado muy oscuro?",
+            si: {
+              p: "¿Es una bolita lisa?",
+              no: { fruta: "Mora" },
+              si: { fruta: "Arándano" }
+            },
+            no: {
+              p: "¿Tiene semillas por fuera y forma como de corazón?",
+              si: { fruta: "Fresa" },
+              no: { fruta: "Frambuesa" }
+            }
+          },
+          no: {
+            p: "¿Se come tanto de color verde como de color más oscuro?",
+            si: {
+              p: "¿Se vende normalmente en racimos?",
+              si: { fruta: "Uva" },
+              no: { fruta: "Aceituna" }
+            },
+            no: {
+              p: "¿Suele tener muchas semillas pequeñas por dentro y a veces se vende seco?",
+              si: { fruta: "Higo" },
+              no: { fruta: "Cereza" }
+            }
+          }
+        },
+        no: {
+          p: "¿Tiene un hueso dentro? (pepitas o semillas pequeñas no cuentan como hueso)",
+          no: {
+            p: "¿Es común darle un bocado después de lavarla?",
+            si: {
+              p: "¿Es más ancha por abajo y se estrecha hacia arriba?",
+              si: { fruta: "Pera" },
+              no: { fruta: "Manzana" }
+            },
+            no: {
+              p: "¿Se usa mucho para hacer algo dulce?",
+              si: { fruta: "Membrillo" },
+              no: { fruta: "Tomate" }
+            }
+          },
+          si: {
+            p: "¿Tiene piel con pelusilla (aterciopelada)?",
+            si: {
+              p: "¿Es del tamaño de una pelota de ping pong?",
+              si: { fruta: "Albaricoque" },
+              no: { fruta: "Melocotón" }
+            },
+            no: {
+              p: "¿Es morada?",
+              si: { fruta: "Ciruela" },
+              no: { fruta: "Nectarina" }
+            }
+          }
+        }
+      }
+    };
+
+    // English decision tree (from fruit-tree.html)
+    const ARBOL_EN = {
+      p: "Do people often remove its skin before eating it?",
+      si: {
+        p: "Can you remove the peel by hand, even if it's a bit messy?",
+        no: {
+          p: "Is it quite large? Better held with two hands than one?",
+          si: {
+            p: "Is the flesh usually red or deep orange?",
+            si: {
+              p: "Does it have black seeds scattered throughout the inside?",
+              no: { fruta: "Papaya" },
+              si: { fruta: "Watermelon" }
+            },
+            no: {
+              p: "Does it have a crown of leaves on top?",
+              si: { fruta: "Pineapple" },
+              no: { fruta: "Melon" }
+            }
+          },
+          no: {
+            p: "Does it have a single large pit or seed inside?",
+            si: {
+              p: "Is it usually green and bumpy on the outside?",
+              si: { fruta: "Avocado" },
+              no: { fruta: "Mango" }
+            },
+            no: {
+              p: "Does it have lots of red arils inside?",
+              si: { fruta: "Pomegranate" },
+              no: { fruta: "Cherimoya" }
+            }
+          }
+        },
+        si: {
+          p: "Can it be orange-ish on the outside?",
+          no: {
+            p: "Is it a citrus fruit (with segments)?",
+            si: {
+              p: "Is it yellow when ripe?",
+              si: { fruta: "Lemon" },
+              no: { fruta: "Lime" }
+            },
+            no: {
+              p: "Is it long and curved?",
+              si: { fruta: "Banana" },
+              no: { fruta: "Kiwi" }
+            }
+          },
+          si: {// Grapefruit, Orange, Mandarin, Loquat 
+            p: "Does it have orange segments inside?",
+            si: {
+              p: "Is it usually smaller and very easy to peel by hand?",
+              si: { fruta: "Mandarin" },
+              no: { fruta: "Orange" }
+            },
+            no: {
+              p: "Does it have segments of another color (not orange)?",
+              si: { fruta: "Grapefruit" },
+              no: { fruta: "Loquat" }
+            }
+          }
+        }
+      },
+      no: {
+        p: "Do people often eat several in one sitting and without cutting it?",
+        si: {
+          p: "Is it a berry-type fruit, without a pit?",
+          si: {
+            p: "Is it usually blue or very dark purple?",
+            si: {
+              p: "Is it a smooth little ball?",
+              no: { fruta: "Blackberry" },
+              si: { fruta: "Blueberry" }
+            },
+            no: {
+              p: "Does it have seeds on the outside and a heart-like shape?",
+              si: { fruta: "Strawberry" },
+              no: { fruta: "Raspberry" }
+            }
+          },
+          no: {
+            p: "Do people eat it both when green and when dark-colored?",
+            si: {
+              p: "Is it usually sold in bunches?",
+              si: { fruta: "Grape" },
+              no: { fruta: "Olive" }
+            },
+            no: {
+              p: "Does it usually have many small seeds inside and is sometimes sold dried?",
+              si: { fruta: "Fig" },
+              no: { fruta: "Cherry" }
+            }
+          }
+        },
+        no: {
+          p: "Does it have a pit inside? (pips or small seeds don't count as a pit)",
+          no: {
+            p: "Is it common to take a bite after washing it?",
+            si: {
+              p: "Is it wider at the bottom and narrows toward the top?",
+              si: { fruta: "Pear" },
+              no: { fruta: "Apple" }
+            },
+            no: {
+              p: "Is it often used to make something sweet?",
+              si: { fruta: "Quince" },
+              no: { fruta: "Tomato" }
+            }
+          },
+          si: {
+            p: "Does it have fuzzy (velvety) skin?",
+            si: {
+              p: "Is it about the size of a ping-pong ball?",
+              si: { fruta: "Apricot" },
+              no: { fruta: "Peach" }
+            },
+            no: {
+              p: "Is it purple?",
+              si: { fruta: "Plum" },
+              no: { fruta: "Nectarine" }
+            }
+          }
+        }
+      }
+    };
+
+    function splitRegion(region, depth) {
+      const isOdd = depth % 2 === 1;
+      if (isOdd) {
+        const mid = (region.r0 + region.r1) / 2;
+        return {
+          yes: { r0: region.r0, r1: mid, c0: region.c0, c1: region.c1 },
+          no: { r0: mid, r1: region.r1, c0: region.c0, c1: region.c1 },
+        };
+      }
+      const mid = (region.c0 + region.c1) / 2;
+      return {
+        yes: { r0: region.r0, r1: region.r1, c0: region.c0, c1: mid },
+        no: { r0: region.r0, r1: region.r1, c0: mid, c1: region.c1 },
+      };
+    }
+
+    function buildLayout(tree) {
+      const questions = [];
+      const fruits = Array.from({ length: 8 }, () => Array.from({ length: 4 }, () => ""));
+
+      function walk(node, depth, region, path) {
+        if (!node) return;
+        if (node.fruta) {
+          fruits[region.r0][region.c0] = { label: node.fruta, path };
+          return;
+        }
+        questions.push({ depth, question: node.p, region, path });
+        const next = splitRegion(region, depth);
+        walk(node.si, depth + 1, next.yes, path ? `${path}.si` : "si");
+        walk(node.no, depth + 1, next.no, path ? `${path}.no` : "no");
+      }
+
+      walk(tree, 1, { r0: 0, r1: 8, c0: 0, c1: 4 }, "");
+      return { questions, fruits };
+    }
+
+    function fillBlankGrid(container, hintText) {
+      container.textContent = "";
+      for (let i = 0; i < 32; i++) {
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        if (hintText) {
+          const hint = document.createElement("div");
+          hint.className = "cell-hint";
+          hint.textContent = hintText;
+          cell.appendChild(hint);
+        }
+        container.appendChild(cell);
+      }
+    }
+
+    function renderQuestions(layer, questions, lang) {
+      layer.textContent = "";
+
+      for (const q of questions) {
+        const el = document.createElement("div");
+        const isOdd = q.depth % 2 === 1;
+        el.className = `q ${isOdd ? "odd" : "even"} depth-${q.depth}`;
+        el.style.gridRow = `${q.region.r0 + 1} / ${q.region.r1 + 1}`;
+        el.style.gridColumn = `${q.region.c0 + 1} / ${q.region.c1 + 1}`;
+
+        const yes = document.createElement("div");
+        yes.className = "yn";
+        yes.classList.add("yn-yes");
+        yes.textContent = UI[lang].yes;
+
+        const no = document.createElement("div");
+        no.className = "yn";
+        no.classList.add("yn-no");
+        no.textContent = UI[lang].no;
+
+        const wrap = document.createElement("div");
+        wrap.className = "q-wrap";
+
+        const text = document.createElement("div");
+        text.className = "q-text-inner";
+        const number = document.createElement("span");
+        number.className = "q-number";
+        number.textContent = `${q.depth}. `;
+
+        const editable = document.createElement("span");
+        editable.className = "editable-text";
+        editable.dataset.path = q.path;
+        editable.textContent = q.question;
+        editable.spellcheck = false;
+        editable.addEventListener("input", () => fitAllQuestions());
+
+        text.appendChild(number);
+        text.appendChild(editable);
+
+        const stack = document.createElement("div");
+        stack.className = "q-stack";
+        stack.appendChild(yes);
+        stack.appendChild(text);
+        stack.appendChild(no);
+        wrap.appendChild(stack);
+
+        el.appendChild(wrap);
+        layer.appendChild(el);
+      }
+    }
+
+    function renderFruits(grid, fruits) {
+      grid.textContent = "";
+      for (let r = 0; r < 8; r++) {
+        for (let c = 0; c < 4; c++) {
+          const cell = document.createElement("div");
+          cell.className = "cell fruit editable-text";
+          // Mirror horizontally (vertical axis symmetry) so the back side aligns when printed.
+          const fruit = fruits[r][3 - c];
+          cell.textContent = fruit ? fruit.label : "";
+          if (fruit) {
+            cell.dataset.path = fruit.path;
+            cell.spellcheck = false;
+          }
+          grid.appendChild(cell);
+        }
+      }
+    }
+
+    function render(lang) {
+      document.documentElement.lang = lang;
+
+      const tree = lang === "es" ? ARBOL_ES : ARBOL_EN;
+      const { questions, fruits } = buildLayout(tree);
+
+      fillBlankGrid(document.getElementById("qGrid"), UI[lang].cellHint);
+      renderQuestions(document.getElementById("qLayer"), questions, lang);
+      renderFruits(document.getElementById("fruitGrid"), fruits);
+
+      document.getElementById("qIntro").textContent = UI[lang].intro;
+
+      fitAllQuestions();
+      applyEditableState();
+    }
+
+    const $lang = document.getElementById("lang");
+    const $qLayer = document.getElementById("qLayer");
+    const $btnEdit = document.getElementById("btnEdit");
+    const $btnSave = document.getElementById("btnSave");
+    let currentLang = $lang.value;
+    let editMode = false;
+
+    function treeForLang(lang) {
+      return lang === "es" ? ARBOL_ES : ARBOL_EN;
+    }
+
+    function nodeAtPath(tree, path) {
+      if (!path) return tree;
+      return path.split(".").reduce((node, part) => node && node[part], tree);
+    }
+
+    function syncTreeFromDom(lang) {
+      const tree = treeForLang(lang);
+      document.querySelectorAll("#qLayer .editable-text[data-path]").forEach((el) => {
+        const node = nodeAtPath(tree, el.dataset.path);
+        if (node && Object.prototype.hasOwnProperty.call(node, "p")) {
+          node.p = el.textContent.trim();
+        }
+      });
+      document.querySelectorAll("#fruitGrid .cell.fruit[data-path]").forEach((el) => {
+        const node = nodeAtPath(tree, el.dataset.path);
+        if (node && Object.prototype.hasOwnProperty.call(node, "fruta")) {
+          node.fruta = el.textContent.trim();
+        }
+      });
+    }
+
+    function applyEditableState() {
+      document.querySelectorAll(".editable-text[data-path]").forEach((el) => {
+        el.contentEditable = editMode ? "true" : "false";
+      });
+      $qLayer.classList.toggle("editing", editMode);
+      $btnEdit.setAttribute("aria-pressed", editMode ? "true" : "false");
+      $btnEdit.textContent = editMode ? "Stop editing" : "Edit text";
+    }
+
+    function serializeTree(tree) {
+      return JSON.stringify(tree, null, 6);
+    }
+
+    function persistSelectedLanguage(lang) {
+      $lang.value = lang;
+      Array.from($lang.options).forEach((option) => {
+        if (option.value === lang) {
+          option.setAttribute("selected", "");
+        } else {
+          option.removeAttribute("selected");
+        }
+      });
+      document.documentElement.lang = lang;
+    }
+
+    function downloadChangedHtml() {
+      syncTreeFromDom(currentLang);
+      persistSelectedLanguage(currentLang);
+
+      let html = "<!doctype html>\n" + document.documentElement.outerHTML;
+      html = html.replace(
+        /const ARBOL_ES = [\s\S]*?;\n\n    \/\/ English decision tree/,
+        `const ARBOL_ES = ${serializeTree(ARBOL_ES)};\n\n    // English decision tree`
+      );
+      html = html.replace(
+        /const ARBOL_EN = [\s\S]*?;\n\n    function splitRegion/,
+        `const ARBOL_EN = ${serializeTree(ARBOL_EN)};\n\n    function splitRegion`
+      );
+
+      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "folding-akinator-custom.html";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    $lang.addEventListener("change", () => {
+      syncTreeFromDom(currentLang);
+      currentLang = $lang.value;
+      render(currentLang);
+    });
+    document.getElementById("btnPrint").addEventListener("click", () => window.print());
+    $btnEdit.addEventListener("click", () => {
+      syncTreeFromDom(currentLang);
+      editMode = !editMode;
+      applyEditableState();
+      fitAllQuestions();
+    });
+    $btnSave.addEventListener("click", downloadChangedHtml);
+
+    function baseFontSize(depth) {
+      // px values chosen to avoid overlap in the smallest regions (depth 4–5),
+      // then auto-fit will shrink further if needed.
+      if (depth === 1) return 26;
+      if (depth === 2) return 18;
+      if (depth === 3) return 13;
+      if (depth === 4) return 11;
+      return 10;
+    }
+
+    function fitTextToBox(textEl, boxEl, maxPx, minPx, isRotated) {
+      textEl.style.fontSize = `${maxPx}px`;
+
+      const box = boxEl.getBoundingClientRect();
+      // Set max size so wrapping behaves predictably. For rotated text, slightly reduce
+      // the effective width to avoid colliding with nearby overlays.
+      const rotWidth = box.height * 0.82;
+      const widthLimit = isRotated ? rotWidth : box.width;
+      const heightLimit = isRotated ? box.width : box.height;
+      textEl.style.maxWidth = `${Math.max(0, widthLimit)}px`;
+      textEl.style.maxHeight = `${Math.max(0, heightLimit)}px`;
+    }
+
+    function fitAllQuestions() {
+      const nodes = document.querySelectorAll("#qLayer .q");
+      for (const node of nodes) {
+        const depth = Number((node.className.match(/depth-(\d+)/) || [])[1] || "3");
+        const wrap = node.querySelector(".q-wrap");
+        const text = node.querySelector(".q-text-inner");
+        const stack = node.querySelector(".q-stack");
+        if (!wrap || !text || !stack) continue;
+
+        const isRotated = node.classList.contains("even");
+        const max = baseFontSize(depth);
+        const min = 7;
+
+        fitTextToBox(text, wrap, max, min, isRotated);
+
+        let size = parseFloat(getComputedStyle(text).fontSize) || max;
+        for (let i = 0; i < 60; i++) {
+          const wrapRect = wrap.getBoundingClientRect();
+          const stackRect = stack.getBoundingClientRect();
+          const fits = stackRect.width <= wrapRect.width && stackRect.height <= wrapRect.height;
+          if (fits || size <= min) break;
+          size = Math.max(min, size - 0.5);
+          text.style.fontSize = `${size}px`;
+        }
+      }
+    }
+
+    window.addEventListener("beforeprint", () => fitAllQuestions());
+
+    render($lang.value);
+  </script>
+</body>
+</html>

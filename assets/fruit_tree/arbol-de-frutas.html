@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akinator de Frutas — 5 preguntas (España)</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color-scheme: light; }
+    body { margin: 0; background: #ffffff; color: #111827; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 18px; }
+    .card {
+      background: #ffffff; border: 1px solid #d8dee8; border-radius: 16px;
+      padding: 18px; box-shadow: 0 8px 24px rgba(17,24,39,.08);
+    }
+    h1 { margin: 0 0 10px; font-size: 22px; }
+    p { margin: 8px 0; color: #374151; line-height: 1.45; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    button {
+      border: 1px solid #cbd5e1; background: #ffffff; color: #111827;
+      padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 700;
+    }
+    button:hover { background: #f3f4f6; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    .badge {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #f8fafc; border: 1px solid #cbd5e1; color: #374151; font-size: 12px;
+    }
+    .question {
+      font-size: 18px; margin-top: 10px; padding: 12px; border-radius: 12px;
+      background: #f8fafc; border: 1px solid #d8dee8;
+    }
+    .guess {
+      font-size: 20px; font-weight: 900; margin-top: 12px;
+    }
+    .guess-answer {
+      display: block;
+      margin-top: 0.35rem;
+      text-align: center;
+      font-size: clamp(36px, 9vw, 72px);
+      line-height: 1.05;
+    }
+    details { margin-top: 14px; }
+    summary { cursor: pointer; color: #374151; }
+    .footer { margin-top: 16px; font-size: 12px; color: #6b7280; }
+    .note { color: #6b7280; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Piensa en una fruta y responde 5 preguntas</h1>
+
+      <div style="margin-top:14px;">
+        <span id="progress" class="badge"></span>
+      </div>
+
+      <div id="questionBox" class="question"></div>
+
+      <div class="row">
+        <button id="btnYes">Sí</button>
+        <button id="btnNo">No</button>
+        <button id="btnUndo" disabled>Deshacer</button>
+        <button id="btnRestart" style="margin-left:auto;">Reiniciar</button>
+      </div>
+
+      <div id="result" class="guess" style="display:none;"></div>
+
+    </div>
+  </div>
+
+  <script>
+    // Árbol binario perfecto (5 preguntas => 32 hojas)
+    // Hoja: { fruta: "..." }
+    // Nodo: { p: "pregunta", si: {...}, no: {...} }
+    const ARBOL = {
+      p: "¿Se le quita normalmente la piel a tu fruta antes de comerla?",
+      si: {
+        p: "¿Se puede retirar la piel con la mano, aunque sea engorroso?",
+        no: {
+          p: "¿Es una fruta bastante grande?, ¿mejor cogerla con dos manos que con una?",
+          si: {
+            p: "¿La pulpa suele ser roja o naranja intenso?",
+            si: {
+              p: "¿Tiene semillas negras dispersas y separadas por todo el interior?",
+              no: { fruta: "Papaya" },
+              si: { fruta: "Sandía" }
+            },
+            no: {
+              p: "¿Tiene una corona de hojas arriba?",
+              si: { fruta: "Piña" },
+              no: { fruta: "Melón" }
+            }
+          },
+          no: {
+            p: "¿Tiene un único hueso o semilla grande dentro?",
+            si: {
+              p: "¿Suele ser verde y rugoso por fuera?",
+              si: { fruta: "Aguacate" },
+              no: { fruta: "Mango" }
+            },
+            no: {
+              p: "¿Tiene muchas bolitas rojas por dentro?",
+              si: { fruta: "Granada" },
+              no: { fruta: "Chirimoya" }
+            }
+          }
+        },
+        si: {
+          p: "¿Puede ser anaranjado por fuera?",
+          no: {
+            p: "¿Es un cítrico (con gajos)?",
+            si: {
+              p: "¿Es amarilla al madurar?",
+              si: { fruta: "Limón" },
+              no: { fruta: "Lima" }
+            },
+            no: {
+              p: "¿Es larga y curvada?",
+              si: { fruta: "Plátano" },
+              no: { fruta: "Kiwi" }
+            }
+          },
+          si: {// Pomelo, Naranja, Mandarina, Níspero 
+            p: "¿Tiene gajos naranjas por dentro?",
+            si: {
+              p: "¿Suele ser más pequeña y se pela muy fácil con la mano?",
+              si: { fruta: "Mandarina" },
+              no: { fruta: "Naranja" }
+            },
+            no: {
+              p: "¿Tiene gajos de otro color (no naranja)?",
+              si: { fruta: "Pomelo" },
+              no: { fruta: "Níspero" }
+            }
+          }
+        }
+      },
+      no: {
+        p: "¿A menudo se comen varias de una sentada y sin cortar?",
+        si: {
+          p: "¿Es un fruto del bosque / como una baya, sin hueso?",
+          si: {
+            p: "¿Suele ser azul/morado muy oscuro?",
+            si: {
+              p: "¿Es una bolita lisa?",
+              no: { fruta: "Mora" },
+              si: { fruta: "Arándano" }
+            },
+            no: {
+              p: "¿Tiene semillas por fuera y forma como de corazón?",
+              si: { fruta: "Fresa" },
+              no: { fruta: "Frambuesa" }
+            }
+          },
+          no: {
+            p: "¿Se come tanto de color verde como de color más oscuro?",
+            si: {
+              p: "¿Se vende normalmente en racimos?",
+              si: { fruta: "Uva" },
+              no: { fruta: "Aceituna" }
+            },
+            no: {
+              p: "¿Suele tener muchas semillas pequeñas por dentro y a veces se vende seco?",
+              si: { fruta: "Higo" },
+              no: { fruta: "Cereza" }
+            }
+          }
+        },
+        no: {
+          p: "¿Tiene un hueso dentro? (pepitas o semillas pequeñas no cuentan como hueso)",
+          no: {
+            p: "¿Es común darle un bocado después de lavarla?",
+            si: {
+              p: "¿Es más ancha por abajo y se estrecha hacia arriba?",
+              si: { fruta: "Pera" },
+              no: { fruta: "Manzana" }
+            },
+            no: {
+              p: "¿Se usa mucho para hacer algo dulce?",
+              si: { fruta: "Membrillo" },
+              no: { fruta: "Tomate" }
+            }
+          },
+          si: {
+            p: "¿Tiene piel con pelusilla (aterciopelada)?",
+            si: {
+              p: "¿Es del tamaño de una pelota de ping pong?",
+              si: { fruta: "Albaricoque" },
+              no: { fruta: "Melocotón" }
+            },
+            no: {
+              p: "¿Es morada?",
+              si: { fruta: "Ciruela" },
+              no: { fruta: "Nectarina" }
+            }
+          }
+        }
+      }
+    };
+
+    // ----- UI / lógica de juego -----
+    const MAX_PREGUNTAS = 5;
+    let nodo = ARBOL;
+    let paso = 1;
+
+    const $progress = document.getElementById("progress");
+    const $questionBox = document.getElementById("questionBox");
+    const $result = document.getElementById("result");
+    const $btnYes = document.getElementById("btnYes");
+    const $btnNo = document.getElementById("btnNo");
+    const $btnUndo = document.getElementById("btnUndo");
+    const $btnRestart = document.getElementById("btnRestart");
+
+    const historial = [];
+
+    function render() {
+      $progress.textContent = (paso <= MAX_PREGUNTAS)
+        ? `Pregunta ${paso} / ${MAX_PREGUNTAS}`
+        : `Listo`;
+
+      $btnUndo.disabled = historial.length === 0;
+
+      if (nodo.fruta) {
+        $questionBox.style.display = "none";
+        $result.style.display = "block";
+        $result.innerHTML = `Mi respuesta:<span class="guess-answer">${nodo.fruta}</span>`;
+        $btnYes.disabled = true;
+        $btnNo.disabled = true;
+        return;
+      }
+
+      $questionBox.style.display = "block";
+      $result.style.display = "none";
+      $result.textContent = "";
+      $questionBox.textContent = nodo.p;
+
+      $btnYes.disabled = false;
+      $btnNo.disabled = false;
+    }
+
+    function responder(esSi) {
+      if (nodo.fruta) return;
+      if (paso > MAX_PREGUNTAS) return;
+
+      nodo = esSi ? nodo.si : nodo.no;
+      paso += 1;
+
+      // Tras 5 respuestas debemos estar en hoja
+      if (paso === MAX_PREGUNTAS + 1 && !nodo.fruta) {
+        $questionBox.style.display = "none";
+        $result.style.display = "block";
+        $result.textContent = "⚠️ Algo salió mal: no llegué a una fruta tras 5 preguntas.";
+        $btnYes.disabled = true;
+        $btnNo.disabled = true;
+        return;
+      }
+
+      render();
+    }
+
+    function deshacer() {
+      const previo = historial.pop();
+      if (!previo) return;
+      nodo = previo.nodo;
+      paso = previo.paso;
+      render();
+    }
+
+    function reiniciar() {
+      nodo = ARBOL;
+      paso = 1;
+      historial.length = 0;
+      render();
+    }
+
+    $btnYes.addEventListener("click", () => {
+      historial.push({ nodo, paso });
+      responder(true);
+    });
+    $btnNo.addEventListener("click", () => {
+      historial.push({ nodo, paso });
+      responder(false);
+    });
+    $btnUndo.addEventListener("click", deshacer);
+    $btnRestart.addEventListener("click", reiniciar);
+
+    reiniciar();
+  </script>
+</body>
+</html>

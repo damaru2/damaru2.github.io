@@ -36,6 +36,7 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="https://damaru2.github.io/assets/css/main.min.css">
 <link rel="stylesheet" href="https://damaru2.github.io/assets/academicons.css" />
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/custom.css">
 
 <meta http-equiv="cleartype" content="on">
 
@@ -161,9 +162,11 @@ html { scroll-behavior: smooth; }
 		        
 				<li><a href="https://damaru2.github.io/publications/" >Publications</a></li>
 		        
-				<li><a href="https://damaru2.github.io/cv/" >Curriculum</a></li>
+				<li><a href="https://damaru2.github.io/cv/" >CV</a></li>
 		        
 				<li><a href="https://damaru2.github.io/blog/" >Blog</a></li>
+		        
+				<li><a href="https://damaru2.github.io/fun/" >FUN</a></li>
 		        
 				<li><a href="https://damaru2.github.io/" >About</a></li>
 		        
@@ -197,7 +200,6 @@ html { scroll-behavior: smooth; }
 
 <a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
 
-<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
 
   </div>
   <article>
@@ -207,7 +209,7 @@ html { scroll-behavior: smooth; }
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <p class="byline">Written by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a> in collaboration with <a href="https://www.pokutta.com/">Sebastian Pokutta</a>.</p>
+      <p class="byline">Written by <a href="https://damaru2.github.io" title="About David Martínez-Rubio" target="_blank" rel="noopener noreferrer">David Martínez-Rubio</a> in collaboration with <a href="https://www.pokutta.com/" target="_blank" rel="noopener noreferrer">Sebastian Pokutta</a>.</p>
 
 <hr />
 
@@ -221,7 +223,7 @@ $ \def\p{\link{#def_rate_of_acceptance}{\color{black}p}}} $
 $ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
 </span></p>
 
-<p><strong>Disclaimer:</strong> This is a toy model and more knowledgeable people have devoted greater effort to other models and ideas [<a href="https://arxiv.org/pdf/2303.09020">1</a>, <a href="https://link.springer.com/article/10.1007/s11192-025-05271-9">2</a>, <a href="https://dl.acm.org/doi/pdf/10.1145/3528086">3</a>, <a href="https://arxiv.org/abs/2505.04966">4</a>, <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28860">5</a>], among many others. Below there is simple and to-the-point food for thought. I don’t know yet if I consider these conclusions based on simplified models to be valid for the real case.</p>
+<p><strong>Disclaimer:</strong> This is a toy model and more knowledgeable people have devoted greater effort to other models and ideas [<a href="https://arxiv.org/pdf/2303.09020" target="_blank" rel="noopener noreferrer">1</a>, <a href="https://link.springer.com/article/10.1007/s11192-025-05271-9" target="_blank" rel="noopener noreferrer">2</a>, <a href="https://dl.acm.org/doi/pdf/10.1145/3528086" target="_blank" rel="noopener noreferrer">3</a>, <a href="https://arxiv.org/abs/2505.04966" target="_blank" rel="noopener noreferrer">4</a>, <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28860" target="_blank" rel="noopener noreferrer">5</a>], among many others. Below there is simple and to-the-point food for thought. I don’t know yet if I consider these conclusions based on simplified models to be valid for the real case.</p>
 
 <h2 id="the-ideal-case-no-giving-up">The ideal case: no giving up</h2>
 
@@ -232,7 +234,7 @@ $ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
   <figcaption></figcaption>
 </figure>
 
-<p>Assume a sequence of non-overlapping conference calls (e.g. 3 per year), and each time <span id="def_number_new_papers">$\N$</span> new papers are added to the pool of papers to be published, and we let <span id="def_rate_of_acceptance">$\p \in (0, 1]$</span> be a fixed rate of acceptance.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> The pool of unaccepted papers evolves like the following dynamical system for $x_1 \gets \N$:</p>
+<p>Assume a sequence of non-overlapping conference calls (e.g. 3 per year), and each time <span id="def_number_new_papers">$\N$</span> new papers are added to the pool of papers to be published, and we let <span id="def_rate_of_acceptance">$\p \in (0, 1]$</span> be a fixed rate of acceptance.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote noopener noreferrer" role="doc-noteref" target="_blank">1</a></sup> The pool of unaccepted papers evolves like the following dynamical system for $x_1 \gets \N$:</p>
 
 \[x_{t+1} \gets x_t (1-\p) + \N.\]
 
@@ -242,7 +244,7 @@ $ \def\xast{\link{#def_fixed_point_ideal_case}{\color{black}x^{\ast}}}} $
 
 \[\textit{#accepted_papers}= \xast \cdot \p = \frac{\N}{\p} \cdot \p = \N.\]
 
-<p><strong>Amazing!!</strong> <em>#accepted_papers</em> does not change with $\p$. If we reduce $\p$, the only effect is that the pool size grows until it’s so big that a fraction $\p$ of it ends up being the same number of papers $\N$, and <strong>we review more for nothing $(\propto \N/\p)$</strong>. We’d accept the same amount of papers in each conference! More easily: at the fixed point the number of papers that come in must be the number of papers that come out, that is $\N$. In fact <a href="https://en.wikipedia.org/wiki/Little%27s_law">Little’s Law</a> from queueing theory implies this fact and further generalizations. So:</p>
+<p><strong>Amazing!!</strong> <em>#accepted_papers</em> does not change with $\p$. If we reduce $\p$, the only effect is that the pool size grows until it’s so big that a fraction $\p$ of it ends up being the same number of papers $\N$, and <strong>we review more for nothing $(\propto \N/\p)$</strong>. We’d accept the same amount of papers in each conference! More easily: at the fixed point the number of papers that come in must be the number of papers that come out, that is $\N$. In fact <a href="https://en.wikipedia.org/wiki/Little%27s_law" target="_blank" rel="noopener noreferrer">Little’s Law</a> from queueing theory implies this fact and further generalizations. So:</p>
 
 <div style="text-align: center;">
     <p>
@@ -264,7 +266,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
     </em></center>
 </p>
 
-<p>Here is the model, inspired by the previous <a href="https://blog.neurips.cc/2021/12/08/the-neurips-2021-consistency-experiment/">2014 and 2021 Neurips experiments</a>. Assume there are $\N=5000$ new papers for a sequence of non-overlapping conferences, and we have: great papers, average papers, and bad papers in proportion of 15% / 70% / 15%. We model this by assigning them a probability of acceptance proportional to $15, 5$ and $1$, respectively.</p>
+<p>Here is the model, inspired by the previous <a href="https://blog.neurips.cc/2021/12/08/the-neurips-2021-consistency-experiment/" target="_blank" rel="noopener noreferrer">2014 and 2021 Neurips experiments</a>. Assume there are $\N=5000$ new papers for a sequence of non-overlapping conferences, and we have: great papers, average papers, and bad papers in proportion of 15% / 70% / 15%. We model this by assigning them a probability of acceptance proportional to $15, 5$ and $1$, respectively.</p>
 
 <p>At each iteration, we approximate the number of papers in each category that should be accepted, given the quality weights of each category, until we accept a fraction $\p$ of them. Then, we remove them from the pool, and consider them accepted. If a paper stays in the pool for <span id="def_max_retries">$\T$</span>  iterations, it is removed.</p>
 
@@ -290,7 +292,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
   </div>
 </div>
 
-<p>In other words, there is of course, some trade-off. Lower rate of acceptance in this less-idealized case does imply more papers abandon the system and prevents some of the bad papers to get in, but at the expense of significant extra reviewing costs and affecting more to average papers that are left out just by bad luck. See for instance <a href="https://x.com/MarkSchmidtUBC/status/1959302293054275663">this case of NeurIPS 2025</a> where some area chairs were asked to reject papers with good reviews, just to meet a low $\p$. I’ve heard arguments saying that in Machine Learning conferences a higher $\p$ would make the conferences too big for any venue, but this does not take into account that higher rate of acceptance has a reduction effect on the pool of unaccepted papers and does not change absolute acceptances dramatically. And in any case, <strong>there are other solutions worth considering</strong> such as federated conferences and other models (with an attempt from the <a href="https://blog.neurips.cc/2025/07/16/neurips-announces-second-physical-location-in-mexico-city/">second NeurIPS 2025 location</a> and the <a href="https://eurips.cc/">European NeurIPS 2025 Hub</a>, see also <a href="https://cspaper.org/topic/128/the-ai-conference-bubble-is-about-to-burst-publish-or-perish-at-the-edge-of-collapse">The AI Conference Bubble is About to Burst</a>). Of course, one should be aware that a lower bar could encourage people to submit weaker papers. Also, as you can see in the appendix, the right metric to have in mind is that of <a href="#real_acceptance_rate">effective acceptance rates for these systems</a>. And note that these effective rates can be played by authors by increasing their $\T,$ which only increases the reviewing load.</p>
+<p>In other words, there is of course, some trade-off. Lower rate of acceptance in this less-idealized case does imply more papers abandon the system and prevents some of the bad papers to get in, but at the expense of significant extra reviewing costs and affecting more to average papers that are left out just by bad luck. See for instance <a href="https://x.com/MarkSchmidtUBC/status/1959302293054275663" target="_blank" rel="noopener noreferrer">this case of NeurIPS 2025</a> where some area chairs were asked to reject papers with good reviews, just to meet a low $\p$. I’ve heard arguments saying that in Machine Learning conferences a higher $\p$ would make the conferences too big for any venue, but this does not take into account that higher rate of acceptance has a reduction effect on the pool of unaccepted papers and does not change absolute acceptances dramatically. And in any case, <strong>there are other solutions worth considering</strong> such as federated conferences and other models (with an attempt from the <a href="https://blog.neurips.cc/2025/07/16/neurips-announces-second-physical-location-in-mexico-city/" target="_blank" rel="noopener noreferrer">second NeurIPS 2025 location</a> and the <a href="https://eurips.cc/" target="_blank" rel="noopener noreferrer">European NeurIPS 2025 Hub</a>, see also <a href="https://cspaper.org/topic/128/the-ai-conference-bubble-is-about-to-burst-publish-or-perish-at-the-edge-of-collapse" target="_blank" rel="noopener noreferrer">The AI Conference Bubble is About to Burst</a>). Of course, one should be aware that a lower bar could encourage people to submit weaker papers. Also, as you can see in the appendix, the right metric to have in mind is that of <a href="#real_acceptance_rate" target="_blank" rel="noopener noreferrer">effective acceptance rates for these systems</a>. And note that these effective rates can be played by authors by increasing their $\T,$ which only increases the reviewing load.</p>
 
 <p>Any process designed for people will be inherently flawed. But what feels clear to me is that we currently need some changes and this should most likely require:</p>
 
@@ -303,7 +305,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
 
 <p>What are your thoughts on this? What do you think about this post’s model? Would you change anything about where we stand in the trade-off?</p>
 
-<p><a href="javascript:toggleBibtex('johnson2025optimal')">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_johnson2025optimal').textContent, this)" class="noshow flat-button" id="copy_button_johnson2025optimal">📋 copy</button></p>
+<p><a href="javascript:toggleBibtex('johnson2025optimal')" target="_blank" rel="noopener noreferrer">[BibTeX]</a><button title="Copy to clipboard" onclick="copyToClipboard(document.getElementById('pre_johnson2025optimal').textContent, this)" class="noshow flat-button" id="copy_button_johnson2025optimal">📋 copy</button></p>
 <div id="bib_johnson2025optimal" class="bibtex noshow">
 <pre id="pre_johnson2025optimal" class="language-bibtex">
 @misc{martinezrubio-2025-queuing-to-publish
@@ -322,7 +324,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
 <h2 id="appendix">Bonus - Interactive Appendix</h2>
 
 <ul>
-  <li>Check <a href="https://www.pokutta.com/blog/littles-law-for-conference-review-backlogs/" target="_blank">the post in Sebastian’s blog</a> for the relevant math on Queueing Theory and a cool funnel simulation.</li>
+  <li>Check <a href="https://www.pokutta.com/blog/littles-law-for-conference-review-backlogs/" target="_blank" rel="noopener noreferrer">the post in Sebastian’s blog</a> for the relevant math on Queueing Theory and a cool funnel simulation.</li>
 </ul>
 
 <!--- + If we had one single quality category, one can compute that if people give up after $\T$ calls, then the size of the pool converges to $ \N \frac{1-(1-\p)^\T}{\p}$, the rate of accepted papers is $1 - (1-\p)^\T$ and thus the rate of abandonment is $(1-\p)^\T$. Acceptances rise only moderately with $\p$ but the pool size and review volume drop sharply, as also observed in the simulation. It is a simple consequence of the model and can also be obtained using queueing theory. We could even apply Little's Law for each individual class but the computations are more messy.
@@ -387,7 +389,7 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
  <div class="control">
     <label>
       <span class="em">$\T$=<span id="tVal">6</span></span>.
-      <span class="note">(What's $\T$? Click on it, <a href="../notations_with_links/" style="color: blue; text-decoration: underline;" target="_blank">or on any math</a>)</span>
+      <span class="note">(What's $\T$? Click on it, <a href="../notations_with_links/" style="color: blue; text-decoration: underline;" target="_blank" rel="noopener noreferrer">or on any math</a>)</span>
     </label>
    <input id="t" type="range" min="3" max="9" step="1" value="6" autocomplete="off" />
  </div>
@@ -1335,11 +1337,12 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:1">
-      <p>If $\N$ increases with time, the conclusion is similar, see the <a href="#appendix">Appendix</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p>If $\N$ increases with time, the conclusion is similar, see the <a href="#appendix" target="_blank" rel="noopener noreferrer">Appendix</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink" target="_blank" rel="noopener noreferrer">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
+      
       <hr />
       <footer role="contentinfo">
         <div class="article-author-bottom">
@@ -1363,21 +1366,38 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
 
 <a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
 
-<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
 
         </div>
         <p class="byline"><strong>Queueing to publish in AI (and CS)</strong> was published on <time datetime="2025-09-02T00:00:00+01:00">September 02, 2025</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
-    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <section class="comments" aria-label="Comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="damaru2/damaru2.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNDgxMjIwMDk="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOFL_rmc4DBiyK"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+
   
   </article>
 </div><!-- /#main -->
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2026 David Martínez-Rubio. Based on jponttuset.github.io. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2026 David Martínez-Rubio. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
@@ -1396,32 +1416,6 @@ We are significantly increasing reviewers' and authors' time trying to prevent a
 
   gtag('config', 'G-EKCKR7JVZP');
 </script>
-
-
-
-  
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'damaru2-github-io'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
 
 	        
 

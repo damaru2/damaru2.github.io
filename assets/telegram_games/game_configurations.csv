@@ -1,0 +1,150 @@
+n_players,lives_per_player,roles
+6,1,wolf albino_wolf witch villager detective villager
+4,1,wolf villager villager witch
+6,1,wolf wolf knight witch detective ghost_villager
+4,1,wolf witch villager ghost
+7,1,wolf wolf villager witch raven ghost detective
+8,1,wolf wolf villager villager witch raven detective hunter
+6,1,wolf wolf raven detective villager villager
+6,1,wolf villager wolf villager raven detective
+7,1,wolf wolf villager villager raven detective witch
+8,1,wolf wolf villager villager detective raven bitch_wolf witch
+9,1,wolf wolf bitch_wolf villager villager witch detective raven villager
+10,1,wolf wolf bitch_wolf cupid witch detective raven villager villager villager
+6,2,wolf wolf wolf detective witch mage bitch_wolf cupid ghost villager villager villager
+6,1,wolf witch raven villager villager wizard
+5,2,wolf wolf witch hunter raven villager villager villager bleeder defender
+5,2,wolf wolf witch hunter raven villager villager villager bleeder defender
+7,2,wolf wolf bitch_wolf defender witch hunter raven villager villager villager villager detective cupid mage
+9,1,wolf wolf villager bleeder witch villager hunter hypnotist detective
+10,1,wolf wolf villager bleeder witch villager hunter hypnotist detective villager
+10,2,wolf wolf albino_wolf witch witch hunter hunter cupid magician lawyer bitch_wolf villager villager villager hero bleeder tom jerry sibling sibling
+6,2,wolf wolf bitch_wolf witch detective hero cupid hunter villager villager sibling sibling
+5,2,wolf bitch_wolf hunter defender witch villager villager villager lover lover
+5,2,wolf mage witch defender hypnotist
+5,2,magician magician witch hypnotist defender hero martyr knight wolf wolf
+14,1,wolf wolf albino_wolf hunter witch witch cupid hypnotist hero lawyer anarchist villager villager villager
+11,1,wolf wolf wolf hunter lawyer hypno defender hero witch cupido martyr
+5,1,wolf mage hypnotist defender witch
+7,2,wolf wolf wolf defender martyr townbitch mage mage hunter hunter witch villager villager villager
+6,2,wolf wolf cupid hunter witch defender mage elder knight villager villager villager
+3,4,wolf unicorn witch mage mage hypnotist hunter bitch-wolf mage cupid sibling sibling
+3,4,wolf unicorn witch mage mage hypnotist hunter bitch-wolf villager villager villager elder
+3,3,Wolf Mage Mage Villager Villager Witch Hunter Witch UNICORN!✨
+7,2,wolf wolf bitch_wolf witch forensic hero RubbelRouser sibling sibling cupid hypnotist lawyer bleeder elder
+6,2,wolf wolf hunter terrorist forensic cupid witch sibling sibling villager mage lawyer
+6,2,wolf wolf hunter terrorist forensic cupid witch sibling sibling villager anarchist lawyer
+9,2,wolf wolf hunter terrorist forensic cupid witch sibling sibling villager wizard anarchist villager lawyer defender bitch_wolf martyr villager
+5,3,wolf minion hunter kamikaze witch witch cupid sibling sibling villager wizard hypnotist elder bleeder bookie
+8,2,kamikaze wolf wolf witch hunter terrorist hypnotist hypnotist cardsharp villager villager villager cupid raven defender bookie
+6,2,wolf wolf defender hero bookie mage batonpasser hunter hunter witch kamikaze villager
+6,2,wolf wolf hunter witch cupid hero bookie kamikaze anarchist wizard cardsharp villager
+6,2,wolf wolf hunter witch cupid hero bookie kamikaze anarchist wizard cardsharp villager
+6,2,wolf minion_wolf witch villager villager villager hero hunter mage hypnotist cardshap mayor
+7,2,wolf minion_wolf witch mage hypnotist villager villager villager bookie cardshap hunter terrorist hero mayor
+5,2,wolf witch mage night_hunter bookie raven kamikaze mage defender trilero
+4,3,wolf witch kill_witch kill_witch mage batonpasser kamikaze defender martyr hypnotist villager townbitch
+5,3,wolf town_bitch villager villager hero hunter hunter witch kamikaze rabbelRouser elder tom jerry cautious_granny killjoy
+6,3,wolf town_bitch villager villager card_sharp hunter hunter witch kamikaze rabbelRouser elder tom jerry cautious_granny killjoy defender silversmith villager
+7,3,wolf wolf town_bitch villager villager card_sharp hunter hunter witch kamikaze rabbelRouser elder tom jerry cautious_granny killjoy defender silversmith villager witch villager
+4,4,wolf witch witch mage mage hypnotist hunter hunter villager villager villager villager lawyer cardshap hero mayor
+4,3,wolf witch kill_witch kill_witch mage batonpasser kamikaze defender martyr hypnotist villager townbitch
+5,3,trilero trilero trilero mage mage wolf apostador tabernero hunter witch kamikaze terrorist tom jerry town_bitch
+4,3,wolf wizard hunter witch ghost pubman kamikaze ghost_villager lawyer governor martyr defender
+4,5,wolf ghost witch lawyer governor magician crow defender magician terrorist pubman martyr kamikaze hypnotist hunter tom jerry villager villager villager
+5,2,wolf hunter witch cupid defender wizard ghost terrorist villager lawyer
+5,2,mage ghost alborotador witch albino_wolf terrorist kamikaze tabernero mage ghost
+9,2,wolf wolf Witch tabernero mage lawyer defensor forense cuervo anticupido Hunter Hero martyr terrorist kamikaze villager abuelita_precavida cupid
+9,2,wolf wolf witch wizard hunter lawyer cupid anticupid bookie kamikaze governor pubman crow careful_little_grandmother trilero briber hypno terrorist
+6,2,wolf hypnotist witch hunter lover lover turncoat elder barber sibling sibling
+6,2,wolf hypnotist witch hunter lover lover turncoat elder barber villager sibling sibling
+9,2,wolf wolf hunter witch cupid defender terrorist barman hunter assistant bookie ghost barber elder bleeder briber wizard hypnotist
+6,2,wolf dog_wolf hunter witch assistant defender terrorist barman bookie briber wizard abogado
+7,2,Wolf Wolf Pubman Bookie Diva Tom Jerry Villager Villager Terrorist Hunter CautiousGranny Witch Villager
+8,2,pubman wolf wolf Witch Hunter raven kamikaze unicornio bookie forensic abuelita_precavida defender Cupid anticupid lawyer martyr
+6,2,wolf dog witch hunter hunter tom jerry cautious_granny bookie anarchist villager forensic
+5,3,wolf witch kill_witch kill_witch mage batonpasser kamikaze defender martyr hypnotist villager townbitch raven hero villager
+9,1,wolf wolf brainwasher brainwasher witch witch barman barman cupid
+9,2,wolf wolf_cub minion devil devil cupid hunter hunter detective detective babbler defender defender cardsharp elder elder_barman brainwasher brainwasher
+4,3,wolf witch kill_witch kill_witch mage batonpasser kamikaze defender barman hypnotist villager townbitch
+6,2,wolf dog_wolf witch witch hunter hunter cupid tom jerry barman villager villager
+6,2,wolf witch kill_witch kill_witch mage batonpasser kamikaze defender barman hypnotist villager townbitch
+9,2,wolf wolf_cub minion tom tom cupid hunter hunter detective detective babbler defender defender cardsharp elder elder_barman brainwasher brainwasher
+7,2,Wolf wolf mage mage villager villager hunter hunter hypnotist pubman cautious_granny witch witch brainwasher
+5,2,wolf dog witch hunter hunter cupid villager villager villager defender
+7,2,wolf wolf brainwasher anarchist barman cupid tom tom defender defender wizard barman brainwasher villager
+4,3,wolf witch kill_witch kill_witch mage batonpasser kamikaze defender brainwasher hypnotist tom tom
+4,3,wolf barman kill_witch kill_witch mage defender tom hunter night_hunter villager tom witch
+3,1,wolf wizard wizard
+8,2,wolf wolf barman barman hunter villager bruja brainwasher brainwasher terrorist hero briber bookie cautious_granny tom jerry
+6,2,wolf dog_wolf witch promiscuous hunter anarchist villager villager avenger GraveRobbingThief elder barber
+7,2,wolf brainwasher_wolf barber hypnotist hunter witch anarchist hero cautious_granny promiscuous cupid devil villager villager
+4,1,wolf hunter hunter hunter
+5,2,Bruja perro brainwsher hunter hunter tabernero mage tabernero apostador barber
+4,1,wolf witch barman villager
+8,2,Wolf wolf barman barman elder hunter hunter witch witch Tom Tom villager villager briber rabelrouser hero
+7,2,Wolf dog villager villager villager witch brainwasher hunter hunter tom jerry Juliet Romeo barman
+5,2,wolf cardsharp cardsharp wandering_ghost witch hunter lawyer governor forensic raven
+3,3,wolf loser duelyst bookie hunter raven shieldman wizard hypno
+5,2,Lobo bruja cazador tabernero hunter brainwasher duelist perdedor bookie abuelita_precavida
+5,2,wolf loser duelist bookie hunter wizard barman witch raven wizard
+17,1,wolf wolf_cub albino_wolf entertainer_wolf cupid anarchist witch hunter hunter card_sharp silversmith defender turncoat lawyer tamer hero barber
+6,2,Wolf wolf Mage Barman Hunter Villager Tom Jerry Cupid Duelist Witch Trilero
+17,1,Alpha_wolf dictator duelist bookie loser witch hunter elder_pubman bleeder jekyll hyde hero wizard knight shieldman anarchist cupid
+13,1,wolf wolf dog_wolf joker anarchist bookie tom witch hunter duelyst jerry barman raven
+10,1,"Wolf, wolf_cub, minion, terrorist, tamer, defender, witch, cupid, kill_witch, avenger,"
+13,1,wolf wolf minion hunter witch barman duelyst lady Hero silversmith mage raven avenger
+12,1,brainwasher_dog wolf wolf barman barman cupid cupid witch hunter hunter wizard elder_avenger
+7,2,Wolf Wolf Hero Defensor Witch Mage Witch Barman Hunter Cupid Hunter Diva Devil Cardshap
+10,1,"wolf, wolf, silversmith, diva, barman, witch, hero, anarchist, bookie, mage"
+12,1,wolf wolf albino_wolf witch witch defender avenger_elder mage hunter avenger_dictator diva_barman cardsharp
+12,1,wolf wolf wolf_dog wizard wizard wizard witch hunter terrorist witch defender dictator
+12,1,wolf wolf wolf_dog cupid wizard devil witch hunter terrorist witch defender dictator
+12,1,Wolf wolf lawyer wolf_dog raven mage hunter witch anarchist dictator cupid duelist
+13,2,Wolf wolf wolf cupid devil duelist bookie loser brainwasher_dog_wolf silversmith dictator hunter mage witch anarchist barman diva lawyer hunter cardsharp raven defender terrorist sibling sibling sibling
+13,1,Wolf Wolf Brainwasher_Dog_Wolf Hunter Huntet Terrorist Witch Sectarian Diva Devil Anarchist Barman Duelist
+13,2,Witch Wolf Brainwasher_Wolf Hunter Cupid Bookie Barman Anarchist Duelist Devil Wizard Dog_Wolf Defender
+12,2,wolf alpha_wolf bookie loser duelyst hunter wizard wizard hero granny tamer defender martyr lawyer cupidevil cupidevil witch hunter kamikaze terrorist silversmith elder bleeder pubman
+12,2,Wolf Albino_wolf Wolf_Brainwasher Witch Cupidevil Hunter Mage Anarchist Tamer Diva Bookie Hunter Cupidevil Witch Forensic Forensic Grave_Robbing_Thief Hunter Kamikaze Defender Defender Elder Elder Cardsharp
+12,2,Detective detective wolf wolf incógnito_wolf babbler forensic witch loser bookie duelyst hunter terrorist kamikaze cupidevil cupidevil dictator anarchist ghost_villager hero granny martyr wizard hypno
+11,1,Defender albino_wolf albino_wolf hunter forensic witch devil diva anarchist hero hunter
+9,1,"Wolf_br, wolf_br, albino_br, Hunter, witch, witch, dictator, defender, wizard,"
+10,2,wolf wolf wolf_cub witch vampire_witch cupid Tom Jerry kamikaze hunter forensic wizard barman overlord silversmith rabbel_rouser mason mason fox_4 barber
+7,2,wolf wolf fox_3 silversmith witch wizard kamikaze cupid barber overlord elder barman forensic ghost
+10,2,wolf wolf wolf_cub witch vampire_witch cupid Tom Jerry kamikaze hunter forensic wizard barman overlord silversmith mason mason fox_4 barber ghost
+8,2,fox_3 wolf wolf wizard ghost kamikaze overlord witch forensic barman cupid Tom Jerry hunter mason mason
+10,2,fox_3 wolf wolf wizard ghost kamikaze overlord witch forensic barman cupid Tom Jerry hunter mason mason defender wolf_cup elder siversmith
+10,2,Wolf Wolf Wolf Witch Kamikaze Crow Cupidevil Cupidevil Barman Barman Bookie Hunter Hunter Mason Mason Mage Elder Kill_Witch Bleeder Kill_Witch
+12,2,wolf wolf silversmith silversmith mago mago zorro_4 fantasma_errante Cupido dictador héroe sobornador duelista bookie_pueblo vengador perdedor barbero fantasma_pueblerino rodelero caballero_de_espada_oxidada diva dog_bitch_wolf bruja bleeder
+9,2,entertainer killwitch killwitch witch avenger mage cupid defender defender bookie bookie hunter hunter invalid nonameyet mason mason rabelrousser
+10,2,entertainer killwitch2 killwitch2 killwitch2 witch avenger mage cupid defender defender bookie bookie hunter invalid nonameyet mason mason rabelrousser wolf naughtyboy
+10,2,Mago Cupido Diablo Lobo Matabruja Rodelero Abogado Fantasma Fantasma_villagero Sobornador Comodín Bookie Vengador Perdedor Tristán Carapotato Naughtyboy Bruja Duelista Apostador
+5,3,Wolf mage witch hunter kamikaze mayor silversmith town_entertainer villager villager villager villager defender anarchist3 town_bookie
+6,85,wolf hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunterhunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter hunter
+6,2,wolf wolf cupid devil wizard hypnotist hunter hunter silversmith detective1 detective2 villager
+8,2,Grave_robbing_thief ghost villager_ghost hexer fairy_godmother fox3 duelista sobornador vampire_witch pregnant bookie bleeder promiscuo mártir cuervo rabbelrouser
+5,2,wolf witch villager villager villager villager cupid hunter seer crow
+5,2,wolf witch villager villager villager villager cupid hunter seer crow
+5,2,wolf witch villager villager villager villager cupid hunter seer crow
+5,2,Cupid wolf village loco villager villager weakbabbler seer witch crow
+7,2,Wolf wolf_dog silversmith seer bookie witch witch hunter hunter villager villager villager cupid devil
+5,2,wolf seer hunter witch brainwasher mage martir cupid jerry tom
+5,2,"Wolf, bookie, devil, barman, witch, ghost, mage, silversmith, ghost_villager, brainwasher"
+4,2,Wolf cupid tom Jerry silversmith witch mage hunter
+19,2,Gohst Cupid Devil Avenger Terrorist Forensic Brainwasher_town Barman Barman Barman Elder Mage hypnotist Wolf Wolf Wolf Wolf Wolf_Albino_Odd Wolf_Albino_Even Wolf_Jakyll Hide Defender Diva Terrorist Kamikaze Kamikaze Hunter Cardshap Fool RabbelRouser Mason Mason Lawyer Killjoy Scientist Witch Witch Witch
+13,2,Wolf alpha_wolf wolf_brainwasher Barman dictator duelyst bookie Loser kamikaze Witch wizard avenger elder defender hero promiscuous terrorist Cupid devil rotten_sword_Knight Tamer Hunter villager_ghost Crow Hunter Kamikaze
+11,2,wolf wolf wolf entertainer_wolf mage mage witch hunter hunter kamikaze barman cupid defender elder villager villager mason mason invalid crow fox_3 bookie_town
+9,1,Hyde_Wolf Brainwasher_Wolf Wizard Witch Jekyll Dictator Barman Duelyst Hunter
+11,1,wolf wolf entertainer_wolf witch crow bookie cupid wizard defender barman distractor
+6,2,wolf wolf witch hunter cupid crow bookie hexer bleeder villager villager villager
+9,2,wolf wolf entertainer_and_wolf cupid mage mage witch witch crow hunter bookie_town defender barman fox_4 villager villager kamikaze invalid
+7,2,wolf wolf entertainer mage witch invalid cupid avenger forensic elder barman fox_3 mage villager
+9,1,wolf wolf entertainer defender witch mage Cupid devil hunter
+6,2,wolf wolf defender witch cupid bookie mage mage villager hunter crow devil
+6,3,wolf wolf detective bookie barman mage mage whitch duelist hunter devil sectarian silversmith barber kamikaze elder martyr mage
+6,3,wolf wolf detective bookie barman mage mage witch duelist hunter devil sectarian silversmith barber kamikaze elder martyr mage
+7,3,wolf wolf detective bookie barman mage mage witch duelist hunter devil sectarian silversmith barber kamikaze elder martyr mage cupid loser defender
+6,2,alpha_wolf sectarian cupid devil detective hunter witch mage elder_barman terrorist duelist kamikaze
+7,2,wolf wolf defender mage mage hunter cupid witch barman kamikaze villager crow mage fox_3
+6,2,Hunter witch defender bookie_villager wolf cupid wizard entertainer mason mason rabbel_rouser wandering_ghost
+5,3,wolf witch cupid witch promiscuous card_sharp silversmith lawyer distractor fairy_godmother hexer secretary villager villager villager

@@ -36,6 +36,7 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="https://damaru2.github.io/assets/css/main.min.css">
 <link rel="stylesheet" href="https://damaru2.github.io/assets/academicons.css" />
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/custom.css">
 
 <meta http-equiv="cleartype" content="on">
 
@@ -161,9 +162,11 @@ html { scroll-behavior: smooth; }
 		        
 				<li><a href="https://damaru2.github.io/publications/" >Publications</a></li>
 		        
-				<li><a href="https://damaru2.github.io/cv/" >Curriculum</a></li>
+				<li><a href="https://damaru2.github.io/cv/" >CV</a></li>
 		        
 				<li><a href="https://damaru2.github.io/blog/" >Blog</a></li>
+		        
+				<li><a href="https://damaru2.github.io/fun/" >FUN</a></li>
 		        
 				<li><a href="https://damaru2.github.io/" >About</a></li>
 		        
@@ -197,7 +200,6 @@ html { scroll-behavior: smooth; }
 
 <a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
 
-<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
 
   </div>
   <article>
@@ -212,7 +214,7 @@ html { scroll-behavior: smooth; }
 <hr />
 <p><strong>In this post, I explain how you can write maths with LaTeX so that all the instances of your main notations have a link to their definitions.</strong></p>
 
-<p>Here is <a href="https://damaru2.github.io/phd_thesis/thesis.pdf">my PhD thesis</a> in which I implement the idea. Try to go to a random page and click on stuff. You should be able to unless it is a super local notation. You can also see two of the individual papers on arXiv: <a href="https://arxiv.org/pdf/2012.03618v4.pdf">this one</a>, or <a href="https://arxiv.org/pdf/2109.03678.pdf">this other one</a>.</p>
+<p>Here is <a href="https://damaru2.github.io/phd_thesis/thesis.pdf" target="_blank" rel="noopener noreferrer">my PhD thesis</a> in which I implement the idea. Try to go to a random page and click on stuff. You should be able to unless it is a super local notation. You can also see two of the individual papers on arXiv: <a href="https://arxiv.org/pdf/2012.03618v4.pdf" target="_blank" rel="noopener noreferrer">this one</a>, or <a href="https://arxiv.org/pdf/2109.03678.pdf" target="_blank" rel="noopener noreferrer">this other one</a>.</p>
 
 <hr />
 
@@ -239,7 +241,7 @@ where <span class="p">$</span><span class="nv">\newtarget</span><span class="p">
 define the box <span class="p">$</span><span class="nv">\newtarget</span><span class="p">{</span><span class="nb">def:Box</span><span class="p">}{</span><span class="nv">\B</span><span class="p">}</span><span class="nb"> </span><span class="nv">\defi</span><span class="nb"> </span><span class="o">[-</span><span class="nv">\omega</span><span class="nb">, </span><span class="m">0</span><span class="o">]</span><span class="p">^{</span><span class="nv">\n</span><span class="p">}$</span>.
 ...</code></pre></figure>
 
-<p>Note: The <a href="#tips">Tips section</a> specifies additional config so it works for arXiv.</p>
+<p>Note: The <a href="#tips" target="_blank" rel="noopener noreferrer">Tips section</a> specifies additional config so it works for arXiv.</p>
 
 <hr />
 
@@ -334,7 +336,7 @@ y <span class="k">\newtarget</span><span class="p">{</span>def:formal<span class
     <p>Note that I am setting the font color to <code class="language-plaintext highlighter-rouge">\normalcolor</code>, which is the default color set in the preamble. This hack could not work in some contexts, namely if you locally set a different color. The command <code class="language-plaintext highlighter-rouge">\protect</code> is necessary when you use a hyperlink in some texts that LaTeX treats in a special way, like captions and section titles, but it doesn’t hurt to add it all the time. Note the command <code class="language-plaintext highlighter-rouge">\newtarget</code> contains <code class="language-plaintext highlighter-rouge">\Hy@raisedlink</code>. This makes the target be a bit higher than the actual target, which corrects the way most readers jump which is that they place the hypertarget at the top edge of the screen, and you would normally want to jump a bit higher so you can read the line where the hypertarget is.</p>
   </li>
   <li>
-    <p>As of the day of writing this update (Jan 12, 2023), the version of arXiv’s default compiler doesn’t know how to deal with nested links, in case you want to have some notation with a subindex with a notation, both having links, for example. If you place <code class="language-plaintext highlighter-rouge">\pdfoutput=1</code> in the <a href="https://arxiv.org/help/submit_tex#pdflatex">first 5 lines of your main file</a>, you will get PDFLaTeX processing and you will not have this problem.</p>
+    <p>As of the day of writing this update (Jan 12, 2023), the version of arXiv’s default compiler doesn’t know how to deal with nested links, in case you want to have some notation with a subindex with a notation, both having links, for example. If you place <code class="language-plaintext highlighter-rouge">\pdfoutput=1</code> in the <a href="https://arxiv.org/help/submit_tex#pdflatex" target="_blank" rel="noopener noreferrer">first 5 lines of your main file</a>, you will get PDFLaTeX processing and you will not have this problem.</p>
   </li>
   <li>
     <p>Also, for some reason the <code class="language-plaintext highlighter-rouge">\Hy@raisedlink</code> doesn’t work well on arXiv, so I use the following code instead for defining <code class="language-plaintext highlighter-rouge">\newtarget</code>.</p>
@@ -485,6 +487,7 @@ y <span class="k">\newtarget</span><span class="p">{</span>def:formal<span class
 
 -->
 
+      
       <hr />
       <footer role="contentinfo">
         <div class="article-author-bottom">
@@ -508,21 +511,38 @@ y <span class="k">\newtarget</span><span class="p">{</span>def:formal<span class
 
 <a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
 
-<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
 
         </div>
         <p class="byline"><strong>LaTeX and math notation with links to its definition.</strong> was published on <time datetime="2021-12-14T00:00:00+00:00">December 14, 2021</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
-    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <section class="comments" aria-label="Comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="damaru2/damaru2.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNDgxMjIwMDk="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOFL_rmc4DBiyK"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+
   
   </article>
 </div><!-- /#main -->
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2026 David Martínez-Rubio. Based on jponttuset.github.io. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2026 David Martínez-Rubio. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
@@ -541,32 +561,6 @@ y <span class="k">\newtarget</span><span class="p">{</span>def:formal<span class
 
   gtag('config', 'G-EKCKR7JVZP');
 </script>
-
-
-
-  
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'damaru2-github-io'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
 
 	        
 

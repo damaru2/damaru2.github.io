@@ -36,6 +36,7 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="https://damaru2.github.io/assets/css/main.min.css">
 <link rel="stylesheet" href="https://damaru2.github.io/assets/academicons.css" />
+<link rel="stylesheet" href="https://damaru2.github.io/assets/css/custom.css">
 
 <meta http-equiv="cleartype" content="on">
 
@@ -161,9 +162,11 @@ html { scroll-behavior: smooth; }
 		        
 				<li><a href="https://damaru2.github.io/publications/" >Publications</a></li>
 		        
-				<li><a href="https://damaru2.github.io/cv/" >Curriculum</a></li>
+				<li><a href="https://damaru2.github.io/cv/" >CV</a></li>
 		        
 				<li><a href="https://damaru2.github.io/blog/" >Blog</a></li>
+		        
+				<li><a href="https://damaru2.github.io/fun/" >FUN</a></li>
 		        
 				<li><a href="https://damaru2.github.io/" >About</a></li>
 		        
@@ -197,7 +200,6 @@ html { scroll-behavior: smooth; }
 
 <a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
 
-<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
 
   </div>
   <article>
@@ -207,13 +209,13 @@ html { scroll-behavior: smooth; }
       
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-      <p>In <a href="/general/notations_with_links/">this previous post</a> I explained how to write maths with LaTeX so your notation had a link to its corresponding definition. Here, I explain a simple extension that allows you to create a presentation that you can host on your website, share, etc. and such that your main notations have a link that takes you to the original paper, where the notation was defined.</p>
+      <p>In <a href="/general/notations_with_links/" target="_blank" rel="noopener noreferrer">this previous post</a> I explained how to write maths with LaTeX so your notation had a link to its corresponding definition. Here, I explain a simple extension that allows you to create a presentation that you can host on your website, share, etc. and such that your main notations have a link that takes you to the original paper, where the notation was defined.</p>
 
-<p><a href="https://damaru2.github.io/assets/presentations/PageRank_presentation.pdf" target="_blank">Here is an example</a></p>
+<p><a href="https://damaru2.github.io/assets/presentations/PageRank_presentation.pdf" target="_blank" rel="noopener noreferrer">Here is an example</a></p>
 
 <hr />
 
-<p>It is very simple. We just need to import the same definitions as in the main paper (that hopefully you have in an external file) and then change the definition of <code class="language-plaintext highlighter-rouge">\newlink</code> from the <a href="/general/notations_with_links/">previous post</a> to point to a url + hash + tag or alternatively to a file + hash + tag, but this time with <code class="language-plaintext highlighter-rouge">\href</code>.</p>
+<p>It is very simple. We just need to import the same definitions as in the main paper (that hopefully you have in an external file) and then change the definition of <code class="language-plaintext highlighter-rouge">\newlink</code> from the <a href="/general/notations_with_links/" target="_blank" rel="noopener noreferrer">previous post</a> to point to a url + hash + tag or alternatively to a file + hash + tag, but this time with <code class="language-plaintext highlighter-rouge">\href</code>.</p>
 
 <figure class="highlight"><pre><code class="language-tex" data-lang="tex"><span class="c">% Go to the exact place in the arXiv file where the notation was defined.</span>
 <span class="k">\newcommand\newlink</span><span class="na">[2]</span><span class="p">{{</span><span class="k">\protect\href</span><span class="p">{</span>https://arxiv.org/pdf/2303.12875.pdf<span class="k">\#</span>#1<span class="p">}{{</span>
@@ -225,6 +227,7 @@ html { scroll-behavior: smooth; }
 
 <p>The use of <code class="language-plaintext highlighter-rouge">\usebeamercolor[fg]{math text}</code> ensures that the links are displayed with the color you set for your math in beamer.</p>
 
+      
       <hr />
       <footer role="contentinfo">
         <div class="article-author-bottom">
@@ -248,21 +251,38 @@ html { scroll-behavior: smooth; }
 
 <a href="mailto:david_martirubio @ hotmail.com" class="author-social" target="_blank"><i class="fa fa-envelope-square"></i> e-Mail</a>
 
-<a href="https://drive.google.com/file/d/1kMMZIIiaMkXM1yqYr2lD-qo-H_EZnsTN/view" class="author-social" target="_blank"><i class="fa fa-file"></i>CV</a>
 
         </div>
         <p class="byline"><strong>Beamer and notation with links to the original paper.</strong> was published on <time datetime="2023-03-25T00:00:00+00:00">March 25, 2023</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   
-    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <section class="comments" aria-label="Comments">
+  <script src="https://giscus.app/client.js"
+          data-repo="damaru2/damaru2.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNDgxMjIwMDk="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOFL_rmc4DBiyK"
+          data-mapping="pathname"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+
   
   </article>
 </div><!-- /#main -->
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2026 David Martínez-Rubio. Based on jponttuset.github.io. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2026 David Martínez-Rubio. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
@@ -281,32 +301,6 @@ html { scroll-behavior: smooth; }
 
   gtag('config', 'G-EKCKR7JVZP');
 </script>
-
-
-
-  
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'damaru2-github-io'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
 
 	        
 
