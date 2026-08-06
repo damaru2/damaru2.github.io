@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -207,6 +252,10 @@ html { scroll-behavior: smooth; }
       
         <h1><a href="https://damaru2.github.io/fun/puns/" rel="bookmark" title="Puns, and other plays on words [Spanish, English, Toki Pona]">Puns, and other plays on words [Spanish, English, Toki Pona]</a></h1>
       
+      <div class="post-header-meta" aria-label="Post metadata">
+        <time class="post-header-date" datetime="2026-07-18T00:00:00+01:00">July 18, 2026</time>
+        <span class="post-reading-time">about 6 min read</span>
+      </div>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
       <style>
@@ -469,9 +518,13 @@ html { scroll-behavior: smooth; }
 </blockquote>
 
 <div id="pun-extra-1" class="puns-comment-panel" hidden="">
-<p>Tengo un amigo agricultor y otro apicultor. Aunque lo que realmente le gusta al agricultor es el costureo. Y lo que de verdad le gusta a mi amigo el apicultor es el postureo.</p>
+<p>Esa frase surgió de ir un día a un panal con paredes transparentes a buscar exactamente dónde estaba la abeja reina.</p>
 
-<p>Porque, mientras ahora mismo el agricultor anda buscando su única aguja en un pajar, el apicultor anda perdiendo el tiempo buscando una única abeja en un panal.</p>
+<blockquote>
+  <p>Tengo un amigo agricultor y otro apicultor. Aunque lo que realmente le gusta al agricultor es el costureo. Y lo que de verdad le gusta a mi amigo el apicultor es el postureo.</p>
+
+  <p>Porque, mientras ahora mismo el agricultor anda buscando su única aguja en un pajar, el apicultor anda perdiendo el tiempo buscando concretamente una abeja en un panal.</p>
+</blockquote>
 </div>
 
 <hr />
@@ -533,16 +586,9 @@ html { scroll-behavior: smooth; }
 
 <p>Título de un monólogo:</p>
 <blockquote>
-  <p>El monótono monólogo mono tono
-<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-3" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+  <p>El monótono monólogo mono tono</p>
 </blockquote>
 
-<div id="pun-extra-3" class="puns-comment-panel" hidden="">
-<blockquote>
-  <p>¡Oh! ¡mono! (el título)
-Solo yo un tono sólo, no oyó?</p>
-</blockquote>
-</div>
 <hr />
 
 <p>¿Por qué está la mejor máscara tan estropeada? ¿Es muy antigua?</p>
@@ -551,14 +597,14 @@ Solo yo un tono sólo, no oyó?</p>
   <p>Cada masa da más mascaradas mascadas a la amasacrada máscara más cara.
 <br />
 ¡Hala! Vaya sarta. Mas casa.
-<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-4" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-3" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 </blockquote>
 
-<div id="pun-extra-4" class="puns-comment-panel" hidden="">
+<div id="pun-extra-3" class="puns-comment-panel" hidden="">
 <p>El dependiente, por supuesto, te recomienda comprar la más cara:</p>
 
 <blockquote>
-  <p>Te recomiendo encarecidamente que cojas esta.</p>
+  <p>Te recomiendo encarecidamente que compres ésta.</p>
 </blockquote>
 </div>
 
@@ -573,10 +619,10 @@ Solo yo un tono sólo, no oyó?</p>
 <h2 id="otras">Otras</h2>
 
 <blockquote>
-  <p>Enredadedos: Un trabalenguas para dedos y un enredo para lenguas.<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-5" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+  <p>Enredadedos: Un trabalenguas para dedos y un enredo para lenguas.<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-4" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 </blockquote>
 
-<div id="pun-extra-5" class="puns-comment-panel" hidden="">
+<div id="pun-extra-4" class="puns-comment-panel" hidden="">
 <p>Los dedos están enredados en un enredadedos, quién los desenredadedosará el desenredadedoseador que los desenredadosee buen desenredadoseador será…</p>
 </div>
 
@@ -607,10 +653,10 @@ Dentro de mí habita un señor de 50 años cura.</p>
 <p>Oxímoron es cuando juntas dos palabras de significado opuesto, por ejemplo, un “silencio atronador”, o también:</p>
 
 <blockquote>
-  <p>Un oxímoron coherente. <button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-6" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+  <p>Un oxímoron coherente. <button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-5" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 </blockquote>
 
-<div id="pun-extra-6" class="puns-comment-panel" hidden="">
+<div id="pun-extra-5" class="puns-comment-panel" hidden="">
 <p>Más pedantemente:</p>
 <blockquote>
   <p>un oxímoron pleonástico.</p>
@@ -629,10 +675,10 @@ Dentro de mí habita un señor de 50 años cura.</p>
   <p>A y B (a la vez): Eh?</p>
 
   <p>C: Sí, es lo que dice mi médico, que le tengo alergia a la vida acarosa, a la vida polínica.
-<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-7" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-6" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 </blockquote>
 
-<div id="pun-extra-7" class="puns-comment-panel" hidden="">
+<div id="pun-extra-6" class="puns-comment-panel" hidden="">
 <blockquote>
   <p>En la política el trato es muy importante. Ha costado estabilizar la situación económica de la banca, surgía mu’ poco líquido.
 <br />
@@ -656,14 +702,6 @@ En la polínica el <span class="puns-glossary-term" tabindex="0" aria-describedb
 
 <blockquote>
   <p>He acabado en el mismo trabajo donde está fulanito… O acabaré, cuando empiece, paradójicamente.</p>
-</blockquote>
-
-<hr />
-
-<p>Están intentando hacer un euro digital oficial, se llama <a href="https://wero-wallet.eu/" target="_blank" rel="noopener noreferrer">Wero</a></p>
-
-<blockquote>
-  <p>Le saldrá mal a Wero?</p>
 </blockquote>
 
 <hr />
@@ -769,10 +807,10 @@ The girlfriend that broke up.</p>
 <h2 id="these-should-have-a-translation">These should have a translation</h2>
 
 <blockquote>
-  <p>Ser workaholic es español debería decirse ser <strong>trabalcohólico</strong>. <button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-8" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+  <p>Ser workaholic en español debería decirse ser <strong>trabalcohólico</strong>. <button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-7" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 </blockquote>
 
-<div id="pun-extra-8" class="puns-comment-panel" hidden="">
+<div id="pun-extra-7" class="puns-comment-panel" hidden="">
 <p>Se podría relacionar con el tabaco más que con el alcohol, por lo mucho que se parecen las palabras (es decir tabacolismo). Pero pierde la r y es peor.</p>
 
 <p>Parches de “ni cortina” (trabajas tanto que ni te levantas a correr la cortina. Entonces, una cosa domótica te corre la cortina en la oficina cuando te pasas de trabajar y te impide ver y te hace de señal para parar).</p>
@@ -785,10 +823,10 @@ The girlfriend that broke up.</p>
 <blockquote>
   <p>Quien parte y reparte, se lleva la mejor parte.
 <br />
-Those who cut the tart, take the best part. <button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-9" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+Those who cut the tart, take the best part. <button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-8" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 </blockquote>
 
-<div id="pun-extra-9" class="puns-comment-panel" hidden="">
+<div id="pun-extra-8" class="puns-comment-panel" hidden="">
 <p>More literally:</p>
 <blockquote>
   <p>Those who cut and serve the tart, take the best part.</p>
@@ -893,9 +931,9 @@ A woman is not a womb man.</p>
 </blockquote>
 
 <p>By <a href="https://sites.google.com/view/sinuheperea/" target="_blank" rel="noopener noreferrer">Sinuhé Perea Puente</a>. 
-<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-10" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-9" aria-label="Mostrar comentarios" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 
-<div id="pun-extra-10" class="puns-comment-panel" hidden="">
+<div id="pun-extra-9" class="puns-comment-panel" hidden="">
 <p>He deserves this I wrote for him:</p>
 
 <blockquote>
@@ -943,9 +981,9 @@ A woman is not a womb man.</p>
   <figcaption></figcaption>
 </figure>
 
-<p><button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-11" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+<p><button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-10" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 
-<div id="pun-extra-11" class="puns-comment-panel" hidden="">
+<div id="pun-extra-10" class="puns-comment-panel" hidden="">
 <blockquote>
   <p>mi nena ijo ala. mi meli.</p>
 </blockquote>
@@ -967,10 +1005,10 @@ A woman is not a womb man.</p>
 <br />
 <br />
 sike tomo li ante seli e jaki tan 
-<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-12" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
+<button class="puns-comment-toggle" type="button" aria-expanded="false" aria-controls="pun-extra-11" aria-label="Mostrar comentario" title="Extra. Usually too silly."><span class="puns-comment-icon" aria-hidden="true"></span></button></p>
 </blockquote>
 
-<div id="pun-extra-12" class="puns-comment-panel" hidden="">
+<div id="pun-extra-11" class="puns-comment-panel" hidden="">
 <p>Una posible traducción del toki pona: “Una pelota de squash muy rápida destroza quemadamente una mierda razonada? (una mala tesis?)”</p>
 </div>
 

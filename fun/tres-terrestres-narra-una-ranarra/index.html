@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -207,6 +252,10 @@ html { scroll-behavior: smooth; }
       
         <h1><a href="https://damaru2.github.io/fun/tres-terrestres-narra-una-ranarra/" rel="bookmark" title="[Spanish] Tres terrestres (narra una ranarra)">[Spanish] Tres terrestres (narra una ranarra)</a></h1>
       
+      <div class="post-header-meta" aria-label="Post metadata">
+        <time class="post-header-date" datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+        <span class="post-reading-time">about 19 min read</span>
+      </div>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
       <style>
@@ -268,6 +317,9 @@ html { scroll-behavior: smooth; }
   line-height: 1.25;
   padding-top: 0.2rem;
   font-style: italic;
+}
+.tres-note-toggle {
+  display: none;
 }
 .tres-note-only {
   color: var(--tres-red);
@@ -339,11 +391,48 @@ html { scroll-behavior: smooth; }
 }
 @media (max-width: 700px) {
   .tres-action {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.4rem 0.5rem;
   }
-  .tres-side-note {
+  .tres-action-main {
+    grid-column: 1;
+  }
+  .tres-action.tres-has-side-note .tres-note-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    min-width: 2.25rem;
+    padding: 0 0.45rem;
+    color: var(--tres-red);
+    background: #fff5f5;
+    border: 1px solid rgba(195, 36, 36, 0.55);
+    border-radius: 3px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+  .tres-action.tres-has-side-note.tres-note-open .tres-note-toggle {
+    color: #fff;
+    background: var(--tres-red);
+    border-color: var(--tres-red);
+  }
+  .tres-action.tres-has-side-note .tres-side-note {
+    display: none;
+    grid-column: 1 / -1;
+    margin-top: -0.05rem;
+    padding: 0.35rem 0.65rem;
+    background: #fffafa;
     border-left: 2px solid rgba(195, 36, 36, 0.35);
-    padding-left: 0.65rem;
+  }
+  .tres-action.tres-has-side-note.tres-note-open .tres-side-note {
+    display: block;
+  }
+  .tres-action.tres-empty-side-note .tres-side-note,
+  .tres-side-note:empty {
+    display: none;
   }
 }
 </style>
@@ -858,6 +947,36 @@ Espero que te haya divertido este relato tanto como a mí escribirlo.
 (function () {
   var root = document.querySelector('.tres-terrestres');
   if (!root) return;
+
+  root.querySelectorAll('.tres-action').forEach(function (action, index) {
+    var note = action.querySelector('.tres-side-note');
+    if (!note) return;
+
+    if (note.textContent.replace(/\s+/g, '') === '') {
+      action.classList.add('tres-empty-side-note');
+      return;
+    }
+
+    action.classList.add('tres-has-side-note');
+
+    if (!note.id) note.id = 'tres-side-note-' + index;
+
+    var toggle = document.createElement('button');
+    toggle.className = 'tres-note-toggle';
+    toggle.type = 'button';
+    toggle.textContent = '.';
+    toggle.setAttribute('aria-controls', note.id);
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Mostrar texto rojo');
+
+    action.insertBefore(toggle, note);
+
+    toggle.addEventListener('click', function () {
+      var isOpen = action.classList.toggle('tres-note-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Ocultar texto rojo' : 'Mostrar texto rojo');
+    });
+  });
 
   var glossary = {};
   root.querySelectorAll('.tres-glossary dt[id]').forEach(function (termNode) {

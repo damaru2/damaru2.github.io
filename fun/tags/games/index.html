@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -128,14 +173,44 @@
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-tu/" title="Musi Tu (board game)" aria-label="Read Musi Tu (board game)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T13:02:00+01:00">July 25, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/musi-tu/" title="Musi Tu (board game)">
-        Musi Tu (board game)
+      
+      Musi Tu (board game)
 
-      </a>
     </h3>
-    <p>
+    
+
+
+
+
+
+  <p>
 </p>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/musi_tu/backdrop_musi_tu.png" alt="Musi Tu cards with sitelen pona symbols">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -150,21 +225,58 @@
 
 
   
+</div>
+
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)" aria-label="Read Musi Supa - The Fun of Desk (board game)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T13:00:00+01:00">July 25, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)">
-        Musi Supa - The Fun of Desk (board game)
+      
+      Musi Supa - The Fun of Desk (board game)
 
-      </a>
     </h3>
-    <p>
+    
 
-  Party game: describe things using only the 80 words on the board.
-  Flexible difficulty: casual family game, hard language riddle, or classroom activity....</p>
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li><strong>Party game:</strong> describe things using only the 80 words on the board.</li>
+  <li><strong>Flexible difficulty:</strong> casual family game, hard language riddle, or classroom activity.</li>
+  <li><strong>Different languages:</strong> it can become a playful language-learning exercise. There is even a sign-language version!</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/musi_supa/board_fragment.png" alt="Fragment of the Musi Supa board.">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -177,30 +289,58 @@
 
 
   
+</div>
 
-  
-  
-  
-
-  
-  
   
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/explorable-explanation-about-fair-resource-allocation/" title="Explorable Explanation about fair resource allocation" aria-label="Read Explorable Explanation about fair resource allocation">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T11:03:00+01:00">July 25, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/explorable-explanation-about-fair-resource-allocation/" title="Explorable Explanation about fair resource allocation">
-        Explorable Explanation about fair resource allocation
+      
+      Explorable Explanation about fair resource allocation
 
-      </a>
     </h3>
-    <p>
+    
 
-  An interactive app about assigning Internet speeds fairly.
-  Made for the Berlin Long Night of Sciences in 2022 and 2023.
-  The math question: What does ...</p>
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li>An interactive app about assigning Internet speeds fairly.</li>
+  <li>Made for the Berlin Long Night of Sciences in 2022 and 2023.</li>
+  <li><strong>The math question</strong>: What does “fair” mean when users share limited network links?</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/fairnesslndw/fair-internet-preview.png" alt="Abstract network preview for Fair Internet">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -213,6 +353,9 @@
 
 
   
+</div>
+
+  
 
   
   
@@ -242,15 +385,50 @@
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/codenames-bot/" title="Codenames in Telegram" aria-label="Read Codenames in Telegram">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/phonemic-wordle/" title="Phonemic Wordle">
-        Phonemic Wordle
+      
+      Codenames in Telegram
 
-      </a>
     </h3>
-    <p>
+    
 
-</p>
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li><strong>Codenames,</strong> in a telegram bot.</li>
+  <li><strong>Personalization:</strong> Simultaneous games, any number of teams or words.</li>
+  <li><strong>Coolest:</strong> Crafting and playing with random decks, like TV Tropes.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image" style="width: min(100%, 431px); margin-left: auto; margin-right: auto;">
+      <img src="/assets/telegram_games/codenames_preview.png" alt="Preview for Codenames bot on Telegram.">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -263,20 +441,60 @@
 
 
   
+</div>
+
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/lycanthrobot/" title="Lycanthrobot - Playing your own Werewolf quickly on Telegram" aria-label="Read Lycanthrobot - Playing your own Werewolf quickly on Telegram">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/lycanthrobot/" title="Lycanthrobot - Playing your own Werewolf quickly on Telegram">
-        Lycanthrobot - Playing your own Werewolf quickly on Telegram
+      
+      Lycanthrobot - Playing your own Werewolf quickly on Telegram
 
-      </a>
     </h3>
-    <p>
+    
 
-</p>
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li><strong>Telegram bot</strong> to manage a Werewolf/Mafia game</li>
+  <li><strong>Makes nights quick:</strong> people play in parallel. Or allows async games (one day one irl-day).</li>
+  <li><strong>Flexible:</strong> It’s not full automation, its a tool to play in your own way.</li>
+  <li><strong>Cool variant</strong> where players have several “lives” and do not die immediately.</li>
+  <li><strong>Nice data</strong> from games I played at the bottom.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image" style="width: min(100%, 415px); margin-left: auto; margin-right: auto;">
+      <img src="/assets/telegram_games/lycanthrobot_preview.png" alt="Preview for Lycanthrobot.">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -289,19 +507,59 @@
 
 
   
+</div>
+
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/phonemic-wordle/" title="Phonemic Wordle" aria-label="Read Phonemic Wordle">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/codenames-bot/" title="Codenames in Telegram">
-        Codenames in Telegram
+      
+      Phonemic Wordle
 
-      </a>
     </h3>
-    <p>
-</p>
+    
+
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li>Wordle but with American English phonemes.</li>
+  <li><strong>Challenging,</strong> but instructive and innovative.</li>
+  <li><strong>Best:</strong> Collaborate with a friend to solve it in a Telegram chat.</li>
+  <li><strong>Cool:</strong> Original features like hard mode, check pronunciation even outside of a game, deduced info from hints so far, play with 4-6 phonemes.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image" style="width: min(100%, 413px); margin-left: auto; margin-right: auto;">
+      <img src="/assets/telegram_games/phonemic_wordle_preview.png" alt="Preview for Phonemic Wordle.">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -313,6 +571,17 @@
   </p>
 
 
+  
+</div>
+
+  
+
+  
+  
+  
+
+  
+  
   
 
   

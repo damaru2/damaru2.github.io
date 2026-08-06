@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -68,8 +113,13 @@
           .fun-view-toggle {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             gap: 0.75rem;
             margin: 0.75rem 0 1.5rem;
+          }
+          .fun-view-toggle-label {
+            color: #4b5563;
+            font-weight: 700;
           }
           .fun-view-toggle button {
             border: 1px solid #cbd5e1;
@@ -259,6 +309,7 @@
 
                     
                       <div class="fun-view-toggle" role="group" aria-label="Fun listing view">
+                        <span class="fun-view-toggle-label">Sorted by</span>
                         <button type="button" data-fun-view-button="categories" aria-pressed="true">Categories</button>
                         <button type="button" data-fun-view-button="new" aria-pressed="false">New</button>
                       </div>
@@ -310,15 +361,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)">
-                                  <span class="fun-post-counter">14.</span>
-                                  Musi Supa - The Fun of Desk (board game)
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)" aria-label="Read Musi Supa - The Fun of Desk (board game)">
+    
+    <h3>
+      
+        <span class="fun-post-counter">14.</span>
+      
+      Musi Supa - The Fun of Desk (board game)
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -343,14 +396,14 @@
     
     
     <figure class="fun-index-image">
-      <a href="/fun/musi-supa-the-fun-of-desk-board-game/" aria-label="Musi Supa - The Fun of Desk (board game)">
-        <img src="/assets/musi_supa/board_fragment.png" alt="Fragment of the Musi Supa board.">
-      </a>
+      <img src="/assets/musi_supa/board_fragment.png" alt="Fragment of the Musi Supa board.">
     </figure>
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -361,6 +414,10 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
                             
@@ -385,15 +442,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/musi-tu/" title="Musi Tu (board game)">
-                                  <span class="fun-post-counter">13.</span>
-                                  Musi Tu (board game)
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-tu/" title="Musi Tu (board game)" aria-label="Read Musi Tu (board game)">
+    
+    <h3>
+      
+        <span class="fun-post-counter">13.</span>
+      
+      Musi Tu (board game)
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -412,14 +471,14 @@
     
     
     <figure class="fun-index-image">
-      <a href="/fun/musi-tu/" aria-label="Musi Tu (board game)">
-        <img src="/assets/musi_tu/backdrop_musi_tu.png" alt="Musi Tu cards with sitelen pona symbols">
-      </a>
+      <img src="/assets/musi_tu/backdrop_musi_tu.png" alt="Musi Tu cards with sitelen pona symbols">
     </figure>
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -432,6 +491,10 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
                             
@@ -461,6 +524,17 @@
                             
                           
                             
+                          
+                            
+                              
+                              
+                              
+                              
+
+                              
+                            
+                          
+                            
                               
                               
                               
@@ -471,17 +545,6 @@
                           
                             
                           
-                            
-                          
-                            
-                          
-                            
-                              
-                              
-                              
-                              
-
-                              
                             
                           
                             
@@ -508,15 +571,17 @@
                               
                                 
                                 
-                                <h3>
-                                  <a href="/fun/phonemic-wordle/" title="Phonemic Wordle">
-                                    <span class="fun-post-counter">12.</span>
-                                    Phonemic Wordle
+                                <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/phonemic-wordle/" title="Phonemic Wordle" aria-label="Read Phonemic Wordle">
+    
+    <h3>
+      
+        <span class="fun-post-counter">12.</span>
+      
+      Phonemic Wordle
 
-                                  </a>
-                                </h3>
-                                
-                                
+    </h3>
+    
 
 
 
@@ -542,14 +607,14 @@
     
     
     <figure class="fun-index-image" style="width: min(100%, 413px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/phonemic-wordle/" aria-label="Phonemic Wordle">
-        <img src="/assets/telegram_games/phonemic_wordle_preview.png" alt="Preview for Phonemic Wordle.">
-      </a>
+      <img src="/assets/telegram_games/phonemic_wordle_preview.png" alt="Preview for Phonemic Wordle.">
     </figure>
   
 
 
-                                
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -560,6 +625,10 @@
   </p>
 
 
+  
+</div>
+
+                                
                               
                             
                           
@@ -572,15 +641,17 @@
                               
                                 
                                 
-                                <h3>
-                                  <a href="/fun/lycanthrobot/" title="Lycanthrobot - Playing your own Werewolf quickly on Telegram">
-                                    <span class="fun-post-counter">11.</span>
-                                    Lycanthrobot - Playing your own Werewolf quickly on Telegram
+                                <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/lycanthrobot/" title="Lycanthrobot - Playing your own Werewolf quickly on Telegram" aria-label="Read Lycanthrobot - Playing your own Werewolf quickly on Telegram">
+    
+    <h3>
+      
+        <span class="fun-post-counter">11.</span>
+      
+      Lycanthrobot - Playing your own Werewolf quickly on Telegram
 
-                                  </a>
-                                </h3>
-                                
-                                
+    </h3>
+    
 
 
 
@@ -607,14 +678,14 @@
     
     
     <figure class="fun-index-image" style="width: min(100%, 415px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/lycanthrobot/" aria-label="Lycanthrobot - Playing your own Werewolf quickly on Telegram">
-        <img src="/assets/telegram_games/lycanthrobot_preview.png" alt="Preview for Lycanthrobot.">
-      </a>
+      <img src="/assets/telegram_games/lycanthrobot_preview.png" alt="Preview for Lycanthrobot.">
     </figure>
   
 
 
-                                
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -625,6 +696,10 @@
   </p>
 
 
+  
+</div>
+
+                                
                               
                             
                           
@@ -637,15 +712,17 @@
                               
                                 
                                 
-                                <h3>
-                                  <a href="/fun/codenames-bot/" title="Codenames in Telegram">
-                                    <span class="fun-post-counter">10.</span>
-                                    Codenames in Telegram
+                                <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/codenames-bot/" title="Codenames in Telegram" aria-label="Read Codenames in Telegram">
+    
+    <h3>
+      
+        <span class="fun-post-counter">10.</span>
+      
+      Codenames in Telegram
 
-                                  </a>
-                                </h3>
-                                
-                                
+    </h3>
+    
 
 
 
@@ -670,14 +747,14 @@
     
     
     <figure class="fun-index-image" style="width: min(100%, 431px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/codenames-bot/" aria-label="Codenames in Telegram">
-        <img src="/assets/telegram_games/codenames_preview.png" alt="Preview for Codenames bot on Telegram.">
-      </a>
+      <img src="/assets/telegram_games/codenames_preview.png" alt="Preview for Codenames bot on Telegram.">
     </figure>
   
 
 
-                                
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -688,6 +765,10 @@
   </p>
 
 
+  
+</div>
+
+                                
                               
                             
                           
@@ -798,6 +879,17 @@
                             
                           
                             
+                          
+                            
+                              
+                              
+                              
+                              
+
+                              
+                            
+                          
+                            
                               
                               
                               
@@ -806,15 +898,17 @@
                               
                                 
                                 
-                                <h3>
-                                  <a href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" title="ankigenbot - Language anki card generator in Telegram">
-                                    <span class="fun-post-counter">9.</span>
-                                    ankigenbot - Language anki card generator in Telegram
+                                <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" title="ankigenbot - Language anki card generator in Telegram" aria-label="Read ankigenbot - Language anki card generator in Telegram">
+    
+    <h3>
+      
+        <span class="fun-post-counter">9.</span>
+      
+      ankigenbot - Language anki card generator in Telegram
 
-                                  </a>
-                                </h3>
-                                
-                                
+    </h3>
+    
 
 
 
@@ -839,14 +933,14 @@
     
     
     <figure class="fun-index-image" style="width: min(100%, 65%); margin-left: auto; margin-right: auto;">
-      <a href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" aria-label="ankigenbot - Language anki card generator in Telegram">
-        <img src="/assets/ankigenbot/image4.jpg" alt="A generated card inside Anki">
-      </a>
+      <img src="/assets/ankigenbot/image4.jpg" alt="A generated card inside Anki">
     </figure>
   
 
 
-                                
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -857,22 +951,15 @@
   </p>
 
 
-                              
-                            
-                          
-                            
-                          
-                            
-                          
-                            
-                          
-                            
-                              
-                              
-                              
-                              
+  
+</div>
 
+                                
                               
+                            
+                          
+                            
+                          
                             
                           
                             
@@ -984,15 +1071,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/folding-paper-guesses-your-fruit/" title="Folding paper guesses your fruit">
-                                  <span class="fun-post-counter">8.</span>
-                                  Folding paper guesses your fruit
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/folding-paper-guesses-your-fruit/" title="Folding paper guesses your fruit" aria-label="Read Folding paper guesses your fruit">
+    
+    <h3>
+      
+        <span class="fun-post-counter">8.</span>
+      
+      Folding paper guesses your fruit
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -1012,14 +1101,14 @@
     
     
     <figure class="fun-index-image">
-      <a href="/fun/folding-paper-guesses-your-fruit/" aria-label="Folding paper guesses your fruit">
-        <img src="/assets/fruit_tree/preview_folding_fruit_tree.png" alt="Preview of the folding paper fruit tree activity.">
-      </a>
+      <img src="/assets/fruit_tree/preview_folding_fruit_tree.png" alt="Preview of the folding paper fruit tree activity.">
     </figure>
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1028,6 +1117,10 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
                             
@@ -1052,15 +1145,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/explorable-explanation-about-fair-resource-allocation/" title="Explorable Explanation about fair resource allocation">
-                                  <span class="fun-post-counter">7.</span>
-                                  Explorable Explanation about fair resource allocation
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/explorable-explanation-about-fair-resource-allocation/" title="Explorable Explanation about fair resource allocation" aria-label="Read Explorable Explanation about fair resource allocation">
+    
+    <h3>
+      
+        <span class="fun-post-counter">7.</span>
+      
+      Explorable Explanation about fair resource allocation
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -1085,14 +1180,14 @@
     
     
     <figure class="fun-index-image">
-      <a href="/fun/explorable-explanation-about-fair-resource-allocation/" aria-label="Explorable Explanation about fair resource allocation">
-        <img src="/assets/fairnesslndw/fair-internet-preview.png" alt="Abstract network preview for Fair Internet">
-      </a>
+      <img src="/assets/fairnesslndw/fair-internet-preview.png" alt="Abstract network preview for Fair Internet">
     </figure>
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1103,6 +1198,10 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
                             
@@ -1120,15 +1219,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/math-inspired-escape-room-puzzle-ideas/" title="Math-inspired escape room puzzle ideas">
-                                  <span class="fun-post-counter">6.</span>
-                                  Math-inspired escape room puzzle ideas
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/math-inspired-escape-room-puzzle-ideas/" title="Math-inspired escape room puzzle ideas" aria-label="Read Math-inspired escape room puzzle ideas">
+    
+    <h3>
+      
+        <span class="fun-post-counter">6.</span>
+      
+      Math-inspired escape room puzzle ideas
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -1146,14 +1247,14 @@
     
     
     <figure class="fun-index-image">
-      <a href="/fun/math-inspired-escape-room-puzzle-ideas/" aria-label="Math-inspired escape room puzzle ideas">
-        <img src="/assets/escape_room/escape_room_math_preview.png" alt="Preview of Math Escape Room Ideas">
-      </a>
+      <img src="/assets/escape_room/escape_room_math_preview.png" alt="Preview of Math Escape Room Ideas">
     </figure>
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1162,8 +1263,14 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
+                          
+                            
                           
                             
                           
@@ -1179,18 +1286,16 @@
                             
                           
                             
-                          
-                            
-                          
-                            
-                          
-                            
                               
                               
                               
                               
 
                               
+                            
+                          
+                            
+                          
                             
                           
                             
@@ -1288,15 +1393,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/tres-terrestres-narra-una-ranarra/" title="[Spanish] Tres terrestres (narra una ranarra)">
-                                  <span class="fun-post-counter">5.</span>
-                                  [Spanish] Tres terrestres (narra una ranarra)
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/tres-terrestres-narra-una-ranarra/" title="[Spanish] Tres terrestres (narra una ranarra)" aria-label="Read [Spanish] Tres terrestres (narra una ranarra)">
+    
+    <h3>
+      
+        <span class="fun-post-counter">5.</span>
+      
+      [Spanish] Tres terrestres (narra una ranarra)
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -1314,14 +1421,14 @@
     
     
     <figure class="fun-index-image">
-      <a href="/fun/tres-terrestres-narra-una-ranarra/" aria-label="[Spanish] Tres terrestres (narra una ranarra)">
-        <img src="/assets/tres_terrestres/tres_preview.png" alt="Preview of Tres Terrestres">
-      </a>
+      <img src="/assets/tres_terrestres/tres_preview.png" alt="Preview of Tres Terrestres">
     </figure>
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1330,6 +1437,10 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
                             
@@ -1354,15 +1465,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/reemergence-concept-for-a-webcomic/" title="Reemergence - Concept for a webcomic">
-                                  <span class="fun-post-counter">4.</span>
-                                  Reemergence - Concept for a webcomic
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/reemergence-concept-for-a-webcomic/" title="Reemergence - Concept for a webcomic" aria-label="Read Reemergence - Concept for a webcomic">
+    
+    <h3>
+      
+        <span class="fun-post-counter">4.</span>
+      
+      Reemergence - Concept for a webcomic
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -1380,14 +1493,14 @@
     
     
     <figure class="fun-index-image">
-      <a href="/fun/reemergence-concept-for-a-webcomic/" aria-label="Reemergence - Concept for a webcomic">
-        <img src="/assets/reemergence/reemergence-header.png" alt="Reemergence header">
-      </a>
+      <img src="/assets/reemergence/reemergence-header.png" alt="Reemergence header">
     </figure>
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1396,6 +1509,10 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
                             
@@ -1420,15 +1537,17 @@
                             
                               
                               
-                              <h3>
-                                <a href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]">
-                                  <span class="fun-post-counter">3.</span>
-                                  Puns, and other plays on words [Spanish, English, Toki Pona]
+                              <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]" aria-label="Read Puns, and other plays on words [Spanish, English, Toki Pona]">
+    
+    <h3>
+      
+        <span class="fun-post-counter">3.</span>
+      
+      Puns, and other plays on words [Spanish, English, Toki Pona]
 
-                                </a>
-                              </h3>
-                              
-                              
+    </h3>
+    
 
 
 
@@ -1456,7 +1575,9 @@
   
 
 
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1467,6 +1588,10 @@
   </p>
 
 
+  
+</div>
+
+                              
                             
                           
                             
@@ -1482,6 +1607,17 @@
                             
                           
                             
+                          
+                            
+                              
+                              
+                              
+                              
+
+                              
+                            
+                          
+                            
                               
                               
                               
@@ -1492,17 +1628,6 @@
                           
                             
                           
-                            
-                          
-                            
-                          
-                            
-                              
-                              
-                              
-                              
-
-                              
                             
                           
                             
@@ -1662,19 +1787,6 @@ It is a cute constructed language designed to be simple, second only to Esperant
                             
                           
                             
-                              
-                              
-                              
-                              
-
-                              
-                            
-                          
-                            
-                          
-                            
-                          
-                            
                           
                             
                               
@@ -1685,15 +1797,17 @@ It is a cute constructed language designed to be simple, second only to Esperant
                               
                                 
                                 
-                                <h3>
-                                  <a href="/fun/my-number-system/" title="My Toki Pona number system">
-                                    <span class="fun-post-counter">2.</span>
-                                    My Toki Pona number system
+                                <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/my-number-system/" title="My Toki Pona number system" aria-label="Read My Toki Pona number system">
+    
+    <h3>
+      
+        <span class="fun-post-counter">2.</span>
+      
+      My Toki Pona number system
 
-                                  </a>
-                                </h3>
-                                
-                                
+    </h3>
+    
 
 
 
@@ -1711,14 +1825,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image">
-      <a href="/fun/my-number-system/" aria-label="My Toki Pona number system">
-        <img src="/assets/sitelen%20pona/nasin_nanpa_wan_preview.png" alt="Preview of my Toki Pona number system.">
-      </a>
+      <img src="/assets/sitelen%20pona/nasin_nanpa_wan_preview.png" alt="Preview of my Toki Pona number system.">
     </figure>
   
 
 
-                                
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1729,7 +1843,24 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
+                                
                               
+                            
+                          
+                            
+                              
+                              
+                              
+                              
+
+                              
+                            
+                          
+                            
+                          
                             
                           
                             
@@ -1741,15 +1872,17 @@ It is a cute constructed language designed to be simple, second only to Esperant
                               
                                 
                                 
-                                <h3>
-                                  <a href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" title="Write sitelen pona on Telegram with this bot">
-                                    <span class="fun-post-counter">1.</span>
-                                    Write sitelen pona on Telegram with this bot
+                                <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" title="Write sitelen pona on Telegram with this bot" aria-label="Read Write sitelen pona on Telegram with this bot">
+    
+    <h3>
+      
+        <span class="fun-post-counter">1.</span>
+      
+      Write sitelen pona on Telegram with this bot
 
-                                  </a>
-                                </h3>
-                                
-                                
+    </h3>
+    
 
 
 
@@ -1773,14 +1906,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image" style="width: min(100%, 227px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" aria-label="Write sitelen pona on Telegram with this bot">
-        <img src="/assets/telegram_games/toki_pona_li_pona_tawa_mi.png" alt="Preview of the Toki Pona bot to write sitelen pona">
-      </a>
+      <img src="/assets/telegram_games/toki_pona_li_pona_tawa_mi.png" alt="Preview of the Toki Pona bot to write sitelen pona">
     </figure>
   
 
 
-                                
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1791,6 +1924,10 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
+                                
                               
                             
                           
@@ -1880,15 +2017,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/musi-tu/" title="Musi Tu (board game)">
-                                <span class="fun-post-counter">14.</span>
-                                Musi Tu (board game)
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-tu/" title="Musi Tu (board game)" aria-label="Read Musi Tu (board game)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T13:02:00+01:00">July 25, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">14.</span>
+      
+      Musi Tu (board game)
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -1907,15 +2050,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image">
-      <a href="/fun/musi-tu/" aria-label="Musi Tu (board game)">
-        <img src="/assets/musi_tu/backdrop_musi_tu.png" alt="Musi Tu cards with sitelen pona symbols">
-      </a>
+      <img src="/assets/musi_tu/backdrop_musi_tu.png" alt="Musi Tu cards with sitelen pona symbols">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1928,6 +2070,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
                             
                           
                         
@@ -1937,15 +2082,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)">
-                                <span class="fun-post-counter">13.</span>
-                                Musi Supa - The Fun of Desk (board game)
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)" aria-label="Read Musi Supa - The Fun of Desk (board game)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T13:00:00+01:00">July 25, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">13.</span>
+      
+      Musi Supa - The Fun of Desk (board game)
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -1970,15 +2121,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image">
-      <a href="/fun/musi-supa-the-fun-of-desk-board-game/" aria-label="Musi Supa - The Fun of Desk (board game)">
-        <img src="/assets/musi_supa/board_fragment.png" alt="Fragment of the Musi Supa board.">
-      </a>
+      <img src="/assets/musi_supa/board_fragment.png" alt="Fragment of the Musi Supa board.">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -1989,66 +2139,8 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
-                            
-                          
-                        
-                          
-                          
-                          
-                          
-
-                          
-                            <h3>
-                              <a href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" title="ankigenbot - Language anki card generator in Telegram">
-                                <span class="fun-post-counter">12.</span>
-                                ankigenbot - Language anki card generator in Telegram
-
-                              </a>
-                            </h3>
-                            
-                            
-
-
-
-
-
-  <div class="fun-index-tldr">
-    <ul>
-  <li>A Telegram bot that turns words in 6 languages into Anki flashcards.</li>
-  <li>Can upload selected cards directly to AnkiWeb.</li>
-  <li>It fetches definitions, part-of-speech labels, and example sentences.</li>
-</ul>
-
-  </div>
-
-
-
   
-  
-  
-    
-    
-    
-    
-    <figure class="fun-index-image" style="width: min(100%, 65%); margin-left: auto; margin-right: auto;">
-      <a href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" aria-label="ankigenbot - Language anki card generator in Telegram">
-        <img src="/assets/ankigenbot/image4.jpg" alt="A generated card inside Anki">
-      </a>
-    </figure>
-  
-
-
-                            
-                              
-
-  <p class="fun-post-tags">
-    
-      <a href="/fun/tags/applications/">#applications</a>
-    
-      <a href="/fun/tags/telegram/">#telegram</a>
-    
-  </p>
-
+</div>
 
                             
                           
@@ -2059,67 +2151,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/math-inspired-escape-room-puzzle-ideas/" title="Math-inspired escape room puzzle ideas">
-                                <span class="fun-post-counter">11.</span>
-                                Math-inspired escape room puzzle ideas
-
-                              </a>
-                            </h3>
-                            
-                            
-
-
-
-
-
-  <p>When I was in Oxford doing my PhD in 2019, the Mathematical Institute organized a math-based escape room and asked for ideas for it. I submitted this PDF, wh...</p>
-
-
-
-  
-  
-  
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/explorable-explanation-about-fair-resource-allocation/" title="Explorable Explanation about fair resource allocation" aria-label="Read Explorable Explanation about fair resource allocation">
     
+      <div class="post-index-date">
+        <time datetime="2026-07-25T11:03:00+01:00">July 25, 2026</time>
+      </div>
     
+    <h3>
+      
+        <span class="fun-post-counter">12.</span>
+      
+      Explorable Explanation about fair resource allocation
+
+    </h3>
     
-    
-    <figure class="fun-index-image">
-      <a href="/fun/math-inspired-escape-room-puzzle-ideas/" aria-label="Math-inspired escape room puzzle ideas">
-        <img src="/assets/escape_room/escape_room_math_preview.png" alt="Preview of Math Escape Room Ideas">
-      </a>
-    </figure>
-  
-
-
-                            
-                              
-
-  <p class="fun-post-tags">
-    
-      <a href="/fun/tags/recreational-math/">#recreational-math</a>
-    
-  </p>
-
-
-                            
-                          
-                        
-                          
-                          
-                          
-                          
-
-                          
-                            <h3>
-                              <a href="/fun/explorable-explanation-about-fair-resource-allocation/" title="Explorable Explanation about fair resource allocation">
-                                <span class="fun-post-counter">10.</span>
-                                Explorable Explanation about fair resource allocation
-
-                              </a>
-                            </h3>
-                            
-                            
 
 
 
@@ -2144,15 +2190,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image">
-      <a href="/fun/explorable-explanation-about-fair-resource-allocation/" aria-label="Explorable Explanation about fair resource allocation">
-        <img src="/assets/fairnesslndw/fair-internet-preview.png" alt="Abstract network preview for Fair Internet">
-      </a>
+      <img src="/assets/fairnesslndw/fair-internet-preview.png" alt="Abstract network preview for Fair Internet">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2163,6 +2208,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
                             
                           
                         
@@ -2172,15 +2220,212 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/folding-paper-guesses-your-fruit/" title="Folding paper guesses your fruit">
-                                <span class="fun-post-counter">9.</span>
-                                Folding paper guesses your fruit
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/my-number-system/" title="My Toki Pona number system" aria-label="Read My Toki Pona number system">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T10:02:00+01:00">July 25, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">11.</span>
+      
+      My Toki Pona number system
 
-                              </a>
-                            </h3>
+    </h3>
+    
+
+
+
+
+
+  <p>It’s kind of a joke that when you learn Toki Pona, you are not happy with its overly simple number system and you create another one. Usually for fun. One nu...</p>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/sitelen%20pona/nasin_nanpa_wan_preview.png" alt="Preview of my Toki Pona number system.">
+    </figure>
+  
+
+
+  </a>
+  
+    
+
+  <p class="fun-post-tags">
+    
+      <a href="/fun/tags/toki-pona/">#toki-pona</a>
+    
+      <a href="/fun/tags/recreational-math/">#recreational-math</a>
+    
+  </p>
+
+
+  
+</div>
+
                             
+                          
+                        
+                          
+                          
+                          
+                          
+
+                          
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" title="ankigenbot - Language anki card generator in Telegram" aria-label="Read ankigenbot - Language anki card generator in Telegram">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T12:04:00+01:00">July 18, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">10.</span>
+      
+      ankigenbot - Language anki card generator in Telegram
+
+    </h3>
+    
+
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li>A Telegram bot that turns words in 6 languages into Anki flashcards.</li>
+  <li>Can upload selected cards directly to AnkiWeb.</li>
+  <li>It fetches definitions, part-of-speech labels, and example sentences.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image" style="width: min(100%, 65%); margin-left: auto; margin-right: auto;">
+      <img src="/assets/ankigenbot/image4.jpg" alt="A generated card inside Anki">
+    </figure>
+  
+
+
+  </a>
+  
+    
+
+  <p class="fun-post-tags">
+    
+      <a href="/fun/tags/applications/">#applications</a>
+    
+      <a href="/fun/tags/telegram/">#telegram</a>
+    
+  </p>
+
+
+  
+</div>
+
                             
+                          
+                        
+                          
+                          
+                          
+                          
+
+                          
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/math-inspired-escape-room-puzzle-ideas/" title="Math-inspired escape room puzzle ideas" aria-label="Read Math-inspired escape room puzzle ideas">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T11:04:00+01:00">July 18, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">9.</span>
+      
+      Math-inspired escape room puzzle ideas
+
+    </h3>
+    
+
+
+
+
+
+  <p>When I was in Oxford doing my PhD in 2019, the Mathematical Institute organized a math-based escape room and asked for ideas for it. I submitted this PDF, wh...</p>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/escape_room/escape_room_math_preview.png" alt="Preview of Math Escape Room Ideas">
+    </figure>
+  
+
+
+  </a>
+  
+    
+
+  <p class="fun-post-tags">
+    
+      <a href="/fun/tags/recreational-math/">#recreational-math</a>
+    
+  </p>
+
+
+  
+</div>
+
+                            
+                          
+                        
+                          
+                          
+                          
+                          
+
+                          
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/folding-paper-guesses-your-fruit/" title="Folding paper guesses your fruit" aria-label="Read Folding paper guesses your fruit">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T11:02:00+01:00">July 18, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">8.</span>
+      
+      Folding paper guesses your fruit
+
+    </h3>
+    
 
 
 
@@ -2200,15 +2445,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image">
-      <a href="/fun/folding-paper-guesses-your-fruit/" aria-label="Folding paper guesses your fruit">
-        <img src="/assets/fruit_tree/preview_folding_fruit_tree.png" alt="Preview of the folding paper fruit tree activity.">
-      </a>
+      <img src="/assets/fruit_tree/preview_folding_fruit_tree.png" alt="Preview of the folding paper fruit tree activity.">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2216,6 +2460,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
   </p>
 
+
+  
+</div>
 
                             
                           
@@ -2226,69 +2473,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/my-number-system/" title="My Toki Pona number system">
-                                <span class="fun-post-counter">8.</span>
-                                My Toki Pona number system
-
-                              </a>
-                            </h3>
-                            
-                            
-
-
-
-
-
-  <p>It’s kind of a joke that when you learn Toki Pona, you are not happy with its overly simple number system and you create another one. Usually for fun. One nu...</p>
-
-
-
-  
-  
-  
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" title="Write sitelen pona on Telegram with this bot" aria-label="Read Write sitelen pona on Telegram with this bot">
     
+      <div class="post-index-date">
+        <time datetime="2026-07-18T10:01:00+01:00">July 18, 2026</time>
+      </div>
     
+    <h3>
+      
+        <span class="fun-post-counter">7.</span>
+      
+      Write sitelen pona on Telegram with this bot
+
+    </h3>
     
-    
-    <figure class="fun-index-image">
-      <a href="/fun/my-number-system/" aria-label="My Toki Pona number system">
-        <img src="/assets/sitelen%20pona/nasin_nanpa_wan_preview.png" alt="Preview of my Toki Pona number system.">
-      </a>
-    </figure>
-  
-
-
-                            
-                              
-
-  <p class="fun-post-tags">
-    
-      <a href="/fun/tags/toki-pona/">#toki-pona</a>
-    
-      <a href="/fun/tags/recreational-math/">#recreational-math</a>
-    
-  </p>
-
-
-                            
-                          
-                        
-                          
-                          
-                          
-                          
-
-                          
-                            <h3>
-                              <a href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" title="Write sitelen pona on Telegram with this bot">
-                                <span class="fun-post-counter">7.</span>
-                                Write sitelen pona on Telegram with this bot
-
-                              </a>
-                            </h3>
-                            
-                            
 
 
 
@@ -2312,15 +2511,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image" style="width: min(100%, 227px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" aria-label="Write sitelen pona on Telegram with this bot">
-        <img src="/assets/telegram_games/toki_pona_li_pona_tawa_mi.png" alt="Preview of the Toki Pona bot to write sitelen pona">
-      </a>
+      <img src="/assets/telegram_games/toki_pona_li_pona_tawa_mi.png" alt="Preview of the Toki Pona bot to write sitelen pona">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2331,6 +2529,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
                             
                           
                         
@@ -2340,15 +2541,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]">
-                                <span class="fun-post-counter">6.</span>
-                                Puns, and other plays on words [Spanish, English, Toki Pona]
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]" aria-label="Read Puns, and other plays on words [Spanish, English, Toki Pona]">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T00:00:00+01:00">July 18, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">6.</span>
+      
+      Puns, and other plays on words [Spanish, English, Toki Pona]
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -2376,8 +2583,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2388,6 +2596,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
                             
                           
                         
@@ -2397,15 +2608,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/tres-terrestres-narra-una-ranarra/" title="[Spanish] Tres terrestres (narra una ranarra)">
-                                <span class="fun-post-counter">5.</span>
-                                [Spanish] Tres terrestres (narra una ranarra)
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/tres-terrestres-narra-una-ranarra/" title="[Spanish] Tres terrestres (narra una ranarra)" aria-label="Read [Spanish] Tres terrestres (narra una ranarra)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">5.</span>
+      
+      [Spanish] Tres terrestres (narra una ranarra)
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -2423,15 +2640,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image">
-      <a href="/fun/tres-terrestres-narra-una-ranarra/" aria-label="[Spanish] Tres terrestres (narra una ranarra)">
-        <img src="/assets/tres_terrestres/tres_preview.png" alt="Preview of Tres Terrestres">
-      </a>
+      <img src="/assets/tres_terrestres/tres_preview.png" alt="Preview of Tres Terrestres">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2439,6 +2655,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
   </p>
 
+
+  
+</div>
 
                             
                           
@@ -2449,15 +2668,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/reemergence-concept-for-a-webcomic/" title="Reemergence - Concept for a webcomic">
-                                <span class="fun-post-counter">4.</span>
-                                Reemergence - Concept for a webcomic
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/reemergence-concept-for-a-webcomic/" title="Reemergence - Concept for a webcomic" aria-label="Read Reemergence - Concept for a webcomic">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">4.</span>
+      
+      Reemergence - Concept for a webcomic
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -2475,15 +2700,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image">
-      <a href="/fun/reemergence-concept-for-a-webcomic/" aria-label="Reemergence - Concept for a webcomic">
-        <img src="/assets/reemergence/reemergence-header.png" alt="Reemergence header">
-      </a>
+      <img src="/assets/reemergence/reemergence-header.png" alt="Reemergence header">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2491,6 +2715,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
   </p>
 
+
+  
+</div>
 
                             
                           
@@ -2501,15 +2728,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/phonemic-wordle/" title="Phonemic Wordle">
-                                <span class="fun-post-counter">3.</span>
-                                Phonemic Wordle
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/phonemic-wordle/" title="Phonemic Wordle" aria-label="Read Phonemic Wordle">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">3.</span>
+      
+      Phonemic Wordle
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -2535,15 +2768,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image" style="width: min(100%, 413px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/phonemic-wordle/" aria-label="Phonemic Wordle">
-        <img src="/assets/telegram_games/phonemic_wordle_preview.png" alt="Preview for Phonemic Wordle.">
-      </a>
+      <img src="/assets/telegram_games/phonemic_wordle_preview.png" alt="Preview for Phonemic Wordle.">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2554,6 +2786,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
                             
                           
                         
@@ -2563,15 +2798,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/lycanthrobot/" title="Lycanthrobot - Playing your own Werewolf quickly on Telegram">
-                                <span class="fun-post-counter">2.</span>
-                                Lycanthrobot - Playing your own Werewolf quickly on Telegram
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/lycanthrobot/" title="Lycanthrobot - Playing your own Werewolf quickly on Telegram" aria-label="Read Lycanthrobot - Playing your own Werewolf quickly on Telegram">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">2.</span>
+      
+      Lycanthrobot - Playing your own Werewolf quickly on Telegram
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -2598,15 +2839,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image" style="width: min(100%, 415px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/lycanthrobot/" aria-label="Lycanthrobot - Playing your own Werewolf quickly on Telegram">
-        <img src="/assets/telegram_games/lycanthrobot_preview.png" alt="Preview for Lycanthrobot.">
-      </a>
+      <img src="/assets/telegram_games/lycanthrobot_preview.png" alt="Preview for Lycanthrobot.">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2617,6 +2857,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
   </p>
 
 
+  
+</div>
+
                             
                           
                         
@@ -2626,15 +2869,21 @@ It is a cute constructed language designed to be simple, second only to Esperant
                           
 
                           
-                            <h3>
-                              <a href="/fun/codenames-bot/" title="Codenames in Telegram">
-                                <span class="fun-post-counter">1.</span>
-                                Codenames in Telegram
+                            <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/codenames-bot/" title="Codenames in Telegram" aria-label="Read Codenames in Telegram">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
+    <h3>
+      
+        <span class="fun-post-counter">1.</span>
+      
+      Codenames in Telegram
 
-                              </a>
-                            </h3>
-                            
-                            
+    </h3>
+    
 
 
 
@@ -2659,15 +2908,14 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
     
     <figure class="fun-index-image" style="width: min(100%, 431px); margin-left: auto; margin-right: auto;">
-      <a href="/fun/codenames-bot/" aria-label="Codenames in Telegram">
-        <img src="/assets/telegram_games/codenames_preview.png" alt="Preview for Codenames bot on Telegram.">
-      </a>
+      <img src="/assets/telegram_games/codenames_preview.png" alt="Preview for Codenames bot on Telegram.">
     </figure>
   
 
 
-                            
-                              
+  </a>
+  
+    
 
   <p class="fun-post-tags">
     
@@ -2677,6 +2925,9 @@ It is a cute constructed language designed to be simple, second only to Esperant
     
   </p>
 
+
+  
+</div>
 
                             
                           

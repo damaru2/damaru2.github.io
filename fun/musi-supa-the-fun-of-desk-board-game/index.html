@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -207,6 +252,10 @@ html { scroll-behavior: smooth; }
       
         <h1><a href="https://damaru2.github.io/fun/musi-supa-the-fun-of-desk-board-game/" rel="bookmark" title="Musi Supa - The Fun of Desk (board game)">Musi Supa - The Fun of Desk (board game)</a></h1>
       
+      <div class="post-header-meta" aria-label="Post metadata">
+        <time class="post-header-date" datetime="2026-07-25T13:00:00+01:00">July 25, 2026</time>
+        <span class="post-reading-time">about 2 min read</span>
+      </div>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
       <aside class="post-tldr" aria-label="TL;DR">
@@ -320,6 +369,51 @@ html { scroll-behavior: smooth; }
     font-size: 0.9em;
     color: #666;
   }
+  .mfp-arrow {
+    width: 45px !important;
+    height: 55px !important;
+    margin-top: -27.5px !important;
+    transform: none !important;
+  }
+  .mfp-arrow:active {
+    margin-top: -26.5px !important;
+  }
+  .mfp-arrow:before,
+  .mfp-arrow:after,
+  .mfp-arrow .mfp-b,
+  .mfp-arrow .mfp-a {
+    margin-top: 17.5px !important;
+    margin-left: 17.5px !important;
+  }
+  .mfp-arrow:after,
+  .mfp-arrow .mfp-a {
+    top: 4px !important;
+    border-top-width: 6px !important;
+    border-bottom-width: 6px !important;
+  }
+  .mfp-arrow:before,
+  .mfp-arrow .mfp-b {
+    border-top-width: 10px !important;
+    border-bottom-width: 10px !important;
+  }
+  .mfp-arrow-left:after,
+  .mfp-arrow-left .mfp-a {
+    left: 2.5px !important;
+    border-right-width: 6px !important;
+  }
+  .mfp-arrow-left:before,
+  .mfp-arrow-left .mfp-b {
+    border-right-width: 10px !important;
+  }
+  .mfp-arrow-right:after,
+  .mfp-arrow-right .mfp-a {
+    left: 1.5px !important;
+    border-left-width: 6px !important;
+  }
+  .mfp-arrow-right:before,
+  .mfp-arrow-right .mfp-b {
+    border-left-width: 10px !important;
+  }
 </style>
 
 <script>
@@ -372,7 +466,7 @@ html { scroll-behavior: smooth; }
 
 
         </div>
-        <p class="byline"><strong>Musi Supa - The Fun of Desk (board game)</strong> was published on <time datetime="2026-07-18T13:00:00+01:00">July 18, 2026</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
+        <p class="byline"><strong>Musi Supa - The Fun of Desk (board game)</strong> was published on <time datetime="2026-07-25T13:00:00+01:00">July 25, 2026</time> by <a href="https://damaru2.github.io" title="About David Martínez-Rubio">David Martínez-Rubio</a>.</p>
       </footer>
     </div><!-- /.article-wrap -->
   

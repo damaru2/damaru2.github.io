@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -135,18 +180,59 @@
   
   
   
+
+  
+  
+  
+
+  
+  
+  
+    
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" title="ankigenbot - Language anki card generator in Telegram" aria-label="Read ankigenbot - Language anki card generator in Telegram">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T12:04:00+01:00">July 18, 2026</time>
+      </div>
     
     <h3>
-      <a href="/fun/ankigenbot-language-anki-card-generator-in-telegram/" title="ankigenbot - Language anki card generator in Telegram">
-        ankigenbot - Language anki card generator in Telegram
+      
+      ankigenbot - Language anki card generator in Telegram
 
-      </a>
     </h3>
-    <p>
+    
 
-  A Telegram bot that turns words in 6 languages into Anki flashcards.
-  Can upload selected cards directly to AnkiWeb.
-  It fetches definitions, part-of-s...</p>
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li>A Telegram bot that turns words in 6 languages into Anki flashcards.</li>
+  <li>Can upload selected cards directly to AnkiWeb.</li>
+  <li>It fetches definitions, part-of-speech labels, and example sentences.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image" style="width: min(100%, 65%); margin-left: auto; margin-right: auto;">
+      <img src="/assets/ankigenbot/image4.jpg" alt="A generated card inside Anki">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -159,13 +245,8 @@
 
 
   
+</div>
 
-  
-  
-  
-
-  
-  
   
 
   

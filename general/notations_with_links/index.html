@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -207,6 +252,10 @@ html { scroll-behavior: smooth; }
       
         <h1><a href="https://damaru2.github.io/general/notations_with_links/" rel="bookmark" title="LaTeX and math notation with links to its definition.">LaTeX and math notation with links to its definition.</a></h1>
       
+      <div class="post-header-meta" aria-label="Post metadata">
+        <time class="post-header-date" datetime="2021-12-14T00:00:00+00:00">December 14, 2021</time>
+        <span class="post-reading-time">about 11 min read</span>
+      </div>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
       <p>You are reading some maths and you wonder what this notation you just read means. Maybe you are coming back to a text after some time. Maybe you just wanted to jump to Theorem 3 in a paper and read its statement. But you don’t know what most of the notation means and definitions are inconveniently scattered across the whole text. Luckily, you don’t need to scroll up for a while, skimming through the paper to find where each notation was defined. You can just click on the notation to jump to its definition and then you can jump back: the author had the courtesy of adding these links to the PDF document and you are happy they did.</p>

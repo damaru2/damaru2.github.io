@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -128,14 +173,44 @@
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-tu/" title="Musi Tu (board game)" aria-label="Read Musi Tu (board game)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T13:02:00+01:00">July 25, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/musi-tu/" title="Musi Tu (board game)">
-        Musi Tu (board game)
+      
+      Musi Tu (board game)
 
-      </a>
     </h3>
-    <p>
+    
+
+
+
+
+
+  <p>
 </p>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/musi_tu/backdrop_musi_tu.png" alt="Musi Tu cards with sitelen pona symbols">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -150,21 +225,58 @@
 
 
   
+</div>
+
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)" aria-label="Read Musi Supa - The Fun of Desk (board game)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T13:00:00+01:00">July 25, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/musi-supa-the-fun-of-desk-board-game/" title="Musi Supa - The Fun of Desk (board game)">
-        Musi Supa - The Fun of Desk (board game)
+      
+      Musi Supa - The Fun of Desk (board game)
 
-      </a>
     </h3>
-    <p>
+    
 
-  Party game: describe things using only the 80 words on the board.
-  Flexible difficulty: casual family game, hard language riddle, or classroom activity....</p>
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li><strong>Party game:</strong> describe things using only the 80 words on the board.</li>
+  <li><strong>Flexible difficulty:</strong> casual family game, hard language riddle, or classroom activity.</li>
+  <li><strong>Different languages:</strong> it can become a playful language-learning exercise. There is even a sign-language version!</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/musi_supa/board_fragment.png" alt="Fragment of the Musi Supa board.">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -177,17 +289,8 @@
 
 
   
+</div>
 
-  
-  
-  
-
-  
-  
-  
-
-  
-  
   
 
   
@@ -198,13 +301,43 @@
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/my-number-system/" title="My Toki Pona number system" aria-label="Read My Toki Pona number system">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-25T10:02:00+01:00">July 25, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/my-number-system/" title="My Toki Pona number system">
-        My Toki Pona number system
+      
+      My Toki Pona number system
 
-      </a>
     </h3>
-    <p>It’s kind of a joke that when you learn Toki Pona, you are not happy with its overly simple number system and you create another one. Usually for fun. One nu...</p>
+    
+
+
+
+
+
+  <p>It’s kind of a joke that when you learn Toki Pona, you are not happy with its overly simple number system and you create another one. Usually for fun. One nu...</p>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/sitelen%20pona/nasin_nanpa_wan_preview.png" alt="Preview of my Toki Pona number system.">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -217,21 +350,69 @@
 
 
   
+</div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" title="Write sitelen pona on Telegram with this bot" aria-label="Read Write sitelen pona on Telegram with this bot">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T10:01:00+01:00">July 18, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/write-sitelen-pona-on-telegram-with-this-bot/" title="Write sitelen pona on Telegram with this bot">
-        Write sitelen pona on Telegram with this bot
+      
+      Write sitelen pona on Telegram with this bot
 
-      </a>
     </h3>
-    <p>
+    
 
-  A Telegram inline bot for writing Toki Pona glyphs (sitelen pona).
-  Supports line breaks, compound glyphs, cartouches for names, and configurable fonts/...</p>
+
+
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li>A Telegram inline bot for writing Toki Pona glyphs (sitelen pona).</li>
+  <li>Supports line breaks, compound glyphs, cartouches for names, and configurable fonts/colors.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image" style="width: min(100%, 227px); margin-left: auto; margin-right: auto;">
+      <img src="/assets/telegram_games/toki_pona_li_pona_tawa_mi.png" alt="Preview of the Toki Pona bot to write sitelen pona">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -244,20 +425,56 @@
 
 
   
+</div>
+
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]" aria-label="Read Puns, and other plays on words [Spanish, English, Toki Pona]">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T00:00:00+01:00">July 18, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]">
-        Puns, and other plays on words [Spanish, English, Toki Pona]
+      
+      Puns, and other plays on words [Spanish, English, Toki Pona]
 
-      </a>
     </h3>
-    <p>
+    
 
-</p>
+
+
+
+  <div class="fun-index-prelude fun-index-prelude-large">
+    <blockquote>
+      <p>To question or not to question, that is the being.</p>
+
+    </blockquote>
+  </div>
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li>Do not take this post it seriously.</li>
+  <li>A couple of cool puns plus a massive amount of silly things.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -268,6 +485,9 @@
     
   </p>
 
+
+  
+</div>
 
   
 

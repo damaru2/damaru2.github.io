@@ -40,6 +40,51 @@
 
 <meta http-equiv="cleartype" content="on">
 
+<script>
+  (function () {
+    if (typeof window.chrome === "undefined" || window.chrome === null) {
+      window.chrome = {};
+    }
+
+    if (typeof window.chrome.loadTimes !== "function") {
+      window.chrome.loadTimes = function () {
+        var timing = window.performance && window.performance.timing;
+        var navigation = window.performance && window.performance.getEntriesByType
+          ? window.performance.getEntriesByType("navigation")[0]
+          : null;
+
+        return {
+          commitLoadTime: timing ? timing.responseStart / 1000 : 0,
+          connectionInfo: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          finishDocumentLoadTime: timing ? timing.domContentLoadedEventEnd / 1000 : 0,
+          finishLoadTime: timing ? timing.loadEventEnd / 1000 : 0,
+          firstPaintAfterLoadTime: 0,
+          firstPaintTime: 0,
+          navigationType: "Other",
+          npnNegotiatedProtocol: navigation && navigation.nextHopProtocol ? navigation.nextHopProtocol : "unknown",
+          requestTime: timing ? timing.navigationStart / 1000 : 0,
+          startLoadTime: timing ? timing.navigationStart / 1000 : 0,
+          wasAlternateProtocolAvailable: false,
+          wasFetchedViaSpdy: false,
+          wasNpnNegotiated: false
+        };
+      };
+    }
+
+    if (typeof window.chrome.csi !== "function") {
+      window.chrome.csi = function () {
+        var timing = window.performance && window.performance.timing;
+        return {
+          startE: timing ? timing.navigationStart : 0,
+          onloadT: timing ? timing.loadEventEnd : 0,
+          pageT: timing ? timing.loadEventEnd - timing.navigationStart : 0,
+          tran: 15
+        };
+      };
+    }
+  }());
+</script>
+
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
 	<script src="https://damaru2.github.io/assets/js/vendor/html5shiv.min.js"></script>
@@ -160,15 +205,48 @@
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]" aria-label="Read Puns, and other plays on words [Spanish, English, Toki Pona]">
+    
+      <div class="post-index-date">
+        <time datetime="2026-07-18T00:00:00+01:00">July 18, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/puns/" title="Puns, and other plays on words [Spanish, English, Toki Pona]">
-        Puns, and other plays on words [Spanish, English, Toki Pona]
+      
+      Puns, and other plays on words [Spanish, English, Toki Pona]
 
-      </a>
     </h3>
-    <p>
+    
 
-</p>
+
+
+
+  <div class="fun-index-prelude fun-index-prelude-large">
+    <blockquote>
+      <p>To question or not to question, that is the being.</p>
+
+    </blockquote>
+  </div>
+
+
+  <div class="fun-index-tldr">
+    <ul>
+  <li>Do not take this post it seriously.</li>
+  <li>A couple of cool puns plus a massive amount of silly things.</li>
+</ul>
+
+  </div>
+
+
+
+  
+  
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -181,18 +259,63 @@
 
 
   
+</div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/reemergence-concept-for-a-webcomic/" title="Reemergence - Concept for a webcomic" aria-label="Read Reemergence - Concept for a webcomic">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/tres-terrestres-narra-una-ranarra/" title="[Spanish] Tres terrestres (narra una ranarra)">
-        [Spanish] Tres terrestres (narra una ranarra)
+      
+      Reemergence - Concept for a webcomic
 
-      </a>
     </h3>
-    <p>An Oulipo tale, in Spanish, where the story alternates between prose and using sentences consisting of triplets of sounds that are the same or almost.</p>
+    
+
+
+
+
+
+  <p>AI has really improved at generating text in images and also on keeping character style. I played around with it the other day in combination with the concep...</p>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/reemergence/reemergence-header.png" alt="Reemergence header">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -203,18 +326,51 @@
 
 
   
+</div>
+
+  
 
   
   
   
     
+    <div class="fun-post-entry">
+  <a class="fun-post-entry-link" href="/fun/tres-terrestres-narra-una-ranarra/" title="[Spanish] Tres terrestres (narra una ranarra)" aria-label="Read [Spanish] Tres terrestres (narra una ranarra)">
+    
+      <div class="post-index-date">
+        <time datetime="2026-05-17T00:00:00+01:00">May 17, 2026</time>
+      </div>
+    
     <h3>
-      <a href="/fun/reemergence-concept-for-a-webcomic/" title="Reemergence - Concept for a webcomic">
-        Reemergence - Concept for a webcomic
+      
+      [Spanish] Tres terrestres (narra una ranarra)
 
-      </a>
     </h3>
-    <p>AI has really improved at generating text in images and also on keeping character style. I played around with it the other day in combination with the concep...</p>
+    
+
+
+
+
+
+  <p>An Oulipo tale, in Spanish, where the story alternates between prose and using sentences consisting of triplets of sounds that are the same or almost.</p>
+
+
+
+  
+  
+  
+    
+    
+    
+    
+    <figure class="fun-index-image">
+      <img src="/assets/tres_terrestres/tres_preview.png" alt="Preview of Tres Terrestres">
+    </figure>
+  
+
+
+  </a>
+  
     
 
   <p class="fun-post-tags">
@@ -225,17 +381,8 @@
 
 
   
+</div>
 
-  
-  
-  
-
-  
-  
-  
-
-  
-  
   
 
   
