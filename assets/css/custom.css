@@ -69,11 +69,37 @@
   outline-offset: 3px;
 }
 
+.post-index-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.18rem;
+  color: #6b7280;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
 .post-index-date {
   margin: 0 0 0.18rem;
   color: #6b7280;
   font-size: 0.78rem;
   line-height: 1.2;
+}
+
+.post-index-reading-time {
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.post-index-meta-mobile-only {
+  display: none;
+}
+
+@media only screen and (max-width: 37.499em) {
+  .post-index-meta-mobile-only {
+    display: flex;
+  }
 }
 
 .fun-index-prelude blockquote {
