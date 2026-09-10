@@ -178,6 +178,16 @@
   border-radius: 4px;
 }
 
+@media only screen and (max-width: 37.499em) {
+  .fun-index-image-mobile-custom {
+    position: relative;
+    left: 50%;
+    width: var(--fun-index-image-mobile-width, 100%) !important;
+    max-width: none;
+    transform: translateX(-50%);
+  }
+}
+
 body.post .article-wrap figure.image {
   text-align: center;
 }
@@ -286,4 +296,53 @@ body.post .post-reading-time {
   height: 1.5rem;
   object-fit: contain;
   vertical-align: middle;
+}
+
+/* Keep the main navigation visible on mobile instead of behind the JS menu toggle. */
+.nav .navtoogle {
+  display: none !important;
+}
+
+.js .nav ul,
+.no-js .nav ul {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.top-navigation li.is-active > a {
+  color: #111827;
+  border-bottom: 2px solid #111827;
+}
+
+@media only screen and (max-width: 37.499em) {
+  .top-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.45rem;
+    clear: none;
+  }
+
+  .top-navigation li {
+    display: inline-block;
+    margin: 0;
+    border-bottom: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .top-navigation li a {
+    display: inline-block;
+    padding: 0.24rem 0.52rem;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 4px;
+    background: #f8fafc;
+    line-height: 1.15;
+  }
+
+  .top-navigation li.is-active > a {
+    background: #111827;
+    border-color: #111827 !important;
+    color: #ffffff;
+  }
 }
