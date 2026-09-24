@@ -226,7 +226,7 @@
         <line class="chart-axis" x1="${margin.left}" y1="${margin.top + chartHeight}" x2="${width - margin.right}" y2="${margin.top + chartHeight}" />
         <line class="chart-axis" x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + chartHeight}" />
         ${bars}
-        <text class="chart-label" x="${margin.left + chartWidth / 2}" y="${height - 20}" text-anchor="middle">number of players</text>
+        <text class="chart-label" x="${margin.left + chartWidth / 2}" y="${height - 20}" text-anchor="middle">number of players (master not included)</text>
         <text class="chart-label" x="20" y="${margin.top + chartHeight / 2}" text-anchor="middle" transform="rotate(-90 20 ${margin.top + chartHeight / 2})">games</text>
       </svg>
     </div>

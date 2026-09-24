@@ -265,7 +265,7 @@ html { scroll-behavior: smooth; }
       
       <div class="post-header-meta" aria-label="Post metadata">
         <time class="post-header-date" datetime="2026-07-18T00:00:00+01:00">July 18, 2026</time>
-        <span class="post-reading-time">about 6 min read</span>
+        <span class="post-reading-time">6 min read</span>
       </div>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
@@ -458,6 +458,40 @@ html { scroll-behavior: smooth; }
 }
 .puns-comment-panel blockquote p {
   margin: 0.25rem 0;
+}
+.article-wrap blockquote.puns-permalink-quote {
+  position: relative;
+  padding-right: 2.2rem;
+  scroll-margin-top: 1rem;
+}
+.puns-permalink-quote:target {
+  background: #fff9e5;
+}
+.puns-permalink-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: #777 !important;
+  border: 0 !important;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-style: normal;
+  opacity: 0.7;
+}
+.puns-permalink-link:hover,
+.puns-permalink-link:focus-visible {
+  color: #333 !important;
+  background: #f0f0f0;
+  opacity: 1;
+}
+.puns-permalink-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 .puns-svg-credit {
   margin-top: 3rem;
@@ -1066,6 +1100,61 @@ sike tomo li ante seli e jaki tan
       setOpen(true);
     });
   });
+
+  var quoteIds = new Set();
+  document.querySelectorAll('.article-wrap blockquote').forEach(function (quote) {
+    var slug = quote.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+      .split('-').slice(0, 8).join('-') || 'pun';
+    var baseId = 'pun-' + slug;
+    var id = baseId;
+    var suffix = 2;
+    while (document.getElementById(id)) {
+      id = baseId + '-' + suffix++;
+    }
+
+    quote.id = id;
+    quote.classList.add('puns-permalink-quote');
+    quoteIds.add(id);
+
+    var link = document.createElement('a');
+    link.className = 'puns-permalink-link';
+    link.href = '#' + id;
+    link.setAttribute('aria-label', 'Copy link to this pun');
+    link.title = 'Copy link to this pun';
+    link.innerHTML = '<i class="fa fa-link" aria-hidden="true"></i>';
+    link.addEventListener('click', function () {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) return;
+      navigator.clipboard.writeText(link.href).then(function () {
+        link.setAttribute('aria-label', 'Link copied');
+        link.title = 'Link copied';
+        window.setTimeout(function () {
+          link.setAttribute('aria-label', 'Copy link to this pun');
+          link.title = 'Copy link to this pun';
+        }, 2000);
+      }).catch(function () {});
+    });
+    quote.appendChild(link);
+  });
+
+  function revealLinkedPun() {
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    var target = document.getElementById(id);
+    if (!target || !quoteIds.has(id)) return;
+    var panel = target.closest('.puns-comment-panel');
+    if (panel && panel.hasAttribute('hidden')) {
+      var button = document.querySelector('.puns-comment-toggle[aria-controls="' + panel.id + '"]');
+      if (button) button.click();
+    }
+    window.requestAnimationFrame(function () { target.scrollIntoView(); });
+  }
+
+  window.addEventListener('hashchange', revealLinkedPun);
+  window.addEventListener('load', revealLinkedPun);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(revealLinkedPun);
+  }
+  revealLinkedPun();
 }());
 </script>
 

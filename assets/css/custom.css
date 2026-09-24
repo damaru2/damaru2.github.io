@@ -92,11 +92,50 @@
   white-space: nowrap;
 }
 
+.fun-post-footer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: 0.85rem;
+  row-gap: 0.25rem;
+  margin: 0 0 0.35rem;
+}
+
+.fun-post-reading-date {
+  flex: 0 0 auto;
+  margin: 0 0 0.18rem;
+  color: #6b7280;
+  font-size: 0.78rem;
+  font-weight: normal;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.fun-post-footer .fun-post-tags {
+  flex: 0 1 auto;
+  margin: 0 0 0.18rem auto;
+  text-align: right;
+  white-space: nowrap;
+}
+
 .post-index-meta-mobile-only {
   display: none;
 }
 
 @media only screen and (max-width: 37.499em) {
+  .fun-post-footer {
+    flex-wrap: wrap;
+  }
+
+  .fun-post-footer .fun-post-tags {
+    flex: 1 1 100%;
+    margin: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
   .post-index-meta-mobile-only {
     display: flex;
   }
